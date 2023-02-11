@@ -1,7 +1,11 @@
+@font-face {
+    font-family: shrekFont;
+    src: url(resourses/shrek_font.ttf);
+}
 *{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family:shrekFont;
 }
 .banner{
     width: 100%;
@@ -45,6 +49,5 @@
 
 .shrekText{
     max-width: 30%;
-    max-height: 30%;
-    outline-color: green;
+    max-height: 30%
 }
