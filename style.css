@@ -33,3 +33,18 @@
     color: white;
     text-transform: uppercase;
 }
+
+.banner-content{
+    width: 100%;
+    position: absolute;
+    top:30%;
+    transition: translateY(-50%);
+    text-align: center;
+    color: white;
+}
+
+.shrekText{
+    max-width: 30%;
+    max-height: 30%;
+    outline-color: green;
+}
