@@ -1,0 +1,16 @@
+@font-face {
+    font-family: shrekFont;
+    src: url(resources/shrek_font.ttf);
+}
+td, th{
+    border: 1px solid Black;
+    padding: 20px;
+    font-family: shrekFont;
+    text-align: center;
+}
+th{
+    background-color: darkgreen;
+}
+td{
+    background-color:#e9dfac ;
+}
