@@ -1,6 +1,6 @@
 @font-face {
     font-family: shrekFont;
-    src: url(resourses/shrek_font.ttf);
+    src: url(resources/shrek_font.ttf);
 }
 *{
     margin: 0;
