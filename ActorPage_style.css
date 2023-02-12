@@ -2,6 +2,9 @@
     font-family: shrekFont;
     src: url(resources/shrek_font.ttf);
 }
+table{
+    border-collapse: collapse;
+}
 td, th{
     border: 1px solid Black;
     padding: 20px;
