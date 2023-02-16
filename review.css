@@ -1,12 +1,55 @@
+@font-face {
+    font-family: shrekFont;
+    src: url(resources/shrek_font.ttf);
+}
 *{
     margin: 0;
     padding: 0;
+    font-family: shrekFont;
 }
 .review-header{
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(images/shrek_reviewpage_01.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)),url(images/shrek_reviewpage_01.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
+}
+.nav{
+    width: 90%;
+    margin: auto;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.links{
+    flex: 1;
+    text-align: right;
+}
+.links ul li{
+    font-size: 80%;
+    list-style: none;
+    display: inline-block;
+    padding: 0px 15px;
+    position: relative;
+}
+.links ul li a{
+    text-decoration: none;
+    color: #e9dfac;
+    text-transform: uppercase;
+}
+.links ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #4b6d2c;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.3s;
+}
+.links ul li:hover::after{
+    width: 100%;
+
 }
