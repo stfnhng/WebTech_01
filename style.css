@@ -14,7 +14,7 @@ a {
 .banner {
   width: 100%;
   height: 93vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5)),
     url(images/shrek_homepage_01.jpg);
   background-size: cover;
   background-position: center;
@@ -30,7 +30,7 @@ nav {
   top: 0;
 }
 nav ul li {
-  font-size: 80%;
+  font-size: 1.2rem;
   list-style: none;
   display: inline-block;
   margin: 0 15px;
@@ -40,7 +40,6 @@ nav ul li a {
   font-family: shrekFont;
   text-decoration: none;
   color: #e9dfac;
-  text-transform: uppercase;
 }
 nav ul li::after {
   content: "";
