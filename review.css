@@ -1,5 +1,8 @@
 .banner{
-    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0)),url(images/shrek_reviewpage_03.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(images/shrek_reviewpage_03.jpg);
     max-height: 40vh;
     background-position: top;
+}
+#title p {
+    font-size: 5rem;
 }
