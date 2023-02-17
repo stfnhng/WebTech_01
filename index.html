@@ -9,10 +9,9 @@
   </head>
 
   <body>
-    <div class="banner">
-      <div class="navbar">
-        <img class="logo" src="" alt="logo" />
-
+    <section class="banner">
+      <nav>
+        <img class="logo" src="" alt="logo of University Utrecht" />
         <ul>
           <li><a href="#">Home</a></li>
           <li><a href="#">page2</a></li>
@@ -20,35 +19,54 @@
           <li><a href="#">page4</a></li>
           <li><a href="#">page5</a></li>
         </ul>
-      </div>
+      </nav>
 
-      <div class="banner-content">
+      <section id="title">
         <img
           h1="Shrek"
+          class="title__text"
           src="images/Shrek_logo_text.png"
-          class="shrekText"
-          alt="Text of Shrek"
+          alt="Title text of Shrek"
         />
 
         <p>The best movie of all time. <br />presented to you by Dreamworks</p>
 
-        <div>
+        <section>
           <a
-            class="btnLink"
+            class="button-link"
             href="https://www.netflix.com/search?q=shrek&jbv=60020686"
             target="_blank"
           >
-            <button class="homepageBtn" type="button">
-              <span class="btnText"></span>Watch on Netflix
+            <button class="button-link__style" type="button">
+              <span class="button-link__text"></span>Watch on Netflix
             </button>
           </a>
-
-          <button class="homepageBtn" type="button">
-            <span class="btnText"></span>Read More
-          </button>
+          <a href="#filler">
+            <button class="button-link__style" type="button">
+              <span class="button-link__text"></span>Read More
+            </button>
+          </a>
+        </section>
+      </section>
+    </section>
+    <!--Banner section ends here-->
+    <section id="filler">
+      <h2>Read More</h2>
+    </section>
+    <!--filler section ends here-->
+    <section class="section_1">
+      <div class="section-1-wrapper">
+        <h1>Articles</h1>
+        <br />
+        <div class="section-1-img">
+          <a href="#"><div class="img img-1"></div></a>
+          <a href="#"><div class="img img-2"></div></a>
+          <a href="#"><div class="img img-3"></div></a>
+          <a href="#"><div class="img img-4"></div></a>
+          <a href="#"><div class="img img-5"></div></a>
         </div>
       </div>
-    </div>
+    </section>
 
     <footer style="background-color: Black; color: #e9dfac">
       <!-- TODO fix this text-->

@@ -1,109 +1,176 @@
 @font-face {
-    font-family: shrekFont;
-    src: url(resources/shrek_font.ttf);
+  font-family: shrekFont;
+  src: url(resources/shrek_font.ttf);
 }
-*{
-    margin: 0;
-    padding: 0;
-    font-family:shrekFont;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
-a{
-    color:#e9dfac ;
+a {
+  color: #e9dfac;
 }
-.banner{
-    width: 100%;
-    height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.55)),url(images/shrek_homepage_01.jpg);
-    background-size: cover;
-    background-position: center;
-
-}
-.navbar{
-    width: 90%;
-    margin: auto;
-    padding: 20px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+body {
+  background-color: #62574c;
 }
 
-.navbar ul li{
-    font-size: 80%;
-    list-style: none;
-    display:inline-block;
-    margin: 0 15px;
-    position: relative;
+.banner {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.55)),
+    url(images/shrek_homepage_01.jpg);
+  background-size: cover;
+  background-position: center;
 }
-.navbar ul li a{
-    text-decoration: none;
-    color: #e9dfac;
-    text-transform: uppercase;
+nav {
+  width: 90%;
+  margin: auto;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
 }
-.navbar ul li::after{
-    content: '';
-    height: 3px;
-    width: 0;
-    background: #4b6d2c;
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    transition: 0.3s;
+nav ul li {
+  font-size: 80%;
+  list-style: none;
+  display: inline-block;
+  margin: 0 15px;
+  position: relative;
 }
-.navbar ul li:hover::after{
-    width: 100%;
+nav ul li a {
+  font-family: shrekFont;
+  text-decoration: none;
+  color: #e9dfac;
+  text-transform: uppercase;
+}
+nav ul li::after {
+  content: "";
+  height: 3px;
+  width: 0;
+  background: #4b6d2c;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  transition: 0.3s;
+}
+nav ul li:hover::after {
+  width: 100%;
+}
+.logo {
+  width: 120px;
+  cursor: pointer;
+}
+#title {
+  width: 100%;
+  position: absolute;
+  top: 30%;
+  transition: translateY(-50%);
+  text-align: center;
+  color: white;
+}
+#title p {
+  font-family: shrekFont;
+}
+.title__text {
+  padding-bottom: 20px;
+  max-width: 30%;
+  max-height: 30%;
+}
+.button-link__style {
+  font-family: sans-serif;
+  font-weight: bold;
+  width: 200px;
+  padding: 15px 0;
+  text-align: center;
+  margin: 20px 10px;
+  border-radius: 25px;
+  border: 2px solid #4b6d2c;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.button-link__text {
+  background: #4b6d2c;
+  height: 100%;
+  width: 0%;
+  border-radius: 25px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: 0.5s;
+  z-index: -1;
+}
+.button-link__style:hover .button-link__text {
+  width: 100%;
+}
+.button-link__style:hover {
+  border: none;
+}
+.button-link {
+  text-decoration: none;
+}
+/*Banner section ends here*/
+#filler {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0;
+  padding: 15px 0;
+}
+#filler h2 {
+  color: #fec53a;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
 
+.section-1-wrapper {
+  width: 90%;
+  margin: auto;
 }
-.logo{
-    width: 120px;
-    cursor: pointer;
+.section-1 h1 {
+  width: 500px;
+  color: #fec53a;
+  font-size: 1.5rem;
+  position: relative;
+  font-weight: 400;
 }
-.banner-content{
-    width: 100%;
-    position: absolute;
-    top:30%;
-    transition: translateY(-50%);
-    text-align: center;
-    color: white;
+.section-1-img {
+  display: flex;
 }
-.shrekText{
-    padding-bottom: 20px;
-    max-width: 30%;
-    max-height: 30%
+.section-1-img .img {
+  width: 40vh;
+  height: 60vh;
+  background: url(images/shrek_homepage_01.jpg);
+  background-size: cover;
+  background-position: center;
+  margin-right: 20px;
+  border-radius: 10px;
 }
-.homepageBtn{
-    font-family: sans-serif;
-    font-weight: bold;
-    width: 200px;
-    padding: 15px 0;
-    text-align: center;
-    margin: 20px 10px;
-    border-radius: 25px;
-    border: 2px solid #4b6d2c;
-    background: transparent;
-    color:white;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
+.section-1-img .img-2 {
+  background: url(images/shrek_homepage_01.jpg);
+  background-size: cover;
+  background-position: center;
 }
-.btnText{
-    background:#4b6d2c;
-    height: 100%;
-    width: 0%;
-    border-radius: 25px;
-    position: absolute;
-    left:0;
-    bottom: 0;
-    transition: 0.5s;
-    z-index: -1;
+.section-1-img .img-3 {
+  background: url(images/shrek_homepage_01.jpg);
+  background-size: cover;
+  background-position: center;
 }
-.homepageBtn:hover .btnText{
-    width: 100%;
+.section-1-img .img-4 {
+  background: url(images/shrek_homepage_01.jpg);
+  background-size: cover;
+  background-position: center;
 }
-.homepageBtn:hover{
-    border: none;
+.section-1-img .img-5 {
+  background: url(images/shrek_homepage_01.jpg);
+  background-size: cover;
+  background-position: center;
 }
-.btnLink{
-    font-size: 1px;
-    text-decoration: none;
+.img:hover {
+  transform: translateY(-10px);
 }
