@@ -84,8 +84,8 @@ nav ul li:hover::after {
   margin: 20px 10px;
   border-radius: 25px;
   border: 2px solid #4b6d2c;
-  background: transparent;
-  color: white;
+  background-color: rgba(0,0,0,.5);
+  color:white;
   cursor: pointer;
   position: relative;
   overflow: hidden;
