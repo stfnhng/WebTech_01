@@ -6,10 +6,15 @@
 #title p {
     font-size: 5rem;
 }
-#reviews h1, h2, h3, h4 {
+#reviews h2, h3, h4, h5 {
     font-size: 1.5rem;
 }
-#reviews {
+.reviewsws{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+#TestReviews{
     margin-top: 5%;
     display: flex;
     justify-content: space-between;
