@@ -121,7 +121,7 @@ nav ul li:hover::after {
   padding: 40px 0;
   background-color: #4b6d2c;
 }
-#filler h2 {
+#filler h3 {
   color: #fec53a;
   font-size: 2.5rem;
   font-weight: 400;
@@ -137,33 +137,26 @@ nav ul li:hover::after {
 }
 
 .hot-topic img {
-  display: flex;
-}
-
-.hot-topic__image1 {
-  background-image: url(images/shrek-hot-topic-bg-1.jpg);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
 }
 
 .hot-topic-content {
   position: absolute;
   bottom: 0;
-  left: 20px;
+  left: 50px;
   right: 20px;
-  padding: 10px 20px;
+  padding: 130px 20px;
   line-height: 1.3;
   color: #f3f3f3;
 }
 
 .hot-topic h2 {
-  padding: 10px 0;
-  font-size: 18px;
-  text-shadow: 0 0 2px #000;
-}
-
-.hot-topic h3 {
-  padding: 10px 0;
-  font-size: 16px;
-  text-shadow: 0 0 2px #000;
+  padding: 0px 10px;
+  font-size: 2rem;
+  text-shadow: 0 0 10px #000;
 }
 
 .hot-topic p {
@@ -171,20 +164,4 @@ nav ul li:hover::after {
   font-size: 15px;
   text-shadow: 0 0 2px #000;
   padding: 12px 10px;
-}
-
-.hot-topic-content a {
-  display: block;
-  background: #f3f3f3;
-  border: none;
-  width: 95px;
-  border-radius: 2px;
-  text-align: center;
-  padding: 7px 10px;
-  font-size: 14px;
-  margin: 10px 0 10px 10px;
-}
-
-.hot-topic-content a:hover {
-  text-decoration: underline;
 }
