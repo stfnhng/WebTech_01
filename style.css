@@ -156,6 +156,29 @@ nav ul li:hover::after {
   color: #f3f3f3;
 }
 
+#hot-topic__image {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+}
+
+.hot-topic__image1 {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(images/shrek-hot-topic-bg-1.jpg);
+}
+
+.hot-topic__image2 {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(images/shrek-hot-topic-bg-2.jpg);
+}
+.hot-topic__image3 {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(images/shrek-hot-topic-bg-3.jpg);
+}
+.hot-topic__image4 {
+}
 .hot-topic h2 {
   padding: 0px 10px;
   font-size: 2rem;
