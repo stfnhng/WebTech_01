@@ -6,16 +6,21 @@
 #title p {
     font-size: 5rem;
 }
-#reviews h2, h3, h4, h5 {
+.reviews h3 {
     font-size: 1.5rem;
 }
-.reviewsws{
-    margin-top: 5%;
-    display: flex;
-    justify-content: space-between;
+.reviews {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 60px;
 }
-#TestReviews{
-    margin-top: 5%;
+.reviews h2, p {
+    margin: 0.5rem;
+    padding: 0.3rem;
+}
+.all-reviews {
+    margin-top: 6%;
     display: flex;
     justify-content: space-between;
 }
