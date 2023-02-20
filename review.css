@@ -24,3 +24,11 @@
     display: flex;
     justify-content: space-between;
 }
+.review {
+    flex-basis: 24%;
+    background: #4b6d2c;
+    border-radius: 15px;
+    margin-bottom: 10%;
+    padding: 20px 10px;
+    box-sizing: border-box;
+}
