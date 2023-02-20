@@ -28,6 +28,7 @@ nav {
   justify-content: space-between;
   position: sticky;
   top: 0;
+  z-index: 2;
 }
 nav ul li {
   font-size: 1.2rem;
@@ -125,6 +126,7 @@ nav ul li:hover::after {
   font-size: 2.5rem;
   font-weight: 400;
 }
+
 .hot-topic {
   overflow: hidden;
   position: relative;
@@ -136,6 +138,10 @@ nav ul li:hover::after {
 
 .hot-topic img {
   display: flex;
+}
+
+.hot-topic__image1 {
+  background-image: url(images/shrek-hot-topic-bg-1.jpg);
 }
 
 .hot-topic-content {
