@@ -7,9 +7,6 @@
   padding: 0;
   font-family: sans-serif;
 }
-a {
-  color: #e9dfac;
-}
 
 .banner {
   width: 100%;
@@ -130,10 +127,16 @@ nav ul li:hover::after {
 .hot-topic {
   overflow: hidden;
   position: relative;
-  width: 80%;
-  left: 10%;
+  width: 70%;
+  left: 15%;
   padding: 12px;
-  height: 300px;
+  height: 400px;
+}
+
+.hot-topic a {
+  display: block;
+  text-decoration: none;
+  color: #f3f3f3;
 }
 
 .hot-topic img {
@@ -164,4 +167,8 @@ nav ul li:hover::after {
   font-size: 15px;
   text-shadow: 0 0 2px #000;
   padding: 12px 10px;
+}
+
+footer a {
+  color: #e9dfac;
 }
