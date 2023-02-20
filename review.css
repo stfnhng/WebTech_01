@@ -13,22 +13,24 @@
     width: 80%;
     margin: auto;
     text-align: center;
-    padding-top: 60px;
+    padding-top: 50px;
 }
 .reviews h2, p {
     margin: 0.5rem;
     padding: 0.3rem;
 }
-.all-reviews {
-    margin-top: 6%;
+.top-reviews,
+.bottom-reviews {
+    margin-top: 4%;
     display: flex;
     justify-content: space-between;
 }
+
 .review {
-    flex-basis: 24%;
+    flex-basis: 45%;
     background: #4b6d2c;
     border-radius: 15px;
-    margin-bottom: 10%;
+    margin-bottom: 0%;
     padding: 20px 10px;
     box-sizing: border-box;
 }
