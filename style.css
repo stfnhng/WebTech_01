@@ -120,10 +120,11 @@ nav ul li:hover::after {
   padding: 40px 0;
   background-color: #4b6d2c;
 }
-#filler h3 {
+#filler h4 {
   color: #fec53a;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 400;
+  font-family: shrekFont;
 }
 
 .hot-topic {
