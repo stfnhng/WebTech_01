@@ -7,9 +7,6 @@
   padding: 0;
   font-family: sans-serif;
 }
-a {
-  color: #e9dfac;
-}
 
 .banner {
   width: 100%;
@@ -28,6 +25,7 @@ nav {
   justify-content: space-between;
   position: sticky;
   top: 0;
+  z-index: 2;
 }
 nav ul li {
   font-size: 1.2rem;
@@ -54,10 +52,12 @@ nav ul li::after {
 nav ul li:hover::after {
   width: 100%;
 }
-.logo {
-  width: 20%;
-  max-width: 200px;
-  cursor: pointer;
+#logo {
+  width: 300px;
+  height: 100px;
+  background-image: url(images/uu_logo.png);
+  background-position: center;
+  background-size: cover;
 }
 #title {
   width: 100%;
@@ -84,8 +84,8 @@ nav ul li:hover::after {
   margin: 20px 10px;
   border-radius: 25px;
   border: 2px solid #4b6d2c;
-  background-color: rgba(0,0,0,.5);
-  color:white;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -120,113 +120,112 @@ nav ul li:hover::after {
   padding: 40px 0;
   background-color: #4b6d2c;
 }
-#filler h2 {
+#filler h4 {
   color: #fec53a;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 400;
+  font-family: shrekFont;
 }
 
-/* .section-1-wrapper {
-  max-width: 90%;
-  margin: auto;
-}
-.section-1 h1 {
-  width: 500px;
-  color: #fec53a;
-  font-size: 1.5rem;
-  position: relative;
-  font-weight: 400;
-}
-.section-1-img {
-  display: flex;
-}
-.section-1-img .img {
-  max-width: 100%;
-  width: 35vh;
-  height: 60vh;
-  background-size: cover;
-  background-position: center;
-  margin-right: 5vh;
-  border-radius: 10px;
-}
-.section-1-img .img-1 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
-    url(images/shrek_homepage_01.jpg);
-  background-size: cover;
-  background-position: center;
-}
-.section-1-img .img-2 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
-    url(images/shrek_homepage_01.jpg);
-  background-size: cover;
-  background-position: center;
-}
-.section-1-img .img-3 {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
-    url(images/shrek_homepage_01.jpg);
-  background-size: cover;
-  background-position: center;
-}
-.section-1-img .img-4 {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
-    url(images/shrek_homepage_01.jpg);
-  background-size: cover;
-  background-position: center;
-} */
-.hot-topic{
+.hot-topic {
   overflow: hidden;
   position: relative;
-  width: 80%;
-  left:10%;
+  width: 70%;
+  left: 15%;
   padding: 12px;
-  height: 300px;
+  height: 400px;
 }
 
-.hot-topic img{
-  display: flex;
-}
-
-.hot-topic-content{
-  position: absolute;
-  bottom: 0;
-  left: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  line-height: 1.3;
+.hot-topic a {
+  display: block;
+  text-decoration: none;
   color: #f3f3f3;
 }
 
-.hot-topic h2{
-  padding: 10px 0;
-  font-size: 18px;
-  text-shadow: 0 0 2px #000;
+.hot-topic img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
 }
 
-.hot-topic h3{
-  padding: 10px 0;
-  font-size: 16px;
-  text-shadow: 0 0 2px #000;
+#hot-topic__image {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
 }
 
-.hot-topic p{
+.hot-topic__image1 {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(images/shrek-hot-topic-bg-1.jpg);
+}
+
+.hot-topic__image2 {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(images/shrek-hot-topic-bg-2.jpg);
+}
+
+.hot-topic__image3 {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(images/shrek-hot-topic-bg-3.jpg);
+}
+
+.hot-topic__image4 {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(images/shrek-hot-topic-bg-4.jpg);
+}
+
+.hot-topic-content {
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+  right: 20px;
+  padding: 130px 20px;
+  line-height: 1.3;
+  color: #f3f3f3;
+}
+.hot-topic h2 {
+  padding: 0px 10px;
+  font-size: 2rem;
+  text-shadow: 0 0 10px #000;
+}
+
+.hot-topic p {
   padding: 10px 0;
-  font-size: 15px;
-  text-shadow: 0 0 2px #000;
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px #000;
   padding: 12px 10px;
+  width: 40%;
 }
 
-.hot-topic-content a{
-  display: block;
-  background: #f3f3f3;
-  border: none;
-  width: 95px;
-  border-radius: 2px;
+footer {
+  background-color: #333;
+  color: #fff;
   text-align: center;
-  padding: 7px 10px;
-  font-size: 14px;
-  margin: 10px 0 10px 10px;
+  padding: 40px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
-.hot-topic-content a:hover{
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
   text-decoration: underline;
 }
