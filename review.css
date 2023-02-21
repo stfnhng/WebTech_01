@@ -25,7 +25,6 @@
     display: flex;
     justify-content: space-between;
 }
-
 .review {
     flex-basis: 45%;
     background: #4b6d2c;
@@ -33,4 +32,9 @@
     margin-bottom: 0%;
     padding: 20px 10px;
     box-sizing: border-box;
+}
+#Shrek-rightpicture {
+    float: right;
+    align-items: center;
+    justify-content: center;
 }
