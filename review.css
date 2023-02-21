@@ -42,13 +42,13 @@
     float: right;
     align-items: center;
     justify-content: center;
-    max-width: 10%;
-    max-height: 10%;
+    max-width: 8%;
+    max-height: 8%;
 }
 .image2 {
     float: left;
     align-items: center;
     justify-content: center;
-    max-width: 10%;
-    max-height: 10%;
+    max-width: 8%;
+    max-height: 8%;
 }
