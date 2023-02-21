@@ -16,25 +16,39 @@
     padding-top: 50px;
 }
 .reviews h2, p {
-    margin: 0.5rem;
-    padding: 0.3rem;
+    margin: 0%;
+    padding: 1%;
 }
 .top-reviews,
 .bottom-reviews {
-    margin-top: 4%;
+    margin-top: 5%;
     display: flex;
     justify-content: space-between;
 }
+.top-reviews {
+    margin-top: 3%;
+}
+.bottom-reviews {
+    margin-bottom: 5%;
+}
 .review {
     flex-basis: 45%;
-    background: #4b6d2c;
+    background: #85c44a;
     border-radius: 15px;
-    margin-bottom: 0%;
-    padding: 20px 10px;
+    padding: 2% 2%;
     box-sizing: border-box;
 }
-#Shrek-rightpicture {
+.image1 {
     float: right;
     align-items: center;
     justify-content: center;
+    max-width: 10%;
+    max-height: 10%;
+}
+.image2 {
+    float: left;
+    align-items: center;
+    justify-content: center;
+    max-width: 10%;
+    max-height: 10%;
 }
