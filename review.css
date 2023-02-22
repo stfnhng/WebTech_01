@@ -1,61 +1,72 @@
-.banner{
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(images/shrek_reviewpage_03.jpg);
-    max-height: 40vh;
-    background-position: top;
+.banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(images/shrek_reviewpage_03.jpg);
+  max-height: 40vh;
+  background-position: top;
 }
 #title h1 {
-    font-family: shrekFont;
-    font-size: 5rem;
-    padding-bottom: 5%;
+  font-family: shrekFont;
+  font-size: 5rem;
+  padding-bottom: 5%;
 }
 .reviewArticle {
-    width: 80%;
-    margin: auto;
-    padding-top: 50px;
+  width: 80%;
+  margin: auto;
+  padding-top: 50px;
 }
-.reviewArticle h2, p {
-    margin: 0%;
-    padding: 0%;
+.reviewArticle h2,
+p {
+  margin: 0%;
+  padding: 0%;
 }
 .all-reviews {
-    margin-top: 5%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  margin-top: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.review {
-    border-radius: 15px;
-    padding: 2% 2%;
-    position: relative;
-    float: right;
-}
+
 .review h3 {
-    font-size: 1rem;
-    position: relative;
+  font-size: 1rem;
+  position: relative;
 }
 img {
-    max-width: 20%;
-    float: left;
-    vertical-align: top;
+  max-width: 20%;
+  float: left;
+  vertical-align: top;
 }
 .figcaption {
-    text-align: center;
+  text-align: center;
 }
-/* #reviewImage {
-    position: relative;
-    float: left;
-    width: 10%;
-    height: 10%;
-} */
+#reviewImage {
+  position: relative;
+  float: left;
+  width: 10%;
+  height: 10%;
+}
+
+.review {
+  position: relative;
+  bottom: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+}
+.review img {
+  width: 480px;
+  padding-right: 20px;
+}
 .reviewImage1 {
-    
 }
 .reviewImage2 {
-    background: url(images/BenFalk2.jpg);
+  background: url(images/BenFalk2.jpg);
 }
 .reviewImage3 {
-    background: url(images/DessonThomson.jpg);
+  background: url(images/DessonThomson.jpg);
 }
 .reviewImage4 {
-    background: url(images/LouLumenick1.jpg);
+  background: url(images/LouLumenick1.jpg);
 }
