@@ -3,8 +3,10 @@
     max-height: 40vh;
     background-position: top;
 }
-#title p {
+#title h1 {
+    font-family: shrekFont;
     font-size: 5rem;
+    padding-bottom: 5%;
 }
 .reviews h3 {
     font-size: 1.5rem;
@@ -32,11 +34,9 @@
     margin-bottom: 5%;
 }
 .review {
-    flex-basis: 45%;
     background: #85c44a;
     border-radius: 15px;
     padding: 2% 2%;
-    box-sizing: border-box;
 }
 .image1 {
     float: right;
