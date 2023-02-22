@@ -14,30 +14,13 @@
   margin: auto;
   padding-top: 50px;
 }
-.reviewArticle h2,
-p {
-  margin: 0%;
-  padding: 0%;
-}
+
 .all-reviews {
   margin-top: 5%;
-  display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.review h3 {
-  font-size: 1rem;
-  position: relative;
-}
-img {
-  max-width: 20%;
-  float: left;
-  vertical-align: top;
-}
-.figcaption {
-  text-align: center;
-}
 #reviewImage {
   position: relative;
   float: left;
@@ -46,27 +29,30 @@ img {
 }
 
 .review {
-  position: relative;
-  bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   padding: 20px;
   box-sizing: border-box;
   background: #fff;
   border-radius: 4px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  display: flex;
+  margin-bottom: 20px;
 }
-.review img {
-  width: 480px;
+
+.review-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 150px;
   padding-right: 20px;
 }
-.reviewImage1 {
+
+.review-header img {
+  width: 150px;
+  margin-right: 20px;
 }
-.reviewImage2 {
-  background: url(images/BenFalk2.jpg);
-}
-.reviewImage3 {
-  background: url(images/DessonThomson.jpg);
-}
-.reviewImage4 {
-  background: url(images/LouLumenick1.jpg);
+
+.content {
+  flex: 1;
 }
