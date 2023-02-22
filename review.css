@@ -8,43 +8,47 @@
     font-size: 5rem;
     padding-bottom: 5%;
 }
-.reviews h3 {
-    font-size: 1rem;
-}
 .reviewArticle {
     width: 80%;
     margin: auto;
-    text-align: center;
     padding-top: 50px;
 }
-.reviews h2, p {
+.reviewArticle h2, p {
     margin: 0%;
-    padding: 1%;
+    padding: 0%;
 }
 .all-reviews {
     margin-top: 5%;
-    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .review {
     border-radius: 15px;
     padding: 2% 2%;
-}
-.image1 {
+    position: relative;
     float: right;
-    align-items: center;
-    justify-content: center;
-    max-width: 8%;
-    max-height: 8%;
 }
-.image2 {
+.review h3 {
+    font-size: 1rem;
+    position: relative;
+}
+img {
+    max-width: 20%;
     float: left;
-    align-items: center;
-    justify-content: center;
-    max-width: 8%;
-    max-height: 8%;
+    vertical-align: top;
 }
+.figcaption {
+    text-align: center;
+}
+/* #reviewImage {
+    position: relative;
+    float: left;
+    width: 10%;
+    height: 10%;
+} */
 .reviewImage1 {
-    background: url(images/PeterBradshaw1.jpg)
+    
 }
 .reviewImage2 {
     background: url(images/BenFalk2.jpg);
