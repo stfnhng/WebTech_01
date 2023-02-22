@@ -1,29 +1,49 @@
 @font-face {
-    font-family: shrekFont;
-    src: url(resources/shrek_font.ttf);
+  font-family: shrekFont;
+  src: url(resources/shrek_font.ttf);
 }
-table{
-    border-collapse: collapse;
+table {
+  border-collapse: collapse;
 }
-td, th{
-    border: 1px solid Black;
-    padding: 20px;
-    font-family: shrekFont;
-    text-align: center;
+td,
+th {
+  border: 1px solid Black;
+  padding: 20px;
+  font-family: shrekFont;
+  text-align: center;
 }
-th{
-    background-color: darkgreen;
+th {
+  background-color: darkgreen;
 }
-td{
-    background-color:#e9dfac ;
+td {
+  background-color: #e9dfac;
 }
-table{
-    margin-left: auto;
-    margin-right: auto;
+table {
+  margin-left: auto;
+  margin-right: auto;
 }
-article h1, article section{
-    text-align: center;
+article li h1 {
+  text-align: center;
 }
-.more-info{
-    background-color:#e9dfac ;
+
+.more-info {
+  background-color: #e9dfac;
+  text-align: center;
+}
+ul.myul {
+  display: inline-block;
+  text-align: left;
+}
+#larger-h1tag {
+  font-size: xx-large;
+}
+
+p,
+h3 {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.article-list {
+  padding-bottom: 20px;
 }
