@@ -9,9 +9,9 @@
     padding-bottom: 5%;
 }
 .reviews h3 {
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
-.reviews {
+.reviewArticle {
     width: 80%;
     margin: auto;
     text-align: center;
@@ -21,20 +21,11 @@
     margin: 0%;
     padding: 1%;
 }
-.top-reviews,
-.bottom-reviews {
+.all-reviews {
     margin-top: 5%;
-    display: flex;
     justify-content: space-between;
 }
-.top-reviews {
-    margin-top: 3%;
-}
-.bottom-reviews {
-    margin-bottom: 5%;
-}
 .review {
-    background: #85c44a;
     border-radius: 15px;
     padding: 2% 2%;
 }
@@ -51,4 +42,7 @@
     justify-content: center;
     max-width: 8%;
     max-height: 8%;
+}
+.reviewImage1 {
+    background: url(images/PeterBradshaw1.jpg)
 }
