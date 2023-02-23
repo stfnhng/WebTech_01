@@ -12,11 +12,12 @@
 .reviewArticle {
   width: 80%;
   margin: auto;
-  padding-top: 50px;
+  padding-top: 45px;
 }
 
 .all-reviews {
-  margin-top: 5%;
+  margin-top: auto;
+  padding-top: 45px;
   align-items: center;
   justify-content: center;
 }
@@ -37,7 +38,7 @@
   background: #fff;
   border-radius: 4px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .review-header {
