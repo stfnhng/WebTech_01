@@ -4,3 +4,20 @@
   max-height: 40vh;
   background-position: top;
 }
+.summary {
+  padding: 20px 10%;
+}
+.summaryTitle .summaryContent {
+  position: relative;
+  height: fit-content;
+  padding-bottom: 0;
+}
+
+.summaryContent,
+.summaryTitle,
+h3 {
+  min-height: auto;
+  height: fit-content;
+  padding: 0 10px;
+  white-space: normal;
+}
