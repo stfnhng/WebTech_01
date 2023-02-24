@@ -4,3 +4,9 @@
     max-height: 40vh;
     background-position: 0% 35%;
 }
+
+#title h1 {
+    font-family: shrekFont;
+    font-size: 5rem;
+    padding-bottom: 5%;
+}

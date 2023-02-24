@@ -4,11 +4,13 @@
   max-height: 40vh;
   background-position: top;
 }
+
 #title h1 {
   font-family: shrekFont;
   font-size: 5rem;
   padding-bottom: 5%;
 }
+
 .reviewArticle {
   width: 80%;
   margin: auto;
