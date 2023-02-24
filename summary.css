@@ -1,0 +1,44 @@
+.banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5)),
+    url(images/shrek-hot-topic-bg-1.jpg);
+  max-height: 40vh;
+  background-position: top;
+}
+#pageTitle h1 {
+  color: white;
+  font-family: shrekFont;
+  font-size: 5rem;
+  position: absolute;
+  left: 40%;
+  top: 25%;
+}
+.thumbnail {
+  height: 20%;
+  width: 20%;
+  margin: 20px;
+}
+.summary {
+  margin: 20px 10%;
+  line-height: 1.8;
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+.summaryTitle .summaryContent {
+  position: relative;
+  height: fit-content;
+  padding-bottom: 0;
+}
+
+.summaryContent,
+.summaryTitle,
+h3 {
+  margin: 20px;
+  min-height: auto;
+  height: fit-content;
+  padding: 0 10px;
+  white-space: normal;
+}
+p {
+  font-size: 1.2rem;
+}

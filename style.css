@@ -7,7 +7,7 @@
   padding: 0;
   font-family: sans-serif;
 }
-
+/*Banner section starts here*/
 .banner {
   width: 100%;
   height: 93vh;
@@ -111,7 +111,7 @@ nav ul li:hover::after {
 .button-link {
   text-decoration: none;
 }
-/*Banner section ends here*/
+/*Filler section starts here*/
 #filler {
   display: flex;
   align-items: center;
@@ -126,8 +126,8 @@ nav ul li:hover::after {
   font-weight: 400;
   font-family: shrekFont;
 }
-
-.hot-topic {
+/*Topic section starts here*/
+.topic {
   overflow: hidden;
   position: relative;
   width: 70%;
@@ -136,20 +136,20 @@ nav ul li:hover::after {
   height: 400px;
 }
 
-.hot-topic a {
+.topic a {
   display: block;
   text-decoration: none;
   color: #f3f3f3;
 }
 
-.hot-topic img {
+.topic img {
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
 }
 
-#hot-topic__image {
+#topic__image {
   position: relative;
   width: 100%;
   height: 400px;
@@ -157,54 +157,54 @@ nav ul li:hover::after {
   background-position: center;
 }
 
-.hot-topic__image1 {
+.topic__image1 {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url(images/shrek-hot-topic-bg-1.jpg);
 }
 
-.hot-topic__image2 {
+.topic__image2 {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url(images/shrek-hot-topic-bg-2.jpg);
 }
 
-.hot-topic__image3 {
+.topic__image3 {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url(images/shrek-hot-topic-bg-3.jpg);
 }
 
-.hot-topic__image4 {
+.topic__image4 {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url(images/shrek-hot-topic-bg-4.jpg);
 }
 
-.hot-topic-content {
+.topic__content {
   position: absolute;
   bottom: 0;
-  left: 50px;
-  right: 20px;
+  left: 5%;
+  right: 3%;
   padding: 130px 20px;
   line-height: 1.3;
   color: #f3f3f3;
 }
-.hot-topic h2 {
+.topic h2 {
   padding: 0px 10px;
   font-size: 2rem;
   text-shadow: 0 0 10px #000;
 }
 
-.hot-topic p {
+.topic p {
   padding: 10px 0;
   font-size: 1.2rem;
   text-shadow: 0 0 10px #000;
   padding: 12px 10px;
   width: 40%;
 }
-
+/*Footer section starts here*/
 footer {
   background-color: #333;
   color: #fff;
   text-align: center;
-  padding: 40px;
+  padding: 40px 0px;
   position: relative;
   bottom: 0;
   width: 100%;
