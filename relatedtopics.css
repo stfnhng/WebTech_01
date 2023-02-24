@@ -10,3 +10,45 @@
     font-size: 5rem;
     padding-bottom: 5%;
 }
+
+.relatedTopicsSection {
+    width: 80%;
+    margin: auto;
+    padding-top: 45px;
+}
+
+.allRelatedTopics {
+    margin-top: auto;
+    padding-top: 45px;
+    align-items: center;
+    justify-content: center;
+}
+
+.relatedTopic {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+}
+
+.relatedTopicHeader {
+    display: flex;
+    max-width: 150px;
+    padding-right: 20px;
+}
+
+.relatedTopicHeader img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: 0% 35%;
+}
+
+.content {
+    flex: 1;
+}

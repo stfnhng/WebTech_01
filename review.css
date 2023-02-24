@@ -24,13 +24,6 @@
   justify-content: center;
 }
 
-#reviewImage {
-  position: relative;
-  float: left;
-  width: 10%;
-  height: 10%;
-}
-
 .review {
   display: flex;
   flex-direction: row;
