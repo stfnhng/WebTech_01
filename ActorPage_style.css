@@ -24,7 +24,9 @@
     height: 98vh;
   }
 }
-
+html {
+  scroll-behavior: smooth;
+}
 table {
   border-collapse: collapse;
   /* margin-left: 5%;
