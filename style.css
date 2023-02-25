@@ -8,6 +8,27 @@
   font-family: sans-serif;
 }
 /*Banner section starts here*/
+input.dropdown-button {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  ul.nav-links {
+    display: none;
+  }
+  input.dropdown-button {
+    display: block;
+  }
+  .dropdown-button:checked ~ * ul.nav-links {
+    height: 200px;
+    display: block;
+  }
+  input[type="checkbox"]:checked ~ ul.nav-links {
+    box-shadow: 0 0 0 3px hotpink;
+    display: block;
+  }
+}
+
 .banner {
   width: 100%;
   height: 93vh;
