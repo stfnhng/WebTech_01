@@ -45,7 +45,9 @@
 }
 
 .review-header img {
-  width: 150px;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
   margin-right: 20px;
 }
 
