@@ -4,12 +4,14 @@
   max-height: 40vh;
   background-position: top;
 }
+
 #title h1 {
   font-family: shrekFont;
   font-size: 5rem;
   padding-bottom: 5%;
 }
-.reviewArticle {
+
+.review-section {
   width: 80%;
   margin: auto;
   padding-top: 45px;
@@ -20,13 +22,6 @@
   padding-top: 45px;
   align-items: center;
   justify-content: center;
-}
-
-#reviewImage {
-  position: relative;
-  float: left;
-  width: 10%;
-  height: 10%;
 }
 
 .review {
