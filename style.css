@@ -248,7 +248,9 @@ footer {
   bottom: 0;
   width: 100%;
 }
-
+.footer-links {
+  margin: 10px;
+}
 .footer-links ul {
   list-style: none;
   padding: 0;
