@@ -5,11 +5,10 @@
   background-position: top;
 }
 #title h1 {
-  color: white;
+  color: #fff;
   font-family: shrekFont;
   font-size: 5rem;
-  position: absolute;
-  left: 40%;
+  padding-bottom: 5%;
 }
 .thumbnail {
   height: 20%;
