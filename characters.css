@@ -2,17 +2,20 @@
   font-family: shrekFont;
   src: url(resources/shrek_font.ttf);
 }
-
-
-table {
-  border-collapse: collapse;
-}
 .banner {
   background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5)),
     url(images/shrek-hot-topic-bg-3.jpg);
   max-height: 40vh;
   background-position: top;
 }
+table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
 #title h1 {
   color: #fff;
   font-family: shrekFont;
@@ -25,6 +28,7 @@ th {
   padding: 20px;
   font-family: shrekFont;
   text-align: center;
+  
 }
 th {
   background-color: darkgreen;
@@ -32,25 +36,25 @@ th {
 td {
   background-color: #e9dfac;
 }
+td img{
+  height: 150px;
+  width: 100px;
+}
 article li h1 {
   text-align: center;
 }
 
-.more-info {
-  text-align: center;
+.content-wrapper{
+  max-width: 90%;
+  margin: 20px 10%;
+  line-height: 1.8;
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 ul.myul {
   display: block;
   text-align: left;
-}
-#larger-h1tag {
-  font-size: xx-large;
-}
-
-p,
-h3 {
-  margin-bottom: 0px;
-  margin-top: 0px;
 }
 
 ul.myul li.article-list {
