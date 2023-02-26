@@ -66,6 +66,9 @@ article li h1 {
 }
 
 @media only screen and (max-width: 600px) {
+  .banner {
+    max-height: 30vh;
+  }
   .actors {
     display: flex;
     justify-content: center;

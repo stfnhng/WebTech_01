@@ -39,6 +39,15 @@ label {
   background-position: center;
 }
 
+.homepage-banner {
+  width: 100%;
+  height: 93vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5)),
+    url(images/shrek_homepage_01.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
 nav ul li {
   font-size: 1.2rem;
   list-style: none;
@@ -281,13 +290,22 @@ footer {
     visibility: visible;
   }
 
+  .title__text {
+    width: 80%;
+  }
+
   .banner{
-    max-height: 20vh;
+    max-height: 30vh;
   }
 
   .page-title h1 {
     font-size: 2.5rem;
+    color: white;
+    padding-top: 0%;
+  }
 
+  .topic__image1 {
+    background-position: center;
   }
 
   input.dropdown-button {
