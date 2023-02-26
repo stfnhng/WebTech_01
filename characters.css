@@ -52,12 +52,13 @@ article li h1 {
   border-radius: 4px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
-ul.myul {
+.info-list {
   display: block;
   text-align: left;
+  list-style-type: none;
 }
 
-ul.myul li.article-list {
+.info-list li.article-list {
   border-style: solid;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   margin: 10px;
@@ -69,7 +70,7 @@ ul.myul li.article-list {
     display: flex;
     justify-content: center;
   }
-  .actors-table {
+  .actors__table {
     width: 10vw;
     height: 98vh;
   }
@@ -81,7 +82,7 @@ ul.myul li.article-list {
     justify-content: center;
     margin-bottom: 10px;
   }
-  .actors-table {
+  .actors__table {
     width: 60vw;
     height: 98vh;
   }
