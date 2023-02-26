@@ -1,55 +1,54 @@
 .banner {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-     url(images/shrek_relatedtopics_01.jpg);
-    max-height: 40vh;
-    background-position: 0% 35%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(images/shrek_relatedtopics_01.jpg);
+  max-height: 0%;
+  background-position: 0% 35%;
 }
 
 #title h1 {
-    color: #fff;
-    font-family: shrekFont;
-    font-size: 5rem;
-    padding-bottom: 5%;
-  }
+  font-family: shrekFont;
+  font-size: 5rem;
+  padding-bottom: 5%;
+}
 
 .related-topics-section {
-    width: 80%;
-    margin: auto;
-    padding-top: 45px;
+  width: 80%;
+  margin: auto;
+  padding-top: 45px;
 }
 
 .related-topics-wrapper {
-    margin-top: auto;
-    padding-top: 45px;
-    align-items: center;
-    justify-content: center;
+  margin-top: auto;
+  padding-top: 45px;
+  align-items: center;
+  justify-content: center;
 }
 
 .related-topic {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-    background: #fff;
-    border-radius: 4px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
 }
 
 .related-topic__header {
-    display: flex;
-    max-width: 150px;
-    padding-right: 20px;
+  display: flex;
+  max-width: 150px;
+  padding-right: 20px;
 }
 
 .related-topic__header img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    object-position: 0% 35%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: 0% 35%;
 }
 
 .related-topic__content {
-    flex: 1;
+  flex: 1;
 }

@@ -18,9 +18,10 @@
   .actors {
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
   }
   .actors-table {
-    width: 10vw;
+    width: 60vw;
     height: 98vh;
   }
 }
@@ -29,8 +30,16 @@ html {
 }
 table {
   border-collapse: collapse;
-  /* margin-left: 5%;
-  margin-right: 5%; */
+}
+.characters-banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5)),
+    url(images/shrek-hot-topic-bg-1.jpg);
+  height: 60%;
+  max-height: 80%;
+  background-position: top;
+}
+nav {
+  height: 80%;
 }
 td,
 th {
@@ -50,11 +59,10 @@ article li h1 {
 }
 
 .more-info {
-  background-color: #e9dfac;
   text-align: center;
 }
 ul.myul {
-  display: inline-block;
+  display: block;
   text-align: left;
 }
 #larger-h1tag {
@@ -67,6 +75,17 @@ h3 {
   margin-top: 0px;
 }
 
-.article-list {
-  padding-bottom: 20px;
+ul.myul li.article-list {
+  border-style: solid;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  margin: 10px;
+  padding-left: 30px;
+}
+#Characters-title h1 {
+  color: white;
+  font-family: shrekFont;
+  font-size: 5rem;
+  position: absolute;
+  left: 40%;
+  top: 50%;
 }
