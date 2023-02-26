@@ -17,7 +17,7 @@
   padding-top: 45px;
 }
 
-.all-related-topics {
+.related-topics-wrapper {
   margin-top: auto;
   padding-top: 45px;
   align-items: center;
@@ -49,6 +49,6 @@
   object-position: 0% 35%;
 }
 
-.content {
+.related-topic__content {
   flex: 1;
 }
