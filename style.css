@@ -50,7 +50,6 @@ label {
     padding-left: 30px;
   }
   input[type="checkbox"]:checked ~ ul.nav-links {
-    box-shadow: 0 0 0 3px hotpink;
     display: block;
     clear: left;
   }
