@@ -24,14 +24,14 @@
   border-radius: 4px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
-.summaryTitle .summaryContent {
+.summary__title .ssummary__content {
   position: relative;
   height: fit-content;
   padding-bottom: 0;
 }
 
-.summaryContent,
-.summaryTitle,
+.summary__content,
+.summary__title,
 h3 {
   margin: 20px;
   min-height: auto;
