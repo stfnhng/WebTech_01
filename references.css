@@ -34,15 +34,16 @@ body {
     font-size: 2rem;
     margin-top: 50px;
   }
-  
+  .content h3 {
+    margin-top: 20px;
+  }
  
  .content ul {
     list-style: none;
     padding: 0;
-    margin-top: 20px;
+    margin-top: 10px;
   }
   
- 
   .content li {
     margin-bottom: 10px;
   }
