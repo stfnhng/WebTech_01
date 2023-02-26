@@ -70,6 +70,7 @@ nav ul li {
   display: inline-block;
   margin: 0 15px;
   position: relative;
+  padding-bottom: 5px;
 }
 nav ul li a {
   font-family: shrekFont;
