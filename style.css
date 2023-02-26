@@ -188,23 +188,16 @@ nav ul li:hover::after {
 }
 .topic h2 {
   padding: 0px 10px;
-  font-size: 2rem;
+  font-size: 3rem;
   text-shadow: 0 0 10px #000;
 }
 
-.topic p {
-  padding: 10px 0;
-  font-size: 1.2rem;
-  text-shadow: 0 0 10px #000;
-  padding: 12px 10px;
-  width: 40%;
-}
 /*Footer section starts here*/
 footer {
   background-color: #333;
   color: #fff;
   text-align: center;
-  padding: 40px 0px;
+  padding: 40px 0;
   position: relative;
   bottom: 0;
   width: 100%;
