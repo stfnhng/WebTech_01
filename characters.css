@@ -25,21 +25,21 @@
     height: 98vh;
   }
 }
-html {
-  scroll-behavior: smooth;
-}
+
 table {
   border-collapse: collapse;
 }
-.characters-banner {
+.banner {
   background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5)),
-    url(images/shrek-hot-topic-bg-1.jpg);
-  height: 60%;
-  max-height: 80%;
+    url(images/shrek-hot-topic-bg-3.jpg);
+  max-height: 40vh;
   background-position: top;
 }
-nav {
-  height: 80%;
+#title h1 {
+  color: #fff;
+  font-family: shrekFont;
+  font-size: 5rem;
+  padding-bottom: 5%;
 }
 td,
 th {
@@ -81,11 +81,4 @@ ul.myul li.article-list {
   margin: 10px;
   padding-left: 30px;
 }
-#Characters-title h1 {
-  color: white;
-  font-family: shrekFont;
-  font-size: 5rem;
-  position: absolute;
-  left: 40%;
-  top: 50%;
-}
+
