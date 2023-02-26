@@ -19,7 +19,7 @@
   padding-top: 45px;
 }
 
-.all-reviews {
+.review-wrapper {
   margin-top: auto;
   padding-top: 45px;
   align-items: center;
@@ -38,7 +38,7 @@
   margin-bottom: 30px;
 }
 
-.review-header {
+.review__header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -46,14 +46,14 @@
   padding-right: 20px;
 }
 
-.review-header img {
+.review__header img {
   width: 100%;
   height: auto;
   max-width: 100%;
   margin-right: 20px;
 }
 
-.content {
+.review__content {
   flex: 1;
 }
 
