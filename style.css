@@ -67,7 +67,9 @@ nav ul li:hover::after {
   height: 100px;
   background-image: url(images/uu_logo.png);
   background-position: center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-clip: content-box;
 }
 #title {
   width: 100%;
