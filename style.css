@@ -111,7 +111,7 @@ nav ul li:hover::after {
   font-family: shrekFont;
   color: white;
   font-size: 5rem;
-  padding-top: 23%;
+  padding-top: 10%;
 }
 
 .button-link__style {
