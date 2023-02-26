@@ -43,7 +43,7 @@ p {
 
 @media only screen and (max-width: 600px) {
   .banner{
-    max-height: 20vh;
+    max-height: 30vh;
   }
 
   .title h1 {

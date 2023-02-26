@@ -6,13 +6,6 @@
   background-position: top;
 }
 
-.title h1 {
-    color: #fff;
-    font-family: shrekFont;
-    font-size: 5rem;
-    padding-bottom: 5%;
-  }
-
 .review-section {
   width: 80%;
   margin: auto;
@@ -59,17 +52,10 @@
 
 /* phone */
 @media only screen and (max-width: 600px) {
-  .banner{
-    max-height: 20vh;
+  .banner {
+    max-height: 30vh;
   }
-
-  .title h1 {
-    font-size: 2.5rem;
-    text-align: center;
-    position: relative;
-    float: bottom;
-  }
-
+  
   .review-section {
     width: 95%;
     padding-top: 20px;

@@ -52,3 +52,25 @@
 .related-topic__content {
   flex: 1;
 }
+
+@media only screen and (max-width: 600px) {
+  .banner {
+    max-height: 30vh;
+  }
+
+  .related-topics-section {
+    width: 95%;
+    padding-top: 20px;
+    font-size: .8rem;
+  }
+
+  .related-topic {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .related-topics-wrapper {
+    padding-top: 20px;
+    font-size: .75rem;
+  }
+}
