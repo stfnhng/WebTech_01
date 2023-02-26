@@ -25,35 +25,7 @@ nav {
 label {
   visibility: collapse;
 }
-@media only screen and (max-width: 600px) {
-  ul.nav-links {
-    display: none;
-    max-width: 150px;
-  }
-  label {
-    visibility: visible;
-  }
-  input.dropdown-button {
-    display: none;
-    float: left;
-    margin-bottom: 20px;
-  }
-  .dropdown-button {
-    background-color: #e9dfac;
-    height: 50px;
-    width: 150px;
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-  }
-  .link-section {
-    padding-left: 30px;
-  }
-  input[type="checkbox"]:checked ~ ul.nav-links {
-    display: block;
-    clear: left;
-  }
-}
+
 
 .banner {
   width: 100%;
@@ -269,4 +241,33 @@ footer {
 
 .footer-links a:hover {
   text-decoration: underline;
+}
+@media only screen and (max-width: 600px) {
+  ul.nav-links {
+    display: none;
+    max-width: 150px;
+  }
+  label {
+    visibility: visible;
+  }
+  input.dropdown-button {
+    display: none;
+    float: left;
+    margin-bottom: 20px;
+  }
+  .dropdown-button {
+    background-color: #e9dfac;
+    height: 50px;
+    width: 150px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+  .link-section {
+    padding-left: 30px;
+  }
+  input[type="checkbox"]:checked ~ ul.nav-links {
+    display: block;
+    clear: left;
+  }
 }

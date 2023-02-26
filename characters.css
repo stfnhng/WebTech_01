@@ -3,28 +3,6 @@
   src: url(resources/shrek_font.ttf);
 }
 
-@media only screen and (max-width: 600px) {
-  .actors {
-    display: flex;
-    justify-content: center;
-  }
-  .actors-table {
-    width: 10vw;
-    height: 98vh;
-  }
-}
-
-@media only screen and (min-width: 601px) {
-  .actors {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-  .actors-table {
-    width: 60vw;
-    height: 98vh;
-  }
-}
 
 table {
   border-collapse: collapse;
@@ -82,3 +60,25 @@ ul.myul li.article-list {
   padding-left: 30px;
 }
 
+@media only screen and (max-width: 600px) {
+  .actors {
+    display: flex;
+    justify-content: center;
+  }
+  .actors-table {
+    width: 10vw;
+    height: 98vh;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .actors {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .actors-table {
+    width: 60vw;
+    height: 98vh;
+  }
+}
