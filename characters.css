@@ -16,7 +16,7 @@ table {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-#title h1 {
+.title h1 {
   color: #fff;
   font-family: shrekFont;
   font-size: 5rem;

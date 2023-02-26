@@ -71,7 +71,7 @@ nav ul li:hover::after {
   background-repeat: no-repeat;
   background-clip: content-box;
 }
-#title {
+.title {
   width: 100%;
   position: absolute;
   top: 30%;

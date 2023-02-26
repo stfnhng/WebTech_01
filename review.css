@@ -6,7 +6,7 @@
   background-position: top;
 }
 
-#title h1 {
+.title h1 {
     color: #fff;
     font-family: shrekFont;
     font-size: 5rem;
