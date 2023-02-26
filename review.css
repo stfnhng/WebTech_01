@@ -6,12 +6,12 @@
   background-position: top;
 }
 
-.title h1 {
-  font-family: shrekFont;
-  font-size: 5rem;
-  padding-bottom: 5%;
-  color: #fff;
-}
+#title h1 {
+    color: #fff;
+    font-family: shrekFont;
+    font-size: 5rem;
+    padding-bottom: 5%;
+  }
 
 .review-section {
   width: 80%;

@@ -12,8 +12,10 @@ body {
   }
   
   #title h1 {
+    color: #fff;
     font-family: shrekFont;
     font-size: 5rem;
+    padding-bottom: 5%;
   }
   .content {
     width: 80%;
