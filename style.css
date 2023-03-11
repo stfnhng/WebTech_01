@@ -92,7 +92,6 @@ nav ul li:hover::after {
   width: 100%;
   position: absolute;
   top: 30%;
-  transition: translateY(-50%);
   text-align: center;
   color: white;
 }
