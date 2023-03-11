@@ -196,32 +196,38 @@ nav ul li:hover::after {
   background-position: center;
 }
 
-#topic__image {
+.topic__image {
   position: absolute;
   width: 100%;
   height: 400px;
-  background-size: cover;
-  background-position: center;
 }
 
 .topic__image1 {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url(images/shrek-hot-topic-bg-1.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .topic__image2 {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url(images/shrek-hot-topic-bg-2.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .topic__image3 {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url(images/shrek-hot-topic-bg-3.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .topic__image4 {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url(images/shrek-hot-topic-bg-4.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .topic__content {
@@ -294,7 +300,7 @@ footer {
     width: 80%;
   }
 
-  .banner{
+  .banner {
     max-height: 30vh;
   }
 
