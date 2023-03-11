@@ -55,7 +55,7 @@
   .related-topics-section {
     width: 95%;
     padding-top: 20px;
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 
   .related-topic {
@@ -65,6 +65,6 @@
 
   .related-topics-wrapper {
     padding-top: 20px;
-    font-size: .75rem;
+    font-size: 0.75rem;
   }
 }

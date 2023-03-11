@@ -55,11 +55,11 @@
   .banner {
     max-height: 30vh;
   }
-  
+
   .review-section {
     width: 95%;
     padding-top: 20px;
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 
   .review {
@@ -70,7 +70,7 @@
 
   .review-wrapper {
     padding-top: 20px;
-    font-size: .75rem;
+    font-size: 0.75rem;
   }
 
   .review__header {
@@ -79,7 +79,7 @@
   }
 
   .review__header img {
-   width: 60%;
-   margin-right: 10px;
+    width: 60%;
+    margin-right: 10px;
   }
 }
