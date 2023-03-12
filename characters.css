@@ -22,7 +22,10 @@ table {
   border-radius: 4px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
-
+section.content-wrapper h2 {
+  text-align: center;
+  padding-top: 2%;
+}
 td,
 th {
   border: 1px solid Black;
