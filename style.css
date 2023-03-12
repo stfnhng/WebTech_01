@@ -149,10 +149,13 @@ nav ul li:hover::after {
 
 .button-link__style:hover {
   border: none;
+  background: #4b6d2c;
+  transition: 0.5s;
 }
 
 .button-link {
   text-decoration: none;
+  display: inline;
 }
 
 /*Filler section starts here*/
@@ -160,7 +163,6 @@ nav ul li:hover::after {
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 40px 0;
   background-color: #4b6d2c;
 }
