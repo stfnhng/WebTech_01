@@ -115,7 +115,7 @@ nav ul li:hover::after {
   padding-top: 10%;
 }
 
-.button-link__style {
+.form-link__style {
   font-family: sans-serif;
   font-weight: bold;
   width: 30%;
@@ -133,7 +133,7 @@ nav ul li:hover::after {
   z-index: 1;
 }
 
-.button-link__text {
+.form-link__text {
   background: #4b6d2c;
   height: 100%;
   width: 0%;
@@ -145,17 +145,17 @@ nav ul li:hover::after {
   z-index: -1;
 }
 
-.button-link__style:hover .button-link__text {
+.form-link__style:hover .form-link__text {
   width: 100%;
 }
 
-.button-link__style:hover {
+.form-link__style:hover {
   border: none;
   background: #4b6d2c;
   transition: 0.5s;
 }
 
-.button-link {
+.form-link {
   text-decoration: none;
   display: inline;
 }
