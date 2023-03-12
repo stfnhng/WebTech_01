@@ -159,7 +159,9 @@ nav ul li:hover::after {
   text-decoration: none;
   display: inline;
 }
-
+h3 {
+  font-family: shrekFont;
+}
 /*Filler section starts here*/
 #filler {
   display: flex;
@@ -255,7 +257,11 @@ nav ul li:hover::after {
   text-shadow: 0 0 10px #000;
   padding: 12px 10px;
 }
-
+#readmore h2 {
+  text-align: center;
+  font-family: shrekFont;
+  margin-top: 1%;
+}
 /*Footer section starts here*/
 footer {
   background-color: #333;
