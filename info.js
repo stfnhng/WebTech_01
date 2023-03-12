@@ -77,153 +77,65 @@ class Artist {
     ["Shrek", "Beverly Hills Cop", "Norbit"],
     "https://image-link"
   );
-  const movie1 = new Movie(
-    "Shrek",
-    "Animation, Adventure, Comedy",
-    2001,
-    director1,
-    [writer1, writer2, writer3],
-    [actor1, actor2],
-    "https://poster-link",
-    "https://trailer-link",
-    "A mean lord exiles fairytale creatures to the swamp of a grumpy ogre, who must go on a quest and rescue a princess for the lord in order to get his land back."
-  );
 
-  function createHeading(title) {
-    const heading = document.createElement("h1");
-    heading.textContent = title;
-    return heading;
-  }
+  // Find the HTML elements that we want to populate with data
+const movieTitle = document.getElementById('movieTitle');
+const genre = document.getElementById('genre');
+const year = document.getElementById('year');
+const director = document.getElementById('director');
+const writers = document.getElementById('writers');
+const actors = document.getElementById('actors');
+const plot = document.getElementById('plot');
+const trailerLink = document.getElementById('trailerLink');
 
-  function createArtistList(title, artists) {
-    const artistList = document.createElement("ul");
-    const artistTitle = document.createElement("h2");
-    artistTitle.textContent = title;
-    artistList.appendChild(artistTitle);
-    
-    artists.forEach(artist => {
-      const artistItem = document.createElement("li");
-      const artistName = document.createElement("p");
-      artistName.textContent = artist.name;
-      const artistDetails = document.createElement("p");
-      artistDetails.textContent = `Born in ${artist.yearOfBirth}`;
-      
-      if (artist.moviesDirected) {
-        const moviesDirected = document.createElement("p");
-        moviesDirected.textContent = `Movies directed: ${artist.moviesDirected.join(", ")}`;
-        artistDetails.appendChild(moviesDirected);
-      } 
-      
-      if (artist.booksWritten) {
-        const booksWritten = document.createElement("p");
-        booksWritten.textContent = `Books written: ${artist.booksWritten.join(", ")}`;
-        artistDetails.appendChild(booksWritten);
-      }
-      
-      artistItem.appendChild(artistName);
-      artistItem.appendChild(artistDetails);
-      artistList.appendChild(artistItem);
-    });
-    
-    return artistList;
-  }
+// Create an instance of the Movie class
+const shrekMovie = new Movie(
+  'Shrek',
+  'Animation/Comedy',
+  2001,
+  director1,
+  [writer1, writer2, writer3],
+  [actor1, actor2],
+  'https://image-link',
+  'https://www.youtube.com/watch?v=W37DlG1i61s',
+  "After his swamp is filled with magical creatures, an ogre agrees to rescue a princess for a villainous lord in order to get his land back."
+);
 
-  // Create a function to create the movie details section
-function createMovieDetails(movie) {
-    const genre = document.createElement("p");
-    genre.textContent = movie.genre;
-    
-    const year = document.createElement("p");
-    year.textContent = movie.year;
-    
-    const director = createArtistList("Director", [movie.director]);
-    
-    const writers = createArtistList("Writers", movie.writers);
-    
-    const actors = createArtistList("Actors", movie.actors);
-    
-    const plot = document.createElement("p");
-    plot.textContent = movie.plot;
-    
-    const movieDetailsSection = document.createElement("section");
-    movieDetailsSection.appendChild(createHeading("Movie Details"));
-    movieDetailsSection.appendChild(genre);
-    movieDetailsSection.appendChild(year);
-    movieDetailsSection.appendChild(director);
-    movieDetailsSection.appendChild(writers);
-    movieDetailsSection.appendChild(actors);
-    movieDetailsSection.appendChild(plot);
-    
-    return movieDetailsSection;
+// Populate the HTML elements with the movie information
+movieTitle.textContent = shrekMovie.title;
+genre.textContent = shrekMovie.genre;
+year.textContent = shrekMovie.year;
+director.innerHTML = `<a href="#" data-tooltip="${shrekMovie.director.moviesDirected.join(', ')}">${shrekMovie.director.name}</a>`;
+writers.innerHTML = shrekMovie.writers.map(writer => `<li><a href="#" data-tooltip="${writer.booksWritten.join(', ')}">${writer.name}</a></li>`).join('');
+actors.innerHTML = shrekMovie.actors.map(actor => `<li><a href="#" data-tooltip="${actor.moviesStarred.join(', ')}"><img src="${actor.photoLink}" alt="${actor.name}" /></a></li>`).join('');
+plot.textContent = shrekMovie.plot;
+trailerLink.href = shrekMovie.trailer;
+
+// Get all the links with a data-tooltip attribute
+const links = document.querySelectorAll('[data-tooltip]');
+
+// Add mouseover and mouseout event listeners to each link
+links.forEach(link => {
+  link.addEventListener('mouseover', event => {
+    // Get the tooltip element for this link
+    const tooltip = document.createElement('div');
+    tooltip.classList.add('tooltip');
+    tooltip.textContent = link.getAttribute('data-tooltip');
+
+    // Position the tooltip
+    tooltip.style.top = event.clientY + 'px';
+    tooltip.style.left = event.clientX + 'px';
+
+    // Add the tooltip to the document
+    document.body.appendChild(tooltip);
+  });
+
+  link.addEventListener('mouseout', event => {
+    // Remove the tooltip element from the document
+    const tooltip = document.querySelector('.tooltip');
+    if (tooltip) {
+      tooltip.remove();
     }
-    
-    // Create a function to create the poster section
-    function createPosterSection(movie) {
-    const posterImage = document.createElement("img");
-    posterImage.src = movie.poster;
-    
-    const posterSection = document.createElement("section");
-    posterSection.appendChild(posterImage);
-    
-    return posterSection;
-    }
-    
-    // Create a function to create the trailer section
-    function createTrailerSection(trailerLink) {
-    const trailerAnchor = document.createElement("a");
-    trailerAnchor.href = trailerLink;
-    trailerAnchor.textContent = "Watch trailer";
-    
-    const trailerSection = document.createElement("footer");
-    trailerSection.appendChild(trailerAnchor);
-    
-    return trailerSection;
-    }
-    
-    // Create a function to display the movie details on the page
-    function displayMovieDetails(movie) {
-    const movieTitle = document.getElementById("movieTitle");
-    movieTitle.textContent = movie.title;
-    
-    const genre = document.getElementById("genre");
-    genre.textContent = movie.genre;
-    
-    const year = document.getElementById("year");
-    year.textContent = movie.year;
-    
-    const director = document.getElementById("director");
-    director.textContent = movie.director.name;
-    
-    const writers = document.getElementById("writers");
-    movie.writers.forEach((writer) => {
-    const writerItem = document.createElement("li");
-    writerItem.textContent = writer.name;
-    writers.appendChild(writerItem);
-    });
-    
-    const actors = document.getElementById("actors");
-    movie.actors.forEach((actor) => {
-    const actorItem = document.createElement("li");
-    actorItem.textContent = actor.name;
-    actors.appendChild(actorItem);
-    });
-    
-    const plot = document.getElementById("plot");
-    plot.textContent = movie.plot;
-    
-    const trailerLink = document.getElementById("trailerLink");
-    trailerLink.href = movie.trailer;
-    }
-    
-    // Call the functions to display the movie details on the page
-    const movie = movie1;
-    const movieDetails = createMovieDetails(movie);
-    const posterSection = createPosterSection(movie);
-    const trailerSection = createTrailerSection(movie.trailer);
-    
-    const main = document.querySelector("main");
-    main.appendChild(posterSection);
-    main.appendChild(movieDetails);
-    main.appendChild(trailerSection);
-    
-    displayMovieDetails(movie);
+  });
+});
+
