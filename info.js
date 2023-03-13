@@ -1,3 +1,6 @@
+
+
+ // Create a class for Artist
 class Artist {
     constructor(name, yearOfBirth) {
       this.name = name;

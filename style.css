@@ -26,28 +26,6 @@ nav {
   z-index: 2;
 }
 
-label {
-  visibility: collapse;
-}
-
-.banner {
-  width: 100%;
-  height: 93vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5)),
-    url(images/shrek_homepage_01.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-.homepage-banner {
-  width: 100%;
-  height: 93vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5)),
-    url(images/shrek_homepage_01.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
 nav ul li {
   font-size: 1.2rem;
   list-style: none;
@@ -76,6 +54,28 @@ nav ul li::after {
 
 nav ul li:hover::after {
   width: 100%;
+}
+
+label {
+  visibility: collapse;
+}
+
+.banner {
+  width: 100%;
+  height: 93vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5)),
+    url(images/shrek_homepage_01.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.homepage-banner {
+  width: 100%;
+  height: 93vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5)),
+    url(images/shrek_homepage_01.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 #logo {
@@ -294,7 +294,7 @@ footer {
     width: 80%;
   }
 
-  .banner{
+  .banner {
     max-height: 30vh;
   }
 
