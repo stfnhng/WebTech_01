@@ -87,6 +87,9 @@ section ul {
   border-radius: 0.25rem;
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+#actors-container .tooltip {
   display: none;
 }
 
