@@ -4,7 +4,7 @@ html {
 /* laptop/desktop */
 .banner {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(images/shrek_reviewpage_03.jpg);
+    url(../images/shrek_reviewpage_03.jpg);
   max-height: 40vh;
   background-position: top;
 }
