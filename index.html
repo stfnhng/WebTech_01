@@ -21,7 +21,7 @@
       <nav>
         <a id="logo" href="https://www.uu.nl/en" target="_blank"></a>
 
-        <section class="link-section">
+        <section id="nav" class="link-section">
           <h2 hidden>links to the other pages</h2>
           <input class="dropdown-button" id="dropdown-button" type="checkbox" />
           <label for="dropdown-button" class="dropdown-button">=</label>
@@ -35,7 +35,7 @@
         </section>
       </nav>
 
-      <section class="title">
+      <section id="title" class="title">
         <img
           title="Shrek"
           class="title__text"
@@ -47,7 +47,7 @@
           The best movie of all time. <br />presented to you by Dreamworks
         </h3>
 
-        <section>
+        <section id="links">
           <h2 hidden>link to watch shrek or readmore</h2>
           <form
             action="https://www.netflix.com/search?q=shrek&jbv=60020686"
@@ -79,40 +79,40 @@
 
     <section id="readmore">
       <h2>find more information about the movie Shrek</h2>
-      <section class="topic">
+      <section id="summary" class="topic">
         <a href="summary.html"
           ><div class="topic__image topic__image1">
-            <section class="topic__content">
+            <section id="topic1" class="topic__content">
               <h2>Summary</h2>
             </section>
           </div>
         </a>
       </section>
 
-      <section class="topic">
+      <section id="review" class="topic">
         <a href="review.html">
           <div class="topic__image topic__image2">
-            <section class="topic__content">
+            <section id="topic2" class="topic__content">
               <h2>Reviews</h2>
             </section>
           </div>
         </a>
       </section>
 
-      <section class="topic">
+      <section id="review" class="topic">
         <a href="characters.html"
           ><div class="topic__image topic__image3">
-            <section class="topic__content">
+            <section id="topic3" class="topic__content">
               <h2>Characters</h2>
             </section>
           </div>
         </a>
       </section>
 
-      <section class="topic">
+      <section id="relatedtopics" class="topic">
         <a href="relatedtopics.html"
           ><div class="topic__image topic__image4">
-            <section class="topic__content">
+            <section id="topic4" class="topic__content">
               <h2>Related topics</h2>
             </section>
           </div>
@@ -129,9 +129,14 @@
           <li><a href="characters.html">Characters</a></li>
           <li><a href="relatedtopics.html">Related topics</a></li>
           <li><a href="references.html">References</a></li>
+          <li>
+            <select id="select" onchange="navigate()"></select>
+          </li>
         </ul>
       </div>
       <p>&copy; 2023 INFOB2WT G07</p>
     </footer>
+
+    <script src="menus.js"></script>
   </body>
 </html>
