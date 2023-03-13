@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 .banner {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(images/shrek_relatedtopics_01.jpg);
@@ -55,7 +58,7 @@
   .related-topics-section {
     width: 95%;
     padding-top: 20px;
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 
   .related-topic {
@@ -65,6 +68,6 @@
 
   .related-topics-wrapper {
     padding-top: 20px;
-    font-size: .75rem;
+    font-size: 0.75rem;
   }
 }
