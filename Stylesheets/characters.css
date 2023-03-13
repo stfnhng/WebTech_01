@@ -1,6 +1,6 @@
 @font-face {
   font-family: shrekFont;
-  src: url(resources/shrek_font.ttf);
+  src: url(../resources/shrek_font.ttf);
 }
 html {
   scroll-behavior: smooth;
@@ -11,7 +11,7 @@ caption {
 }
 .banner {
   background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5)),
-    url(images/shrek-hot-topic-bg-3.jpg);
+    url(../images/shrek-hot-topic-bg-3.jpg);
   max-height: 40vh;
   background-position: top;
 }
