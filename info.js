@@ -1,6 +1,6 @@
 // Create a class for Movie
 class Movie {
-  constructor(title, genre, year, director, writers, actors, plot) {
+  constructor(title, genre, year, director, writers, actors, plot, poster) {
     this.title = title;
     this.genre = genre;
     this.year = year;
@@ -8,6 +8,7 @@ class Movie {
     this.writers = writers;
     this.actors = actors;
     this.plot = plot;
+    this.poster = poster;
   }
 
   // Generate the HTML for the movie details
@@ -23,6 +24,12 @@ class Movie {
     const year = document.createElement('p');
     year.id = 'year';
     year.textContent = this.year;
+
+    const posterImg = document.createElement('img');
+    posterImg.id  = 'poster';
+    posterImg.src = '../images/shrek-film-thumbnail.jpg';
+    posterImg.alt = `${this.title} poster`;
+    posterImg.classList.add('poster');
 
   // Generate the director section
     const director = document.createElement('p');
@@ -41,8 +48,11 @@ class Movie {
   }
 
   // Generate the actor section
-  const actors = document.createElement('ul');
-  actors.id = 'actors';
+
+  const actorsContainer = document.createElement('div');
+  actorsContainer.id = 'actors-container';
+
+
   for (let actor of this.actors) {
     const actorItem = document.createElement('li');
 
@@ -70,7 +80,7 @@ class Movie {
       actorTooltip.style.display = 'none';
     });
 
-    actors.appendChild(actorItem);
+    actorsContainer.appendChild(actorItem);
   }
 
     const plot = document.createElement('p');
@@ -104,8 +114,9 @@ class Movie {
 
     const section5 = document.createElement('section');
     section5.innerHTML = '<h2>Actors:</h2>';
-    section5.appendChild(actors);
-
+    section5.appendChild(actorsContainer);
+    section5.classList.add('actors-section');
+    
     const section6 = document.createElement('section');
     section6.innerHTML = '<h2>Plot:</h2>';
     section6.appendChild(plot);
@@ -118,6 +129,7 @@ class Movie {
     main.appendChild(section4);
     main.appendChild(section5);
     main.appendChild(section6);
+    main.appendChild(posterImg);
     main.appendChild(trailerLink);
   }
 }
