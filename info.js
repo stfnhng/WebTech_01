@@ -45,20 +45,33 @@ class Movie {
   actors.id = 'actors';
   for (let actor of this.actors) {
     const actorItem = document.createElement('li');
-    // Create an <img> element for the actor's photo
+
     const actorPhoto = document.createElement('img');
     actorPhoto.src = actor.photoLink;
     actorPhoto.alt = actor.name;
     actorPhoto.classList.add('actor-photo');
-    actorItem.appendChild(actorPhoto);
-    // Create a <span> element for the actor's name
+
     const actorName = document.createElement('span');
     actorName.textContent = actor.name;
-    actor.addTooltip(actorName, `Born:${actor.yearOfBirth} \nStarred: ${actor.moviesStarred.join(', ')}`);
+
+    const actorTooltip = document.createElement('div');
+    actorTooltip.classList.add('tooltip');
+    actorTooltip.innerHTML = `Born: ${actor.yearOfBirth}<br>Starred: ${actor.moviesStarred.join(', ')}`;
+
+    actorItem.appendChild(actorPhoto);
     actorItem.appendChild(actorName);
+    actorItem.appendChild(actorTooltip);
+
+    actorItem.addEventListener('mouseover', () => {
+      actorTooltip.style.display = 'block';
+    });
+
+    actorItem.addEventListener('mouseout', () => {
+      actorTooltip.style.display = 'none';
+    });
+
     actors.appendChild(actorItem);
   }
-
 
     const plot = document.createElement('p');
     plot.id = 'plot';
