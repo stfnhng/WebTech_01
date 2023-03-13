@@ -1,60 +1,4 @@
-// var movieTitle = document.createElement('h1');
-// movieTitle.id = 'movieTitle';
-// var genre = document.createElement('p');
-// genre.id = 'genre';
-// var year = document.createElement('p');
-// year.id = 'year';
-// var director = document.createElement('p');
-// director.id = 'director';
-// var writers = document.createElement('ul');
-// writers.id = 'writers';
-// var actors = document.createElement('ul');
-// actors.id = 'actors';
-// var plot = document.createElement('p');
-// plot.id = 'plot';
-
-// var trailerLink = document.createElement('a');
-// trailerLink.id = 'trailerLink';
-// trailerLink.href = '#';
-// trailerLink.textContent = 'Watch trailer';
-
-// var header = document.createElement('header');
-// header.appendChild(movieTitle);
-
-// var section1 = document.createElement('section');
-// section1.innerHTML = '<h2>Genre:</h2>';
-// section1.appendChild(genre);
-
-// var section2 = document.createElement('section');
-// section2.innerHTML = '<h2>Year:</h2>';
-// section2.appendChild(year);
-
-// var section3 = document.createElement('section');
-// section3.innerHTML = '<h2>Director:</h2>';
-// section3.appendChild(director);
-
-// var section4 = document.createElement('section');
-// section4.innerHTML = '<h2>Writers:</h2>';
-// section4.appendChild(writers);
-
-// var section5 = document.createElement('section');
-// section5.innerHTML = '<h2>Stars:</h2>';
-// section5.appendChild(actors);
-
-// var section6 = document.createElement('section');
-// section6.innerHTML = '<h2>Plot:</h2>';
-// section6.appendChild(plot);
-
-// var main = document.querySelector('main');
-// main.appendChild(header);
-// main.appendChild(section1);
-// main.appendChild(section2);
-// main.appendChild(section3);
-// main.appendChild(section4);
-// main.appendChild(section5);
-// main.appendChild(section6);
-// Define the Movie class
-
+// Create a class for Movie
 class Movie {
   constructor(title, genre, year, director, writers, actors, plot) {
     this.title = title;
@@ -83,7 +27,7 @@ class Movie {
     const director = document.createElement('p');
   director.id = 'director';
   director.textContent = `${this.director.name}`;
-  this.director.addTooltip(director, `\nDirected: ${this.director.moviesDirected.join(', ')}`);
+  this.director.addTooltip(director, `Born: ${this.director.yearOfBirth}\nDirected: ${this.director.moviesDirected.join(', ')}`);
 
   const writers = document.createElement('ul');
   writers.id = 'writers';
@@ -91,7 +35,7 @@ class Movie {
   for (let writer of this.writers) {
     const writerItem = document.createElement('li');
     writerItem.textContent = writer.name;
-    writer.addTooltip(writerItem, `\nWritten: ${writer.booksWritten.join(', ')}`);
+    writer.addTooltip(writerItem, `Born: ${writer.yearOfBirth}\nWritten: ${writer.booksWritten.join(', ')}`);
     writers.appendChild(writerItem);
   }
 
@@ -101,7 +45,7 @@ class Movie {
   for (let actor of this.actors) {  
     const actorItem = document.createElement('li');
     actorItem.textContent = actor.name;
-    actor.addTooltip(actorItem, `\nStarred: ${actor.moviesStarred.join(', ')}`);
+    actor.addTooltip(actorItem, `Born:${actor.yearOfBirth} \nStarred: ${actor.moviesStarred.join(', ')}`);
     actors.appendChild(actorItem);
   }
 
@@ -112,7 +56,7 @@ class Movie {
 
     const trailerLink = document.createElement('a');
     trailerLink.id = 'trailerLink';
-    trailerLink.href = '#';
+    trailerLink.href = 'https://www.youtube.com/watch?v=CwXOrWvPBPk';
     trailerLink.textContent = 'Watch trailer';
 
     const header = document.createElement('header');
@@ -164,10 +108,10 @@ class Artist {
       element.addEventListener('mouseover', () => {
         const tooltip = document.createElement('div');
         tooltip.classList.add('tooltip');
-        tooltip.textContent = text;
+        tooltip.innerHTML = text.replace(/\n/g, '<br>');
         element.appendChild(tooltip);
       });
-  
+    
       // Add mouseout event listener to hide tooltip
       element.addEventListener('mouseout', () => {
         const tooltip = element.querySelector('.tooltip');
