@@ -14,6 +14,7 @@
     />
     <title>Shrek</title>
     <link rel="stylesheet" href="style.css" />
+    <script defer src="menus.js"></script>
   </head>
 
   <body>
@@ -130,13 +131,26 @@
           <li><a href="relatedtopics.html">Related topics</a></li>
           <li><a href="references.html">References</a></li>
           <li>
-            <select id="select" onchange="navigate()"></select>
+            <select id="select"></select>
+          </li>
+          <li>
+            <select>
+              <optgroup label="fontsizes">
+                <option>2x</option>
+                <option>3x</option>
+              </optgroup>
+              <optgroup label="color">
+                <option>red</option>
+                <option>green</option>
+              </optgroup>
+            </select>
+          </li>
+          <li>
+            <button onclick="select_element()">apply changes</button>
           </li>
         </ul>
       </div>
       <p>&copy; 2023 INFOB2WT G07</p>
     </footer>
-
-    <script src="menus.js"></script>
   </body>
 </html>
