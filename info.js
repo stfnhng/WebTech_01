@@ -93,35 +93,36 @@ class Movie {
     trailerLink.textContent = 'Watch trailer';
 
     const header = document.createElement('header');
-    header.appendChild(movieTitle);
 
     const section1 = document.createElement('section');
     section1.innerHTML = '<h2>Genre:</h2>';
-    section1.appendChild(genre);
-
+    
     const section2 = document.createElement('section');
     section2.innerHTML = '<h2>Year:</h2>';
-    section2.appendChild(year);
-
+    
     const section3 = document.createElement('section');
     section3.innerHTML = '<h2>Director:</h2>';
-    section3.appendChild(director);
+    
 
     const section4 = document.createElement('section');
     section4.innerHTML = '<h2>Writers:</h2>';
 
-    section4.appendChild(writers);
-
     const section5 = document.createElement('section');
     section5.innerHTML = '<h2>Actors:</h2>';
-    section5.appendChild(actorsContainer);
     section5.classList.add('actors-section');
-    
+
     const section6 = document.createElement('section');
     section6.innerHTML = '<h2>Plot:</h2>';
-    section6.appendChild(plot);
+     
+    const main = document.getElementsByTagName('main')[0];
 
-    const main = document.querySelector('main');
+    header.appendChild(movieTitle);
+    section1.appendChild(genre);
+    section2.appendChild(year);
+    section3.appendChild(director);
+    section4.appendChild(writers);
+    section5.appendChild(actorsContainer);
+    section6.appendChild(plot);
     main.appendChild(header);
     main.appendChild(section1);
     main.appendChild(section2);
