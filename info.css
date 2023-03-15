@@ -2,24 +2,18 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  font-size: 16px;
 }
 
 /* Header styles */
 header {
   background-color: #333;
   color: #fff;
-  padding: 10px;
-}
-
-header h1 {
-  margin: 0;
 }
 
 /* Main section styles */
 main {
   max-width: 90%;
-  margin: 20px 10%;
+  margin: 0 10%;
   line-height: 1.8;
   box-sizing: border-box;
   border-radius: 4px;
@@ -33,12 +27,12 @@ nav {
 }
 
 section {
-  margin-bottom: 20px;
+  margin-bottom: 2%;
 }
 
 section h2 {
   margin-top: 0;
-  font-size: 20px;
+  font-size: 1.2em;
   font-weight: bold;
 }
 
@@ -48,7 +42,7 @@ section p {
 
 section ul {
   margin: 0;
-  padding-left: 20px;
+  padding-left: 2%;
   list-style: none;
 }
 
@@ -99,4 +93,17 @@ section ul {
 }
 #trailerLink {
   font-size: 2rem;
+}
+@media only screen and (max-width: 600px) {
+  .actor-photo {
+    width: 7rem;
+    height: 10rem;
+  }
+  #poster {
+    width: 50%;
+    height: 50%;
+  }
+  #trailerLink {
+    font-size: 1rem;
+  }
 }
