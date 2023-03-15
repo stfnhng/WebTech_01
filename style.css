@@ -188,12 +188,13 @@ h3 {
   padding: 12px;
   height: 400px;
   font-size: 1rem;
+  color: #f3f3f3;
 }
 
 .topic a {
   display: block;
   text-decoration: none;
-  color: #f3f3f3;
+  color: inherit;
 }
 
 .topic img {
@@ -207,6 +208,7 @@ h3 {
   position: absolute;
   width: 100%;
   height: 400px;
+  color: inherit;
 }
 
 .topic__image1 {
@@ -214,6 +216,7 @@ h3 {
     url(images/shrek-hot-topic-bg-1.jpg);
   background-size: cover;
   background-position: center;
+  color: inherit;
 }
 
 .topic__image2 {
@@ -245,12 +248,13 @@ h3 {
   height: 400px;
   width: 250px;
   line-height: 1.3;
-  color: #f3f3f3;
+  color: inherit;
 }
 .topic h2 {
   padding: 20px 10px;
   font-size: 2em;
   text-shadow: 0 0 10px #000;
+  color: inherit;
 }
 
 .topic p {
@@ -289,7 +293,7 @@ footer {
 }
 
 .footer-links a {
-  color: #fff;
+  color: inherit;
   text-decoration: none;
 }
 
