@@ -24,6 +24,7 @@ html {
   box-sizing: border-box;
   border-radius: 4px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  font-size: 1rem;
 }
 .summary__title .summary__content {
   position: relative;
@@ -40,9 +41,10 @@ h3 {
   padding: 0 10px;
   white-space: normal;
   text-align: center;
+  font-size: 1.2em;
 }
 p {
-  font-size: 1.2rem;
+  font-size: 1.2em;
 }
 
 @media only screen and (max-width: 600px) {
