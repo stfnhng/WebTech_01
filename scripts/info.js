@@ -1,3 +1,5 @@
+document.body.id = 'body';
+
 // Create a class for Artist
 class Artist {
     constructor(name, yearOfBirth) {
