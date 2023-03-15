@@ -33,17 +33,12 @@ html {
   margin-bottom: 30px;
 }
 
-.related-topic__header {
-  display: flex;
-  max-width: 150px;
-  padding-right: 20px;
-}
-
-.related-topic__header img {
-  width: 100px;
-  height: 100px;
+img {
+  max-width: 10em;
+  max-height: 10em;
   object-fit: cover;
   object-position: 0% 35%;
+  padding-right: 2em;
 }
 
 .related-topic__content {
