@@ -45,12 +45,9 @@ for (var part_of_page of element_collection){
 }
 
 
-first_menu.addEventListener("change", select_element);
+//first_menu.addEventListener("change", select_element);
 
-//TODO: add proper function to eventlistener
-element_property.addEventListener("change",test);
-//alleen deze wordt aangeroepen tot nu to 
-//TODO: weghalen
+//the function that runs when the button next to the 
 function select_element(){
     //get the element that is selected
     var element = document.getElementById(first_menu.value);
@@ -68,6 +65,3 @@ function select_element(){
     console.log(stylevalue);
     
 }
-
-
-
