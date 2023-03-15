@@ -17,11 +17,11 @@
     <link rel="stylesheet" href="characters.css" />
   </head>
 
-  <body>
-    <header class="banner">
+  <body id="body">
+    <header id="header" class="banner">
       <nav>
         <a id="logo" href="https://www.uu.nl/en" target="_blank"></a>
-        <section class="link-section">
+        <section id="links" class="link-section">
           <h2 hidden>links to the other pages</h2>
           <input class="dropdown-button" id="dropdown-button" type="checkbox" />
           <label for="dropdown-button" class="dropdown-button">=</label>
@@ -35,11 +35,11 @@
         </section>
       </nav>
 
-      <section class="page-title">
+      <section id="title" class="page-title">
         <h1>Characters</h1>
       </section>
     </header>
-    <article class="actors">
+    <article id="actors" class="actors">
       <h2 hidden>the characters of the Shrek movie</h2>
       <table class="actors__table">
         <caption>
@@ -145,7 +145,7 @@
         </tbody>
       </table>
     </article>
-    <section class="content-wrapper">
+    <section id="more_information" class="content-wrapper">
       <h2>More information about the Actors</h2>
       <ul class="info-list">
         <li class="article-list">
@@ -329,7 +329,7 @@
         </li>
       </ul>
     </section>
-    <footer>
+    <footer id="footer">
       <div class="footer-links">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -338,10 +338,24 @@
           <li><a href="characters.html">Characters</a></li>
           <li><a href="relatedtopics.html">Related topics</a></li>
           <li><a href="references.html">References</a></li>
+          <!--menus -->
           <li>
-            <select id="select" onchange="bruh()">
-              <option value="1">seks</option>
+            <select id="first_menu"></select>
+          </li>
+          <li>
+            <select id="second_menu">
+              <optgroup label="fontsizes">
+                <option>2x</option>
+                <option>3x</option>
+              </optgroup>
+              <optgroup label="color">
+                <option>red</option>
+                <option>green</option>
+              </optgroup>
             </select>
+          </li>
+          <li>
+            <button onclick="select_element()">apply changes</button>
           </li>
         </ul>
       </div>
