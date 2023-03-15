@@ -1,5 +1,5 @@
 //get the header element
-var header = document.querySelectorAll("header")
+var header = document.querySelectorAll("header");
 //get the body element
 var body = document.querySelectorAll("body");
 //get all the section elements
@@ -20,41 +20,54 @@ console.log("");
 // make an array of arrays to make create options for all the tags in just one go
 var element_collection = [header,body,sections,articles,footer];
 
-//get the select elemnt for the first menu
+//get the select element for the first menu
 var first_menu = document.getElementById("first_menu");
+//get the property form the second menu needed to be changed
+var element_property = document.getElementById("second_menu");
 //check if we got the right element
 console.log(first_menu);
+console.log(element_property);
 
-//create a option tag for all the elements that we want to be able to changed.
+
 console.log("");
-
+//create a option tag for all the elements that we want to be able to changed.
 for (var part_of_page of element_collection){
     
     for(var element_of_page of part_of_page){
         
         var option = document.createElement("option");
         var option_text = document.createTextNode(element_of_page.id);
+        option.setAttribute("value",element_of_page.id.toLowerCase());
         option.appendChild(option_text);
         first_menu.appendChild(option);
         console.log(element_of_page);
     }
 }
+
+
+first_menu.addEventListener("change", select_element);
+
+//TODO: add proper function to eventlistener
+element_property.addEventListener("change",test);
 //alleen deze wordt aangeroepen tot nu to 
 //TODO: weghalen
 function select_element(){
-    var index = select.selectedIndex;
-    //window.scrollTo(0, document.getElementById(filler))
-    //window.scrollTo(100, document.getElementById(select[index].innerHTML));
-    //document.getElementById(select[index].innerHTML).scrollIntoView();
-    document.querySelectorAll("section")[index].scrollIntoView(-100);
+    //get the element that is selected
+    var element = document.getElementById(first_menu.value);
+    console.log(element);
+
+    //ask for a value for the selected style
+    var stylevalue = prompt(`change the appearance of : ${element.id}`);
     
-    console.log(document.getElementById(select[index].innerHTML));
+    if(element_property.value=="fontSize"){
+        element.style.fontSize = stylevalue+"px";
+    }
+    else if(element_property.value== "color"){
+        element.style.color = stylevalue;
+    }
+    console.log(stylevalue);
+    
 }
-//TODO: weghalen
-function change_styling() {
-    document.querySelectorAll("section")[index].childNodes[1].style.fontSize="3em";
-    var test = document.querySelectorAll("section")[index];
-    console.log(test.childNodes[0]);
-}
+
 
 
