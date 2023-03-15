@@ -26,6 +26,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 2;
+  font-size: 1rem;
 }
 
 label {
@@ -51,7 +52,7 @@ label {
 }
 
 nav ul li {
-  font-size: 1.2rem;
+  font-size: 1.2em;
   list-style: none;
   display: inline-block;
   margin: 0 15px;
@@ -346,6 +347,7 @@ footer {
 
   .link-section {
     padding-left: 30px;
+    font-size: 1.2em;
   }
 
   input[type="checkbox"]:checked ~ ul.nav-links {
