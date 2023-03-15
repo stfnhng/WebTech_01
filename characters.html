@@ -17,11 +17,11 @@
     <link rel="stylesheet" href="../styles/characters.css" />
   </head>
 
-  <body>
-    <header class="banner">
+  <body id="body">
+    <header id="header" class="banner">
       <nav>
         <a id="logo" href="https://www.uu.nl/en" target="_blank"></a>
-        <section class="link-section">
+        <section id="links" class="link-section">
           <h2 hidden>links to the other pages</h2>
           <input class="dropdown-button" id="dropdown-button" type="checkbox" />
           <label for="dropdown-button" class="dropdown-button">=</label>
@@ -36,11 +36,11 @@
         </section>
       </nav>
 
-      <section class="page-title">
+      <section id="title" class="page-title">
         <h1>Characters</h1>
       </section>
     </header>
-    <article class="actors">
+    <article id="actors" class="actors">
       <h2 hidden>the characters of the Shrek movie</h2>
       <table class="actors__table">
         <caption>
@@ -152,11 +152,11 @@
         </tbody>
       </table>
     </article>
-    <section class="content-wrapper">
+    <section id="more_information" class="content-wrapper">
       <h2>More information about the Actors</h2>
       <ul class="info-list">
         <li class="article-list">
-          <section id="Mike-Myers">
+          <section id="mike-myers">
             <h3>Michael John Myers</h3>
             <p>
               Michael Myers is an Canadian actor, comedian, producer, director
@@ -172,7 +172,7 @@
         </li>
 
         <li class="article-list">
-          <section id="Eddie-Murphy">
+          <section id="eddie-murphy">
             <h3>Eddie Murphy</h3>
             <p>
               Eddie murphy is an african american actor, comedian.<br />
@@ -204,7 +204,7 @@
         </li>
 
         <li class="article-list">
-          <section id="Cameron-Diaz">
+          <section id="cameron-diaz">
             <h3>Cameron diaz</h3>
             <p>
               Cameron diaz is an American actress known for her roles in the
@@ -223,7 +223,7 @@
         </li>
 
         <li class="article-list">
-          <section id="John-Lithgow">
+          <section id="john-lithgow">
             <h3>John Lithgow</h3>
             <p>
               John Lithgow is an American actor who was nominated for multiple
@@ -247,7 +247,7 @@
         </li>
 
         <li class="article-list">
-          <section id="Conrad-Vernon">
+          <section id="conrad-vernon">
             <h3>Conrad Vernon</h3>
             <p>
               Conrad Vernon fills out many functions. <br />
@@ -264,7 +264,7 @@
         </li>
 
         <li class="article-list">
-          <section id="Vincent-Cassel">
+          <section id="vincent-cassel">
             <h3>Vincent Cassel</h3>
             <p>
               Vincent cassel is a french. he is both a director and actor who
@@ -298,7 +298,7 @@
         </li>
 
         <li class="article-list">
-          <section id="Aron-Warner">
+          <section id="aron-warner">
             <h3>Aron Warner</h3>
             <p>
               Aron Warner is a producer and voice actor. He started his career
@@ -314,7 +314,7 @@
         </li>
 
         <li class="article-list">
-          <section id="Chris-Miller">
+          <section id="chris-miller">
             <h3>Chris Miller</h3>
             <p>
               Chris Miller is a voice actor, animator, direcor and storyboard
@@ -336,8 +336,8 @@
         </li>
       </ul>
     </section>
-    <footer>
-      <div class="footer-links">
+    <footer id="footer">
+      <section id="footer-links" class="footer-links">
         <ul>
           <li><a href="../index.html">Home</a></li>
           <li><a href="../summary.html">Summary</a></li>
@@ -346,9 +346,24 @@
           <li><a href="../relatedtopics.html">Related topics</a></li>
           <li><a href="../info.html">Info</a></li>
           <li><a href="../references.html">References</a></li>
+          <!--menus -->
+          <li>
+            <select id="first_menu"></select>
+          </li>
+          <li>
+            <select id="second_menu">
+              <option value="fontSize">fontsize</option>
+              <option value="color">color</option>
+            </select>
+          </li>
+          <li>
+            <button onclick="select_element()">apply changes</button>
+          </li>
         </ul>
-      </div>
+      </section>
       <p>&copy; 2023 INFOB2WT G07</p>
     </footer>
+
+    <script src="menus.js"></script>
   </body>
 </html>

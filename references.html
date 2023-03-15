@@ -12,10 +12,11 @@
     <title>References - Shrek Website</title>
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/references.css" />
+    <script defer src="menus.js"></script>
   </head>
 
-  <body>
-    <header class="banner">
+  <body id="body">
+    <header id="header" class="banner">
       <nav>
         <a
           title="A Logo of Utrecht Univerity"
@@ -23,7 +24,7 @@
           href="https://www.uu.nl/en"
           target="_blank"
         ></a>
-        <section class="link-section">
+        <section id="links" class="link-section">
           <h2 hidden>links to the other pages</h2>
           <input class="dropdown-button" id="dropdown-button" type="checkbox" />
           <label for="dropdown-button" class="dropdown-button">=</label>
@@ -37,12 +38,12 @@
           </ul>
         </section>
       </nav>
-      <section class="page-title">
+      <section id="title" class="page-title">
         <h1>References</h1>
       </section>
     </header>
 
-    <section class="content">
+    <section id="reference-links" class="content">
       <h2>General</h2>
       <h3>Images</h3>
       <ul>
@@ -269,8 +270,8 @@
         </li>
       </ul>
     </section>
-    <footer>
-      <div class="footer-links">
+    <footer id="footer">
+      <section id="footer-links" class="footer-links">
         <ul>
           <li><a href="../index.html">Home</a></li>
           <li><a href="../summary.html">Summary</a></li>
@@ -279,8 +280,21 @@
           <li><a href="../relatedtopics.html">Related topics</a></li>
           <li><a href="../info.html">Info</a></li>
           <li><a href="../references.html">References</a></li>
+          <!--menus -->
+          <li>
+            <select id="first_menu"></select>
+          </li>
+          <li>
+            <select id="second_menu">
+              <option value="fontSize">fontsize</option>
+              <option value="color">color</option>
+            </select>
+          </li>
+          <li>
+            <button onclick="select_element()">apply changes</button>
+          </li>
         </ul>
-      </div>
+      </section>
       <p>&copy; 2023 INFOB2WT G07</p>
     </footer>
   </body>

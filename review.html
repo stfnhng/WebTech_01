@@ -9,10 +9,11 @@
     <title>Shrek - Reviews</title>
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/review.css" />
+    <script defer src="menus.js"></script>
   </head>
 
-  <body>
-    <header class="banner">
+  <body id="body">
+    <header id="header" class="banner">
       <nav>
         <a
           title="A Logo of Utrecht Univerity"
@@ -20,7 +21,7 @@
           href="https://www.uu.nl/en"
           target="_blank"
         ></a>
-        <section class="link-section">
+        <section id="links" class="link-section">
           <h2 hidden>links to the other pages</h2>
           <input class="dropdown-button" id="dropdown-button" type="checkbox" />
           <label for="dropdown-button" class="dropdown-button">=</label>
@@ -35,19 +36,19 @@
         </section>
       </nav>
 
-      <section class="page-title">
+      <section id="title" class="page-title">
         <h1>Reviews</h1>
       </section>
     </header>
 
     <main>
-      <section class="review-section">
+      <section id="review-section" class="review-section">
         <h2>Reviews on the movie Shrek</h2>
         <p>Highly respected reviewers share their opinion.</p>
 
-        <section class="review-wrapper">
+        <section id="reviews" class="review-wrapper">
           <h2 hidden>reviews</h2>
-          <article class="review">
+          <article id="peter-bradshaw" class="review">
             <div class="review__header">
               <img
                 src="../images/PeterBradshaw1.jpg"
@@ -55,7 +56,7 @@
               />
               <h3>Peter Bradshaw from The Guardian</h3>
             </div>
-            <article class="review__content">
+            <article id="pb-review" class="review__content">
               <h4>Shrek: Breathtaking animation and very laughable</h4>
               <p>
                 There was a time when swearing was a big no-no in films from the
@@ -90,12 +91,12 @@
               </p>
             </article>
           </article>
-          <article class="review">
+          <article id="ben-falk" class="review">
             <div class="review__header">
               <img src="../images/BenFalk2.jpg" alt="An image of Ben Falk" />
               <h3>Ben Falk from BBC</h3>
             </div>
-            <article class="review__content">
+            <article id="bf-review" class="review__content">
               <h4>Shrek (2001)</h4>
               <p>
                 Someone recently said that with the money and personnel that go
@@ -131,7 +132,7 @@
               </p>
             </article>
           </article>
-          <article class="review">
+          <article id="desson-howe" class="review">
             <div class="review__header">
               <img
                 src="../images/Desson-Howe.jpg"
@@ -139,7 +140,7 @@
               />
               <h3>Desson Howe from Washington Post</h3>
             </div>
-            <article class="review__content">
+            <article id="dh-review" class="review__content">
               <h4>'Shrek': A Funny, Fractured Fairy Tale</h4>
               <p>
                 In William Steig's children's book of the same name, Shrek was a
@@ -172,7 +173,7 @@
               </p>
             </article>
           </article>
-          <article class="review">
+          <article id="lou-lumenick" class="review">
             <div class="review__header">
               <img
                 src="../images/LouLumenick1.jpg"
@@ -180,7 +181,7 @@
               />
               <h3>Lou Lumenick from New York Post</h3>
             </div>
-            <article class="review__content">
+            <article id="ll-review" class="review__content">
               <h4>
                 'Shrek' it out: an unlikely lovable ogre cavorts in an instant
                 fairy-tale classic
@@ -216,8 +217,8 @@
       </section>
     </main>
 
-    <footer>
-      <div class="footer-links">
+    <footer id="footer">
+      <section id="footer-links" class="footer-links">
         <ul>
           <li><a href="../index.html">Home</a></li>
           <li><a href="../summary.html">Summary</a></li>
@@ -226,8 +227,21 @@
           <li><a href="../relatedtopics.html">Related topics</a></li>
           <li><a href="../info.html">Info</a></li>
           <li><a href="../references.html">References</a></li>
+          <!--menus -->
+          <li>
+            <select id="first_menu"></select>
+          </li>
+          <li>
+            <select id="second_menu">
+              <option value="fontSize">fontsize</option>
+              <option value="color">color</option>
+            </select>
+          </li>
+          <li>
+            <button onclick="select_element()">apply changes</button>
+          </li>
         </ul>
-      </div>
+      </section>
       <p>&copy; 2023 INFOB2WT G07</p>
     </footer>
   </body>
