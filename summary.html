@@ -12,8 +12,8 @@
     <script defer src="menus.js"></script>
   </head>
 
-  <body>
-    <header class="banner">
+  <body id="body">
+    <header id="header" class="banner">
       <nav>
         <a
           title="A Logo of Utrecht Univerity"
@@ -21,7 +21,7 @@
           href="https://www.uu.nl/en"
           target="_blank"
         ></a>
-        <section class="link-section">
+        <section id="links" class="link-section">
           <h2 hidden>links to the other pages</h2>
           <input class="dropdown-button" id="dropdown-button" type="checkbox" />
           <label for="dropdown-button" class="dropdown-button">=</label>
@@ -34,12 +34,12 @@
           </ul>
         </section>
       </nav>
-      <section class="page-title">
+      <section id="title" class="page-title">
         <h1>Summary</h1>
       </section>
     </header>
 
-    <section class="summary">
+    <section id="summary" class="summary">
       <img
         class="thumbnail"
         src="images/shrek-film-thumbnail.jpg"
@@ -47,7 +47,7 @@
       />
       <h2 class="summary__title">Shrek (2001)</h2>
 
-      <article class="summary__content">
+      <article id="summary-text" class="summary__content">
         <h3>Written by Movie House Memories</h3>
         <p>
           Shrek (Mike Myers) is a large, temperamental, green ogre who lives in
@@ -141,7 +141,7 @@
       </article>
     </section>
 
-    <footer>
+    <footer id="footer">
       <div class="footer-links">
         <ul>
           <li><a href="index.html">Home</a></li>
