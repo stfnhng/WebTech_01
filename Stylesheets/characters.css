@@ -1,10 +1,17 @@
 @font-face {
   font-family: shrekFont;
-  src: url(resources/shrek_font.ttf);
+  src: url(../resources/shrek_font.ttf);
+}
+html {
+  scroll-behavior: smooth;
+}
+caption {
+  font-family: shrekFont;
+  font-size: 2rem;
 }
 .banner {
   background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5)),
-    url(images/shrek-hot-topic-bg-3.jpg);
+    url(../images/shrek-hot-topic-bg-3.jpg);
   max-height: 40vh;
   background-position: top;
 }
@@ -15,14 +22,16 @@ table {
   border-radius: 4px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
-
+section.content-wrapper h2 {
+  text-align: center;
+  padding-top: 2%;
+}
 td,
 th {
   border: 1px solid Black;
   padding: 20px;
   font-family: shrekFont;
   text-align: center;
-  
 }
 th {
   background-color: darkgreen;
@@ -30,7 +39,7 @@ th {
 td {
   background-color: #e9dfac;
 }
-td img{
+td img {
   height: 150px;
   width: 100px;
 }
@@ -38,7 +47,7 @@ article li h1 {
   text-align: center;
 }
 
-.content-wrapper{
+.content-wrapper {
   max-width: 90%;
   margin: 20px 10%;
   line-height: 1.8;

@@ -1,24 +1,28 @@
+html {
+  scroll-behavior: smooth;
+}
+/* laptop/desktop */
 .banner {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(images/shrek_relatedtopics_01.jpg);
+    url(../images/shrek_reviewpage_03.jpg);
   max-height: 40vh;
-  background-position: 0% 35%;
+  background-position: top;
 }
 
-.related-topics-section {
+.review-section {
   width: 80%;
   margin: auto;
   padding-top: 45px;
 }
 
-.related-topics-wrapper {
+.review-wrapper {
   margin-top: auto;
   padding-top: 45px;
   align-items: center;
   justify-content: center;
 }
 
-.related-topic {
+.review {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -30,41 +34,55 @@
   margin-bottom: 30px;
 }
 
-.related-topic__header {
+.review__header {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   max-width: 150px;
   padding-right: 20px;
 }
 
-.related-topic__header img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  object-position: 0% 35%;
+.review__header img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-right: 20px;
 }
 
-.related-topic__content {
+.review__content {
   flex: 1;
 }
 
+/* phone */
 @media only screen and (max-width: 600px) {
   .banner {
     max-height: 30vh;
   }
 
-  .related-topics-section {
+  .review-section {
     width: 95%;
     padding-top: 20px;
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 
-  .related-topic {
+  .review {
+    flex-direction: column;
     padding: 15px;
     margin-bottom: 15px;
   }
 
-  .related-topics-wrapper {
+  .review-wrapper {
     padding-top: 20px;
-    font-size: .75rem;
+    font-size: 0.75rem;
+  }
+
+  .review__header {
+    flex-direction: row;
+    padding-bottom: 10px;
+  }
+
+  .review__header img {
+    width: 60%;
+    margin-right: 10px;
   }
 }
