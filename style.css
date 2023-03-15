@@ -169,11 +169,12 @@ h3 {
   justify-content: center;
   padding: 40px 0;
   background-color: #4b6d2c;
+  color: #fec53a;
 }
 
 #filler h4 {
-  color: #fec53a;
-  font-size: 3rem;
+  color: inherit;
+  font-size: 3em;
   font-weight: 400;
   font-family: shrekFont;
 }
@@ -186,6 +187,7 @@ h3 {
   left: 15%;
   padding: 12px;
   height: 400px;
+  font-size: 1rem;
 }
 
 .topic a {
@@ -247,7 +249,7 @@ h3 {
 }
 .topic h2 {
   padding: 20px 10px;
-  font-size: 2rem;
+  font-size: 2em;
   text-shadow: 0 0 10px #000;
 }
 
