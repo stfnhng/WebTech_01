@@ -17,26 +17,18 @@
 
   <body id="body">
     <header id="header" class="banner">
-      <nav>
-        <a
-          title="A Logo of Utrecht Univerity"
-          id="logo"
-          href="https://www.uu.nl/en"
-          target="_blank"
-        ></a>
-        <section id="links" class="link-section">
-          <h2 hidden>links to the other pages</h2>
-          <input class="dropdown-button" id="dropdown-button" type="checkbox" />
-          <label for="dropdown-button" class="dropdown-button">=</label>
-          <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../summary.html">Summary</a></li>
-            <li><a href="../review.html">Reviews</a></li>
-            <li><a href="../characters.html">Characters</a></li>
-            <li><a href="../relatedtopics.html">Related topics</a></li>
-            <li><a href="../info.html">Info</a></li>
-          </ul>
-        </section>
+      <nav id="nav">
+        <a id="logo" href="https://www.uu.nl/en" target="_blank"></a>
+        <input class="dropdown-button" id="dropdown-button" type="checkbox" />
+        <label for="dropdown-button" class="dropdown-button">=</label>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../summary.html">Summary</a></li>
+          <li><a href="../review.html">Reviews</a></li>
+          <li><a href="../characters.html">Characters</a></li>
+          <li><a href="../relatedtopics.html">Related topics</a></li>
+          <li><a href="../info.html">Info</a></li>
+        </ul>
       </nav>
       <section id="title" class="page-title">
         <h1>References</h1>
@@ -270,31 +262,35 @@
         </li>
       </ul>
     </section>
-    <footer id="footer">
-      <section id="footer-links" class="footer-links">
-        <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../summary.html">Summary</a></li>
-          <li><a href="../review.html">Reviews</a></li>
-          <li><a href="../characters.html">Characters</a></li>
-          <li><a href="../relatedtopics.html">Related topics</a></li>
-          <li><a href="../info.html">Info</a></li>
-          <li><a href="../references.html">References</a></li>
-          <!--menus -->
-          <li>
-            <select id="first_menu"></select>
-          </li>
-          <li>
-            <select id="second_menu">
-              <option value="fontSize">fontsize</option>
-              <option value="color">color</option>
-            </select>
-          </li>
-          <li>
-            <button onclick="select_element()">apply changes</button>
-          </li>
-        </ul>
-      </section>
+    <footer id="footer" class="footer-links">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../summary.html">Summary</a></li>
+        <li><a href="../review.html">Reviews</a></li>
+        <li><a href="../characters.html">Characters</a></li>
+        <li><a href="../relatedtopics.html">Related topics</a></li>
+        <li><a href="../info.html">Info</a></li>
+        <li><a href="../references.html">References</a></li>
+        <!--menus -->
+        <li>
+          <select id="first_menu">
+            <option disabled selected>select a part of the page</option>
+          </select>
+        </li>
+        <li>
+          <select id="second_menu">
+            <option disabled selected>
+              select the styling you want to change
+            </option>
+            <option value="fontSize">fontsize</option>
+            <option value="color">color</option>
+          </select>
+        </li>
+        <li>
+          <button onclick="select_element()">apply changes</button>
+        </li>
+      </ul>
+
       <p>&copy; 2023 INFOB2WT G07</p>
     </footer>
   </body>

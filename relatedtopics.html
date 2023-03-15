@@ -14,27 +14,18 @@
 
   <body id="body">
     <header id="header" class="banner">
-      <nav>
-        <a
-          title="A Logo of Utrecht Univerity"
-          id="logo"
-          href="https://www.uu.nl/en"
-          target="_blank"
-        ></a>
-
-        <section id="links" class="link-section">
-          <h2 hidden>links to the other pages</h2>
-          <input class="dropdown-button" id="dropdown-button" type="checkbox" />
-          <label for="dropdown-button" class="dropdown-button">=</label>
-          <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../summary.html">Summary</a></li>
-            <li><a href="../review.html">Reviews</a></li>
-            <li><a href="../characters.html">Characters</a></li>
-            <li><a href="../relatedtopics.html">Related topics</a></li>
-            <li><a href="../info.html">Info</a></li>
-          </ul>
-        </section>
+      <nav id="nav">
+        <a id="logo" href="https://www.uu.nl/en" target="_blank"></a>
+        <input class="dropdown-button" id="dropdown-button" type="checkbox" />
+        <label for="dropdown-button" class="dropdown-button">=</label>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../summary.html">Summary</a></li>
+          <li><a href="../review.html">Reviews</a></li>
+          <li><a href="../characters.html">Characters</a></li>
+          <li><a href="../relatedtopics.html">Related topics</a></li>
+          <li><a href="../info.html">Info</a></li>
+        </ul>
       </nav>
 
       <section id="page-title" class="page-title">
@@ -51,9 +42,9 @@
           things so on this page you can find the highlights. The links are not
           affiliated.
         </p>
-
-        <section id="related-topics" class="related-topics-wrapper">
-          <section id="shrek-2" class="related-topic">
+        <!-- div's with the classes 'related-topics-wrapper' and 'related-topic' are wrappers which can not have headings, so it not allowed to use a semantic element.-->
+        <div id="related-topics" class="related-topics-wrapper">
+          <div id="shrek-2" class="related-topic">
             <img
               src="../images/shrek2_relatedtopics_01.jpg"
               alt="An Image of Shrek 2"
@@ -70,13 +61,13 @@
                 >
               </p>
             </article>
-          </section>
-          <section id="shrek-3" class="related-topic">
+          </div>
+          <div id="shrek-3" class="related-topic">
             <img
               src="../images/shrek3_relatedtopics_01.jpg"
               alt="An Image of Shrek the third"
             />
-            <article id="shrek-2-text" class="related-topic__content">
+            <article id="shrek-3-text" class="related-topic__content">
               <h3>The movie Shrek the Third</h3>
               <p>
                 The third movie in the main Shrek series. This movie was
@@ -88,8 +79,8 @@
                 >
               </p>
             </article>
-          </section>
-          <section id="shrek-4" class="related-topic">
+          </div>
+          <div id="shrek-4" class="related-topic">
             <img
               src="../images/shrek4_relatedtopics_01.jpg"
               alt="An Image of Shrek forever after"
@@ -106,8 +97,8 @@
                 >
               </p>
             </article>
-          </section>
-          <section id="puss-in-boots" class="related-topic">
+          </div>
+          <div id="puss-in-boots" class="related-topic">
             <img
               src="../images/pussinboots_relatedtopics_01.jpg"
               alt="An Image of the movie Puss in Boots"
@@ -124,8 +115,8 @@
                 >
               </p>
             </article>
-          </section>
-          <section id="shrek-game" class="related-topic">
+          </div>
+          <div id="shrek-game" class="related-topic">
             <img
               src="../images/shrekgame_relatedtopics_01.jpg"
               alt="An Image of Shrek Game"
@@ -144,8 +135,8 @@
                 >
               </p>
             </article>
-          </section>
-          <section id="shrek-music" class="related-topic">
+          </div>
+          <div id="shrek-music" class="related-topic">
             <img
               src="../images/shrekalbum_relatedtopics_02.jpg"
               alt="An Image of Shrek Music Album"
@@ -162,8 +153,8 @@
                 >
               </p>
             </article>
-          </section>
-          <section id="shrek-attraction" class="related-topic">
+          </div>
+          <div id="shrek-attraction" class="related-topic">
             <img
               src="../images/shrek4d_relatedtopics_02.jpg"
               alt="An Image of Shrek Attraction"
@@ -181,36 +172,40 @@
                 >
               </p>
             </article>
-          </section>
-        </section>
+          </div>
+        </div>
       </section>
     </main>
 
-    <footer id="footer">
-      <section id="footer-links" class="footer-links">
-        <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../summary.html">Summary</a></li>
-          <li><a href="../review.html">Reviews</a></li>
-          <li><a href="../characters.html">Characters</a></li>
-          <li><a href="../relatedtopics.html">Related topics</a></li>
-          <li><a href="../info.html">Info</a></li>
-          <li><a href="../references.html">References</a></li>
-          <!--menus -->
-          <li>
-            <select id="first_menu"></select>
-          </li>
-          <li>
-            <select id="second_menu">
-              <option value="fontSize">fontsize</option>
-              <option value="color">color</option>
-            </select>
-          </li>
-          <li>
-            <button onclick="select_element()">apply changes</button>
-          </li>
-        </ul>
-      </section>
+    <footer id="footer" class="footer-links">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../summary.html">Summary</a></li>
+        <li><a href="../review.html">Reviews</a></li>
+        <li><a href="../characters.html">Characters</a></li>
+        <li><a href="../relatedtopics.html">Related topics</a></li>
+        <li><a href="../info.html">Info</a></li>
+        <li><a href="../references.html">References</a></li>
+        <!--menus -->
+        <li>
+          <select id="first_menu">
+            <option disabled selected>select a part of the page</option>
+          </select>
+        </li>
+        <li>
+          <select id="second_menu">
+            <option disabled selected>
+              select the styling you want to change
+            </option>
+            <option value="fontSize">fontsize</option>
+            <option value="color">color</option>
+          </select>
+        </li>
+        <li>
+          <button onclick="select_element()">apply changes</button>
+        </li>
+      </ul>
+
       <p>&copy; 2023 INFOB2WT G07</p>
     </footer>
   </body>

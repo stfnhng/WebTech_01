@@ -14,26 +14,18 @@
 
   <body id="body">
     <header id="header" class="banner">
-      <nav>
-        <a
-          title="A Logo of Utrecht Univerity"
-          id="logo"
-          href="https://www.uu.nl/en"
-          target="_blank"
-        ></a>
-        <section id="links" class="link-section">
-          <h2 hidden>links to the other pages</h2>
-          <input class="dropdown-button" id="dropdown-button" type="checkbox" />
-          <label for="dropdown-button" class="dropdown-button">=</label>
-          <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../summary.html">Summary</a></li>
-            <li><a href="../review.html">Reviews</a></li>
-            <li><a href="../characters.html">Characters</a></li>
-            <li><a href="../relatedtopics.html">Related topics</a></li>
-            <li><a href="../info.html">Info</a></li>
-          </ul>
-        </section>
+      <nav id="nav">
+        <a id="logo" href="https://www.uu.nl/en" target="_blank"></a>
+        <input class="dropdown-button" id="dropdown-button" type="checkbox" />
+        <label for="dropdown-button" class="dropdown-button">=</label>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../summary.html">Summary</a></li>
+          <li><a href="../review.html">Reviews</a></li>
+          <li><a href="../characters.html">Characters</a></li>
+          <li><a href="../relatedtopics.html">Related topics</a></li>
+          <li><a href="../info.html">Info</a></li>
+        </ul>
       </nav>
 
       <section id="title" class="page-title">
@@ -45,10 +37,9 @@
       <section id="review-section" class="review-section">
         <h2>Reviews on the movie Shrek</h2>
         <p>Highly respected reviewers share their opinion.</p>
-
-        <section id="reviews" class="review-wrapper">
-          <h2 hidden>reviews</h2>
-          <section id="peter-bradshaw" class="review">
+        <!-- div's with the classes 'review-wrapper'and 'review' are wrappers which can not have headings, so it not allowed to use a semantic element.-->
+        <div id="reviews" class="review-wrapper">
+          <div id="peter-bradshaw" class="review">
             <section class="review__header">
               <img
                 src="../images/PeterBradshaw1.jpg"
@@ -90,8 +81,8 @@
                 >
               </p>
             </article>
-          </section>
-          <section id="ben-falk" class="review">
+          </div>
+          <div id="ben-falk" class="review">
             <section class="review__header">
               <img src="../images/BenFalk2.jpg" alt="An image of Ben Falk" />
               <h3>Ben Falk from BBC</h3>
@@ -131,8 +122,8 @@
                 >
               </p>
             </article>
-          </section>
-          <section id="desson-howe" class="review">
+          </div>
+          <div id="desson-howe" class="review">
             <section class="review__header">
               <img
                 src="../images/Desson-Howe.jpg"
@@ -172,8 +163,8 @@
                 >
               </p>
             </article>
-          </section>
-          <section id="lou-lumenick" class="review">
+          </div>
+          <div id="lou-lumenick" class="review">
             <section class="review__header">
               <img
                 src="../images/LouLumenick1.jpg"
@@ -212,36 +203,39 @@
                 >
               </p>
             </article>
-          </section>
-        </section>
+          </div>
+        </div>
       </section>
     </main>
+    <footer id="footer" class="footer-links">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../summary.html">Summary</a></li>
+        <li><a href="../review.html">Reviews</a></li>
+        <li><a href="../characters.html">Characters</a></li>
+        <li><a href="../relatedtopics.html">Related topics</a></li>
+        <li><a href="../info.html">Info</a></li>
+        <li><a href="../references.html">References</a></li>
+        <!--menus -->
+        <li>
+          <select id="first_menu">
+            <option disabled selected>select a part of the page</option>
+          </select>
+        </li>
+        <li>
+          <select id="second_menu">
+            <option disabled selected>
+              select the styling you want to change
+            </option>
+            <option value="fontSize">fontsize</option>
+            <option value="color">color</option>
+          </select>
+        </li>
+        <li>
+          <button onclick="select_element()">apply changes</button>
+        </li>
+      </ul>
 
-    <footer id="footer">
-      <section id="footer-links" class="footer-links">
-        <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../summary.html">Summary</a></li>
-          <li><a href="../review.html">Reviews</a></li>
-          <li><a href="../characters.html">Characters</a></li>
-          <li><a href="../relatedtopics.html">Related topics</a></li>
-          <li><a href="../info.html">Info</a></li>
-          <li><a href="../references.html">References</a></li>
-          <!--menus -->
-          <li>
-            <select id="first_menu"></select>
-          </li>
-          <li>
-            <select id="second_menu">
-              <option value="fontSize">fontsize</option>
-              <option value="color">color</option>
-            </select>
-          </li>
-          <li>
-            <button onclick="select_element()">apply changes</button>
-          </li>
-        </ul>
-      </section>
       <p>&copy; 2023 INFOB2WT G07</p>
     </footer>
   </body>

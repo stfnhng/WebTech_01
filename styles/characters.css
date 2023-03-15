@@ -15,7 +15,12 @@ caption {
   max-height: 40vh;
   background-position: top;
 }
+.table-wrapper {
+  width: 100%;
+  padding: 0 20%;
+}
 table {
+  max-width: 100%;
   margin-top: 20px;
   border-collapse: collapse;
   box-sizing: border-box;
@@ -79,6 +84,10 @@ article li h1 {
   .actors__table {
     width: 10vw;
     height: 98vh;
+  }
+  .table-wrapper {
+    max-width: 100%;
+    padding: 0 0;
   }
 }
 

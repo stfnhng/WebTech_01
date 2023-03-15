@@ -19,22 +19,18 @@
 
   <body id="body">
     <header id="header" class="homepage-banner">
-      <nav>
+      <nav id="nav">
         <a id="logo" href="https://www.uu.nl/en" target="_blank"></a>
-
-        <section id="nav" class="link-section">
-          <h2 hidden>links to the other pages</h2>
-          <input class="dropdown-button" id="dropdown-button" type="checkbox" />
-          <label for="dropdown-button" class="dropdown-button">=</label>
-          <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../summary.html">Summary</a></li>
-            <li><a href="../review.html">Reviews</a></li>
-            <li><a href="../characters.html">Characters</a></li>
-            <li><a href="../relatedtopics.html">Related topics</a></li>
-            <li><a href="../info.html">Info</a></li>
-          </ul>
-        </section>
+        <input class="dropdown-button" id="dropdown-button" type="checkbox" />
+        <label for="dropdown-button" class="dropdown-button">=</label>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../summary.html">Summary</a></li>
+          <li><a href="../review.html">Reviews</a></li>
+          <li><a href="../characters.html">Characters</a></li>
+          <li><a href="../relatedtopics.html">Related topics</a></li>
+          <li><a href="../info.html">Info</a></li>
+        </ul>
       </nav>
 
       <section id="title" class="title">
@@ -49,30 +45,27 @@
           The best movie of all time. <br />presented to you by Dreamworks
         </h3>
 
-        <section id="links">
-          <h2 hidden>link to watch shrek or readmore</h2>
-          <form
-            action="https://www.netflix.com/search?q=shrek&jbv=60020686"
-            class="form-link"
-            target="_blank"
-          >
-            <input
-              id="form__button--netflix"
-              type="submit"
-              class="form-link__style"
-              value="Watch on Netflix"
-            />
-          </form>
+        <form
+          action="https://www.netflix.com/search?q=shrek&jbv=60020686"
+          class="form-link"
+          target="_blank"
+        >
+          <input
+            id="form__button--netflix"
+            type="submit"
+            class="form-link__style"
+            value="Watch on Netflix"
+          />
+        </form>
 
-          <form action="#filler" class="form-link">
-            <input
-              id="form__button--readmore"
-              type="submit"
-              class="form-link__style"
-              value="Read More"
-            />
-          </form>
-        </section>
+        <form action="#filler" class="form-link">
+          <input
+            id="form__button--readmore"
+            type="submit"
+            class="form-link__style"
+            value="Read More"
+          />
+        </form>
       </section>
     </header>
     <!--Banner section ends here-->
@@ -81,9 +74,11 @@
     </section>
     <!--filler section ends here-->
 
+    <!-- div's with the class 'topic-wrapper' are wrappers which can not have headings, so it not allowed to use a semantic element.-->
+    <!-- div's with the class 'topic_image' are images which also can not have headings -->
     <section id="readmore">
       <h2>find more information about the movie Shrek</h2>
-      <section id="summary" class="topic">
+      <div id="summary" class="topic-wrapper">
         <a href="../summary.html"
           ><div class="topic__image topic__image1">
             <section id="topic1" class="topic__content">
@@ -91,9 +86,9 @@
             </section>
           </div>
         </a>
-      </section>
+      </div>
 
-      <section id="review" class="topic">
+      <div id="review" class="topic-wrapper">
         <a href="../review.html">
           <div class="topic__image topic__image2">
             <section id="topic2" class="topic__content">
@@ -101,9 +96,9 @@
             </section>
           </div>
         </a>
-      </section>
+      </div>
 
-      <section id="characters" class="topic">
+      <div id="characters" class="topic-wrapper">
         <a href="../characters.html"
           ><div class="topic__image topic__image3">
             <section id="topic3" class="topic__content">
@@ -111,9 +106,9 @@
             </section>
           </div>
         </a>
-      </section>
+      </div>
 
-      <section id="relatedtopics" class="topic">
+      <div id="relatedtopics" class="topic-wrapper">
         <a href="../relatedtopics.html"
           ><div class="topic__image topic__image4">
             <section id="topic4" class="topic__content">
@@ -121,39 +116,38 @@
             </section>
           </div>
         </a>
-      </section>
+      </div>
     </section>
 
-    <footer id="footer">
-      <section id="footer-links" class="footer-links">
-        <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../summary.html">Summary</a></li>
-          <li><a href="../review.html">Reviews</a></li>
-          <li><a href="../characters.html">Characters</a></li>
-          <li><a href="../relatedtopics.html">Related topics</a></li>
-          <li><a href="../info.html">Info</a></li>
-          <li><a href="../references.html">References</a></li>
-          <!--menus -->
-          <li>
-            <select id="first_menu">
-              <option disabled selected>select a part of the page</option>
-            </select>
-          </li>
-          <li>
-            <select id="second_menu">
-              <option disabled selected>
-                select the styling you want to change
-              </option>
-              <option value="fontSize">fontsize</option>
-              <option value="color">color</option>
-            </select>
-          </li>
-          <li>
-            <button onclick="select_element()">apply changes</button>
-          </li>
-        </ul>
-      </section>
+    <footer id="footer" class="footer-links">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../summary.html">Summary</a></li>
+        <li><a href="../review.html">Reviews</a></li>
+        <li><a href="../characters.html">Characters</a></li>
+        <li><a href="../relatedtopics.html">Related topics</a></li>
+        <li><a href="../info.html">Info</a></li>
+        <li><a href="../references.html">References</a></li>
+        <!--menus -->
+        <li>
+          <select id="first_menu">
+            <option disabled selected>select a part of the page</option>
+          </select>
+        </li>
+        <li>
+          <select id="second_menu">
+            <option disabled selected>
+              select the styling you want to change
+            </option>
+            <option value="fontSize">fontsize</option>
+            <option value="color">color</option>
+          </select>
+        </li>
+        <li>
+          <button onclick="select_element()">apply changes</button>
+        </li>
+      </ul>
+
       <p>&copy; 2023 INFOB2WT G07</p>
     </footer>
   </body>
