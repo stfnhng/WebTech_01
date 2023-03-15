@@ -74,7 +74,7 @@ class Movie {
     posterImg.alt = `${this.title} poster`;
     posterImg.classList.add('poster');
   // Generate the director section
-    const director = document.createElement('p');
+    const director = document.createElement('span');
   director.id = 'director';
   director.textContent = `${this.director.name}`;
   this.director.addTooltip(director, `Born: ${this.director.yearOfBirth}\nDirected: ${this.director.moviesDirected.join(', ')}`);
@@ -82,43 +82,34 @@ class Movie {
   const writers = document.createElement('ul');
   writers.id = 'writers';
   for (let writer of this.writers) {
-    const writerItem = document.createElement('li');
+    const writerList = document.createElement ('li');
+    const writerItem = document.createElement('span');
+    writerList.appendChild(writerItem);
     writerItem.textContent = writer.name;
     writer.addTooltip(writerItem, `Born: ${writer.yearOfBirth}\nWritten: ${writer.booksWritten.join(', ')}`);
-    writers.appendChild(writerItem);
+    writers.appendChild(writerList);
   }
   // Generate the actor section
-  const actorsContainer = document.createElement('div');
-  actorsContainer.id = 'actors-container';
-
+  const actors = document.createElement('ul');
+  actors.id = 'actors';
   for (let actor of this.actors) {
-    const actorItem = document.createElement('li');
-
+    const actorList = document.createElement('li');
+    const actorItem = document.createElement('span');
+    actorList.appendChild(actorItem);
     const actorPhoto = document.createElement('img');
     actorPhoto.src = actor.photoLink;
     actorPhoto.alt = actor.name;
     actorPhoto.classList.add('actor-photo');
-
+  
     const actorName = document.createElement('span');
     actorName.textContent = actor.name;
-
-    const actorTooltip = document.createElement('div');
-    actorTooltip.classList.add('tooltip');
-    actorTooltip.innerHTML = `Born: ${actor.yearOfBirth}<br>Starred: ${actor.moviesStarred.join(', ')}`;
-
+    actorName.classList.add('actor-name');
+    
     actorItem.appendChild(actorPhoto);
     actorItem.appendChild(actorName);
-    actorItem.appendChild(actorTooltip);
-
-    actorItem.addEventListener('mouseover', () => {
-      actorTooltip.style.display = 'block';
-    });
-
-    actorItem.addEventListener('mouseout', () => {
-      actorTooltip.style.display = 'none';
-    });
-
-    actorsContainer.appendChild(actorItem);
+    actor.addTooltip(actorItem, `Born: ${actor.yearOfBirth}\nStarred: ${actor.moviesStarred.join(', ')}`);
+  
+    actors.appendChild(actorList);
   }
 // Generate the plot section
     const plot = document.createElement('p');
@@ -159,7 +150,7 @@ class Movie {
     section2.appendChild(year);
     section3.appendChild(director);
     section4.appendChild(writers);
-    section5.appendChild(actorsContainer);
+    section5.appendChild(actors);
     section6.appendChild(plot);
     main.appendChild(header);
     main.appendChild(section1);
