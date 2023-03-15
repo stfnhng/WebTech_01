@@ -1,4 +1,3 @@
-document.body.id = 'body';
 
 // Create a class for Artist
 class Artist {
@@ -123,27 +122,35 @@ class Movie {
     trailerLink.href = 'https://www.youtube.com/watch?v=CwXOrWvPBPk';
     trailerLink.textContent = 'Watch trailer';
 
+    document.body.setAttribute("id", "body");
+
     const header = document.createElement('header');
 
     const section1 = document.createElement('section');
     section1.innerHTML = '<h2>Genre:</h2>';
+    section1.setAttribute("id", "genreSection");
     
     const section2 = document.createElement('section');
     section2.innerHTML = '<h2>Year:</h2>';
-    
+    section2.setAttribute("id", "yearSection");
+
     const section3 = document.createElement('section');
     section3.innerHTML = '<h2>Director:</h2>';
+    section3.setAttribute("id", "directorSection");
     
 
     const section4 = document.createElement('section');
     section4.innerHTML = '<h2>Writers:</h2>';
+    section4.setAttribute("id", "writersSection");
 
     const section5 = document.createElement('section');
     section5.innerHTML = '<h2>Actors:</h2>';
+    section5.setAttribute("id", "actorsSection");
     section5.classList.add('actors-section');
 
     const section6 = document.createElement('section');
     section6.innerHTML = '<h2>Plot:</h2>';
+    section6.setAttribute("id", "plotSection");
      
     const main = document.getElementsByTagName('main')[0];
 // append all items to main

@@ -40,7 +40,7 @@ for (var part_of_page of element_collection){
         var option = document.createElement("option");
         //give text and value to the option tag
         var option_text = document.createTextNode(element_of_page.id);
-        option.setAttribute("value",element_of_page.id.toLowerCase());
+        option.setAttribute("value",element_of_page.id);
         //make this text and value a childe node of the option tag
         option.appendChild(option_text);
         //make this option tag a child of the menu
