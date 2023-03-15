@@ -187,26 +187,26 @@ class Movie {
     "Mike Myers",
     1963,
     ["Shrek", "Austin Powers", "Amsterdam"],
-    "../images/Mike Myers.jpg"
+    "../images/Mike-Myers.jpg"
   );
   const actor2 = new Actor(
     "Eddie Murphy",
     1961,
     ["Shrek", "Beverly Hills Cop", "Norbit"],
-    "../images/Eddie Murphy.jpg"
+    "../images/Eddie-Murphy.jpg"
   );
   const actor3 = new Actor(
     "Cameron Diaz",
     1972,
     ["Shrek", "There's Something About Mary", "The Mask"],
-    "../images/Cameron Diaz.jpg"
+    "../images/Cameron-Diaz.jpg"
   );
 
   const actor4 = new Actor(
     "John Lithgow",
     1945,
     ["Shrek", "Love is Strange", "Beatriz at dinner"],
-    "../images/John Lithgow.jpg"
+    "../images/John-Lithgow.jpg"
   );
 
   const shrek = new Movie(
