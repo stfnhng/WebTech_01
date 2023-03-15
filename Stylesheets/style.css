@@ -112,7 +112,7 @@ nav ul li:hover::after {
   font-family: shrekFont;
   color: white;
   font-size: 5rem;
-  padding-top: 10%;
+  padding-top: 8%;
 }
 
 .form-link__style {
