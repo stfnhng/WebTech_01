@@ -125,6 +125,7 @@ class Movie {
     document.body.setAttribute("id", "body");
 
     const header = document.createElement('header');
+    header.setAttribute("id", "header")
 
     const section1 = document.createElement('section');
     section1.innerHTML = '<h2>Genre:</h2>';
