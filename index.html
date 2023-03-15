@@ -124,7 +124,7 @@
     </section>
 
     <footer id="footer">
-      <section class="footer-links">
+      <section id="footer-links" class="footer-links">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="summary.html">Summary</a></li>
@@ -134,10 +134,15 @@
           <li><a href="references.html">References</a></li>
           <!--menus -->
           <li>
-            <select id="first_menu"></select>
+            <select id="first_menu">
+              <option disabled selected>select a part of the page</option>
+            </select>
           </li>
           <li>
             <select id="second_menu">
+              <option disabled selected>
+                select the styling you want to change
+              </option>
               <option value="fontSize">fontsize</option>
               <option value="color">color</option>
             </select>
