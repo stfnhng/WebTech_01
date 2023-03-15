@@ -1,4 +1,48 @@
-// Create a class for Movie
+// Create a class for Artist
+class Artist {
+    constructor(name, yearOfBirth) {
+      this.name = name;
+      this.yearOfBirth = yearOfBirth;
+    }
+    addTooltip(element, text) {
+      // Add mouseover event listener to show tooltip
+      element.addEventListener('mouseover', () => {
+        const tooltip = document.createElement('div');
+        tooltip.classList.add('tooltip');
+        tooltip.innerHTML = text.replace(/\n/g, '<br>');
+        element.appendChild(tooltip);
+      });
+    
+      // Add mouseout event listener to hide tooltip
+      element.addEventListener('mouseout', () => {
+        const tooltip = element.querySelector('.tooltip');
+        element.removeChild(tooltip);
+      });
+    }
+  }
+  // Create a class for Director that extends Artist
+  class Director extends Artist {
+    constructor(name, yearOfBirth, moviesDirected) {
+      super(name, yearOfBirth);
+      this.moviesDirected = moviesDirected;
+    }
+  }
+  // Create a class for Writer that extends Artist
+  class Writer extends Artist {
+    constructor(name, yearOfBirth, booksWritten) {
+      super(name, yearOfBirth);
+      this.booksWritten = booksWritten;
+    }
+  }
+  // Create a class for Actor that extends Artist
+  class Actor extends Artist {
+    constructor(name, yearOfBirth, moviesStarred, photoLink) {
+      super(name, yearOfBirth);
+      this.moviesStarred = moviesStarred;
+      this.photoLink = photoLink;
+    }
+  }
+  // Create a class for Movie
 class Movie {
   constructor(title, genre, year, director, writers, actors, plot, poster) {
     this.title = title;
@@ -10,7 +54,6 @@ class Movie {
     this.plot = plot;
     this.poster = poster;
   }
-
   // Generate the HTML for the movie details
   generateHTML() {
     const movieTitle = document.createElement('h1');
@@ -30,13 +73,11 @@ class Movie {
     posterImg.src = '../images/shrek-film-thumbnail.jpg';
     posterImg.alt = `${this.title} poster`;
     posterImg.classList.add('poster');
-
   // Generate the director section
     const director = document.createElement('p');
   director.id = 'director';
   director.textContent = `${this.director.name}`;
   this.director.addTooltip(director, `Born: ${this.director.yearOfBirth}\nDirected: ${this.director.moviesDirected.join(', ')}`);
-
   // Generate the writer section
   const writers = document.createElement('ul');
   writers.id = 'writers';
@@ -46,12 +87,9 @@ class Movie {
     writer.addTooltip(writerItem, `Born: ${writer.yearOfBirth}\nWritten: ${writer.booksWritten.join(', ')}`);
     writers.appendChild(writerItem);
   }
-
   // Generate the actor section
-
   const actorsContainer = document.createElement('div');
   actorsContainer.id = 'actors-container';
-
 
   for (let actor of this.actors) {
     const actorItem = document.createElement('li');
@@ -82,7 +120,7 @@ class Movie {
 
     actorsContainer.appendChild(actorItem);
   }
-
+// Generate the plot section
     const plot = document.createElement('p');
     plot.id = 'plot';
     plot.textContent = this.plot;
@@ -115,7 +153,7 @@ class Movie {
     section6.innerHTML = '<h2>Plot:</h2>';
      
     const main = document.getElementsByTagName('main')[0];
-
+// append all items to main
     header.appendChild(movieTitle);
     section1.appendChild(genre);
     section2.appendChild(year);
@@ -134,54 +172,6 @@ class Movie {
     main.appendChild(trailerLink);
   }
 }
-// Create a class for Artist
-class Artist {
-    constructor(name, yearOfBirth) {
-      this.name = name;
-      this.yearOfBirth = yearOfBirth;
-    }
-    addTooltip(element, text) {
-      // Add mouseover event listener to show tooltip
-      element.addEventListener('mouseover', () => {
-        const tooltip = document.createElement('div');
-        tooltip.classList.add('tooltip');
-        tooltip.innerHTML = text.replace(/\n/g, '<br>');
-        element.appendChild(tooltip);
-      });
-    
-      // Add mouseout event listener to hide tooltip
-      element.addEventListener('mouseout', () => {
-        const tooltip = element.querySelector('.tooltip');
-        element.removeChild(tooltip);
-      });
-    }
-  }
-  
-  // Create a class for Director that extends Artist
-  class Director extends Artist {
-    constructor(name, yearOfBirth, moviesDirected) {
-      super(name, yearOfBirth);
-      this.moviesDirected = moviesDirected;
-    }
-  }
-  
-  // Create a class for Writer that extends Artist
-  class Writer extends Artist {
-    constructor(name, yearOfBirth, booksWritten) {
-      super(name, yearOfBirth);
-      this.booksWritten = booksWritten;
-    }
-  }
-  
-  // Create a class for Actor that extends Artist
-  class Actor extends Artist {
-    constructor(name, yearOfBirth, moviesStarred, photoLink) {
-      super(name, yearOfBirth);
-      this.moviesStarred = moviesStarred;
-      this.photoLink = photoLink;
-    }
-  }
-
   // Create instances of the classes
   const director1 = new Director("Andrew Adamson", 1966, [
     "Shrek",
