@@ -21,21 +21,18 @@ class Artist {
       });
     }
   }
-  // Create a class for Director that extends Artist
   class Director extends Artist {
     constructor(name, yearOfBirth, moviesDirected) {
       super(name, yearOfBirth);
       this.moviesDirected = moviesDirected;
     }
   }
-  // Create a class for Writer that extends Artist
   class Writer extends Artist {
     constructor(name, yearOfBirth, booksWritten) {
       super(name, yearOfBirth);
       this.booksWritten = booksWritten;
     }
   }
-  // Create a class for Actor that extends Artist
   class Actor extends Artist {
     constructor(name, yearOfBirth, moviesStarred, photoLink) {
       super(name, yearOfBirth);
@@ -43,7 +40,6 @@ class Artist {
       this.photoLink = photoLink;
     }
   }
-  // Create a class for Movie
 class Movie {
   constructor(title, genre, year, director, writers, actors, plot, poster) {
     this.title = title;
@@ -55,7 +51,7 @@ class Movie {
     this.plot = plot;
     this.poster = poster;
   }
-  // Generate the HTML for the movie details
+  
   generateHTML() {
     const movieTitle = document.createElement('h1');
     movieTitle.id = 'movieTitle';
