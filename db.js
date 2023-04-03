@@ -16,12 +16,12 @@ let sql;
 db.serialize(function(){
     if(!exists){
         db.run("CREATE TABLE movies(id INTEGER PRIMARY KEY AUTOINCREMENT, title, genre, year, director, rating)")
+        db.run("CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT,firstname, lastname, email, username, adress, credit_card )")
     }
 })
 
 var stmt = db.prepare( "INSERT INTO movies VALUES (NULL,?,?,?,?,?)");
 stmt.run("Shrek", "Animation/Comedy",2001, "Andrew Adamson", "7,9");
-stmt.run("Shrek", "Comedy",2002, "Andrew Adamsssssson", "3,0");
 stmt.finalize();
 db.each("SELECT * FROM movies", function(err,row){
 console.log(row);
