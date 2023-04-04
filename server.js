@@ -38,13 +38,9 @@ db.serialize(function(){
     db.each("SELECT * FROM users", function(err,row){
       console.log(row);
       });
-  db.close();
+      
   })
-
-
-//close the database
-
-
+db.close();
 //here we handle the input of the form
 app.use(bodyParser.urlencoded({extended:false}));
 app.post("/processForm", (req,res)=> {
@@ -60,10 +56,11 @@ app.post("/processForm", (req,res)=> {
     var accountstmt = db.prepare("INSERT INTO users VALUES (NULL,?,?,?,?,?,?)");
     accountstmt.run(firstname,ln,email,username,password,credit_card);
     accountstmt.finalize();
-  });
-  db.each("SELECT * FROM users", function(err,row){
+    db.each("SELECT * FROM users", function(err,row){
       console.log(row);
       });
+  });
+
   db.close();
   //res.json({requestBody: req.body})
   res.status(200).send( "yuh " + firstname + " " + ln+ " "+ email + " " + username+ " "+password+ " " + credit_card);
