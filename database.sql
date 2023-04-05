@@ -1,3 +1,5 @@
+--All SQL used are documented in this file.
+
 CREATE TABLE IF NOT EXISTS movies (
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "title" TEXT NOT NULL,
@@ -25,7 +27,8 @@ CREATE TABLE IF NOT EXISTS schedule (
     FOREIGN KEY (movie_id) REFERENCES movies(id)
 );
 
---The movie id should be autoincremented. All data are from IMDB.
+--The IDs should be autoincremented. 
+--All data are from IMDB.
 INSERT INTO movies (title, genre, year, director, rating) 
 VALUES 
 ('Shrek', 'Comedy', 2001, 'Andrew Adamson', 7.9),
