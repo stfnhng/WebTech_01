@@ -21,50 +21,66 @@ if(!exists){
 
 const sqlite3 = require("sqlite3").verbose();
 var db = new sqlite3.Database(file);
+app.set('view engine', 'ejs');
 
-db.serialize(function(){
-    if(!exists){
-        db.run("CREATE TABLE movies(id INTEGER PRIMARY KEY AUTOINCREMENT, title, genre, year, director, rating)")
-        db.run("CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT,firstname, lastname, email, username, adress, credit_card )")
+//display movie poster
+app.get('/movies/:id', (req, res) => {
+  const id = req.params.id;
+
+  db.get('SELECT * FROM movies WHERE id = ?', [id], (err, row) => {
+    if (err) {
+      return console.error(err.message);
     }
 
-    var stmt = db.prepare( "INSERT INTO movies VALUES (NULL,?,?,?,?,?)");
+    const posterPath = `images/poster/${row.title}.jpg`;
 
-    stmt.run("Shrek", "Animation/Comedy",2001, "Andrew Adamson", "7,9");
-    stmt.finalize();
-    db.each("SELECT * FROM movies", function(err,row){
-    console.log(row);
-    });
-    db.each("SELECT * FROM users", function(err,row){
-      console.log(row);
-      });
-      
-  })
-db.close();
-//here we handle the input of the form
-app.use(bodyParser.urlencoded({extended:false}));
-app.post("/processForm", (req,res)=> {
-  
-  let firstname = req.body.firstname;
-  let ln = req.body.lastname;
-  let email = req.body.email;
-  let username = req.body.username;
-  let password = req.body.password;
-  let credit_card = req.body.credit_card;
-  //put the user info into the database
-  db.serialize(()=>{
-    var accountstmt = db.prepare("INSERT INTO users VALUES (NULL,?,?,?,?,?,?)");
-    accountstmt.run(firstname,ln,email,username,password,credit_card);
-    accountstmt.finalize();
-    db.each("SELECT * FROM users", function(err,row){
-      console.log(row);
-      });
+    res.render('movie', { movie: row, posterPath });
   });
+});
 
-  db.close();
-  //res.json({requestBody: req.body})
-  res.status(200).send( "yuh " + firstname + " " + ln+ " "+ email + " " + username+ " "+password+ " " + credit_card);
-})
+// db.serialize(function(){
+//     if(!exists){
+//         db.run("CREATE TABLE movies(id INTEGER PRIMARY KEY AUTOINCREMENT, title, genre, year, director, rating)")
+//         db.run("CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT,firstname, lastname, email, username, adress, credit_card )")
+//     }
+
+//     var stmt = db.prepare( "INSERT INTO movies VALUES (NULL,?,?,?,?,?)");
+
+//     stmt.run("Shrek", "Animation/Comedy",2001, "Andrew Adamson", "7,9");
+//     stmt.finalize();
+//     db.each("SELECT * FROM movies", function(err,row){
+//     console.log(row);
+//     });
+//     db.each("SELECT * FROM users", function(err,row){
+//       console.log(row);
+//       });
+      
+//   })
+// db.close();
+// //here we handle the input of the form
+// app.use(bodyParser.urlencoded({extended:false}));
+// app.post("/processForm", (req,res)=> {
+  
+//   let firstname = req.body.firstname;
+//   let ln = req.body.lastname;
+//   let email = req.body.email;
+//   let username = req.body.username;
+//   let password = req.body.password;
+//   let credit_card = req.body.credit_card;
+//   //put the user info into the database
+//   db.serialize(()=>{
+//     var accountstmt = db.prepare("INSERT INTO users VALUES (NULL,?,?,?,?,?,?)");
+//     accountstmt.run(firstname,ln,email,username,password,credit_card);
+//     accountstmt.finalize();
+//     db.each("SELECT * FROM users", function(err,row){
+//       console.log(row);
+//       });
+//   });
+
+//   db.close();
+//   //res.json({requestBody: req.body})
+//   res.status(200).send( "yuh " + firstname + " " + ln+ " "+ email + " " + username+ " "+password+ " " + credit_card);
+// })
 
 
 
