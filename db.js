@@ -20,9 +20,9 @@ db.serialize(function(){
     }
 })
 
-// var stmt = db.prepare( "INSERT INTO movies VALUES (NULL,?,?,?,?,?)");
-// stmt.run("Shrek", "Animation/Comedy",2001, "Andrew Adamson", "7,9");
-// stmt.finalize();
+var stmt = db.prepare( "INSERT INTO movies VALUES (NULL,?,?,?,?,?)");
+stmt.run("Shrek", "Animation/Comedy",2001, "Andrew Adamson", "7,9");
+stmt.finalize();
 db.each("SELECT * FROM movies", function(err,row){
 console.log(row);
 })
