@@ -18,12 +18,26 @@ var exists = fs.existsSync(file);
 if(!exists){
     fs.openSync(file, "w");
 }
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database(file);
 
-const sqlite3 = require("sqlite3").verbose();
-var db = new sqlite3.Database(file);
 app.set('view engine', 'ejs');
 
-//display movie poster
+function generatePosterPath(title) {
+  const modifiedTitle = title.replace(/[\/\\:*\?"<>\|]/g, '');
+  return `/poster/${modifiedTitle}.jpg`;
+}
+
+app.get('/', (req, res) => {
+  db.all('SELECT * FROM movies ', [], (err, rows) => {
+    if (err) {
+      return console.error(err.message);
+    }
+    const posterPath = rows.map(row => generatePosterPath(row.title));
+    res.render('index', { movies: rows, posterPath });
+  });
+});
+
 app.get('/movies/:id', (req, res) => {
   const id = req.params.id;
 
@@ -31,12 +45,13 @@ app.get('/movies/:id', (req, res) => {
     if (err) {
       return console.error(err.message);
     }
-    //modifiedTitle constructs the poster path without any special characters.
-    const modifiedTitle = row.title.replace(/[\/\\:*\?"<>\|]/g, '');
-    const posterPath = `/poster/${modifiedTitle}.jpg`;
-
+    const posterPath = generatePosterPath(row.title);
     res.render('movie', { movie: row, posterPath });
   });
+});
+
+app.listen(port, () => {
+  console.log(`Server is listening at http://localhost:${port}`);
 });
 
 // db.serialize(function(){
@@ -85,11 +100,11 @@ app.get('/movies/:id', (req, res) => {
 
 
 
-//test page
-app.get('/', (req, res) => {
-  res.send('hey')
-})
-//here we listen to the port
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+// //test page
+// app.get('/', (req, res) => {
+//   res.send('hey')
+// })
+// //here we listen to the port
+// app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`)
+// })
