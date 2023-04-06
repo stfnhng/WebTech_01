@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+.movie {
+  box-sizing: border-box;
+  width: 33.33%;
+  padding: 10px;
+  text-align: center;
+}
+
+.movie img {
+  max-width: 100%;
+  max-height: 100%;
+}
