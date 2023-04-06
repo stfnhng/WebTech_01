@@ -32,7 +32,7 @@ app.get('/movies/:id', (req, res) => {
       return console.error(err.message);
     }
 
-    const posterPath = `images/poster/${row.title}.jpg`;
+    const posterPath = `poster/${row.title}.jpg`;
 
     res.render('movie', { movie: row, posterPath });
   });
