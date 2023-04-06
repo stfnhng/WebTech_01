@@ -31,8 +31,9 @@ app.get('/movies/:id', (req, res) => {
     if (err) {
       return console.error(err.message);
     }
-
-    const posterPath = `poster/${row.title}.jpg`;
+    //modifiedTitle constructs the poster path without any special characters.
+    const modifiedTitle = row.title.replace(/[\/\\:*\?"<>\|]/g, '');
+    const posterPath = `/poster/${modifiedTitle}.jpg`;
 
     res.render('movie', { movie: row, posterPath });
   });
