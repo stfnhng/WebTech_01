@@ -11,9 +11,13 @@
   width: 33.33%;
   padding: 10px;
   text-align: center;
+  height: 480px; /* set a fixed height */
+  overflow: hidden; /* hide overflow */
 }
 
 .movie img {
   max-width: 100%;
   max-height: 100%;
+  object-fit: cover; /* stretch image to fit container */
+  height: 100%;
 }
