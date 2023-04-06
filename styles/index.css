@@ -1,23 +1,27 @@
 .wrapper {
+  background-color: lightgray;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: 0 auto;
-  max-width: 960px;
+  max-width: 60%;
+  padding: 0 10%;
+  overflow: hidden;
 }
 
 .movie {
   box-sizing: border-box;
-  width: 33.33%;
+  width: 25%;
+  height: 33.33%;
   padding: 10px;
   text-align: center;
-  height: 480px; /* set a fixed height */
-  overflow: hidden; /* hide overflow */
+  height: 520px;
+  overflow: hidden;
 }
 
 .movie img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: cover; /* stretch image to fit container */
+  object-fit: cover;
   height: 100%;
 }
