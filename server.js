@@ -26,7 +26,6 @@ app.set('view engine', 'ejs');
 function generatePosterPath(title) {
   const modifiedTitle = title.replace(/[\/\\:*\?"<>\|]/g, '');
   const posterPath = `/poster/${modifiedTitle}.jpg`;
-  console.log(posterPath); 
   return posterPath;
 }
 
