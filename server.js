@@ -31,7 +31,7 @@ function generatePosterPath(title) {
 }
 
 app.get('/', (req, res) => {
-  const offset = parseInt(req.params.id) || 0;
+  const offset = parseInt(req.query.offset) || 0;
   const limit = 10;
 
   db.all('SELECT * FROM movies LIMIT ? OFFSET ?', [limit, offset], (err, rows) => {
