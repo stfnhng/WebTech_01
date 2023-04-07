@@ -17,14 +17,12 @@ $(document).ready(function() {
           const newPosters = [];
       
           // iterate over the movies array in the data object
-          for (let i = 0; i < data.movies.length; i++) {
-            // generate the poster path for the movie
-            const posterPath = data.posterPath[i];
+          for (let i = 0; i < data.movies.length; i++) {      
             // create the HTML for the new poster
             const newPosterHTML = `
               <div class="movie">
                 <a href="/movies/${data.movies[i].id}">
-                  <img src="${posterPath}" alt="${data.movies[i].title}" />
+                  <img src="${data.posterPath[i]}" alt="${data.movies[i].title}" />
                 </a>
               </div>
             `;
@@ -40,6 +38,7 @@ $(document).ready(function() {
         }
         else {
           $('#load-more').hide();
+          $('#load-more-container').append('<p>No more movies to load</p>');
         }
       },
       error: function(xhr, status, error) {
