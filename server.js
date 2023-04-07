@@ -25,11 +25,16 @@ app.set('view engine', 'ejs');
 
 function generatePosterPath(title) {
   const modifiedTitle = title.replace(/[\/\\:*\?"<>\|]/g, '');
-  return `/poster/${modifiedTitle}.jpg`;
+  const posterPath = `/poster/${modifiedTitle}.jpg`;
+  console.log(posterPath); 
+  return posterPath;
 }
 
 app.get('/', (req, res) => {
-  db.all('SELECT * FROM movies ', [], (err, rows) => {
+  const offset = parseInt(req.params.id) || 0;
+  const limit = 10;
+
+  db.all('SELECT * FROM movies LIMIT ? OFFSET ?', [limit, offset], (err, rows) => {
     if (err) {
       return console.error(err.message);
     }
@@ -37,6 +42,20 @@ app.get('/', (req, res) => {
     res.render('index', { movies: rows, posterPath });
   });
 });
+
+app.get('/data', (req, res) => {
+  const offset = parseInt(req.query.offset) || 0;
+  const limit = 10;
+
+  db.all('SELECT * FROM movies LIMIT ? OFFSET ?', [limit, offset], (err, rows) => {
+    if (err) {
+      return console.error(err.message);
+    }
+    const posterPath = rows.map(row => generatePosterPath(row.title));
+    res.json({ movies: rows, posterPath });
+  });
+});
+
 
 app.get('/movies/:id', (req, res) => {
   const id = req.params.id;
