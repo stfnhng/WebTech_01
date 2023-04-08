@@ -29,6 +29,14 @@ CREATE TABLE IF NOT EXISTS schedule (
     FOREIGN KEY (movie_id) REFERENCES movies(id)
 );
 
+CREATE TABLE IF NOT EXISTS purchase(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "schedule_id" INTERGER NOT NULL,
+    "user_id" INTERGER NOT NULL,
+    FOREIGN KEY (schedule_id) REFERENCES schedule(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
 --All data from IMDB.
 INSERT INTO movies (title, genre, year, director, rating, plot) 
 VALUES 
