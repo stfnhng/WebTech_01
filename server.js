@@ -120,6 +120,32 @@ app.post("/register", (req,res)=> {
   res.status(200).send( "yuh " + firstname + " " + lastname+ " "+ email + " " + username+ " "+ address + " "+ password + " " + credit_card);
 })
 
+
+//here we see if the login should lead to the users page of raise an error
+
+app.post("/user",(req,res)=>{
+  let usn = req.body.usn;
+  let pwd = req.body.pwd;
+
+  let db = setupdatabse();
+  
+  db.serialize((err)=>{
+    if (err){
+      return console.error(err.message);
+    }
+    db.each("SELECT username,password FROM users", (err,row)=>{
+      
+      if(usn == row.username && pwd == row.password){
+        console.log("ingelogd!!");
+        res.send("ingelogd!!")
+      }
+      
+    });
+  });
+  //for testing purposes
+  //res.send(usn + pwd);
+})
+
 //tells on which port the app should listen.
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
