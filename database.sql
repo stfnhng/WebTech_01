@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS users (
     "lastname" TEXT NOT NULL,
     "email" TEXT NOT NULL UNIQUE,
     "username" TEXT NOT NULL UNIQUE,
+    "password" TEXT NOT NULL,
     "address" TEXT NOT NULL,
     "credit_card" TEXT NOT NULL
 );
