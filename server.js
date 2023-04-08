@@ -134,15 +134,6 @@ app.post("/user",(req,res)=>{
     if (err){
       return console.error(err.message);
     }
-    // db.each("SELECT username,password FROM users", (err,row)=>{
-      
-    //   if(usn == row.username && pwd == row.password){
-    //     console.log("ingelogd!!");
-    //     res.send("ingelogd!!")
-    //   }
-      
-    // });
-    
     
   });
   db.get('SELECT * FROM USERS WHERE username=? AND password=?' ,[usn,pwd],(err, row)=>{
