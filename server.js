@@ -7,7 +7,18 @@ var staticpath = path.join(__dirname);
 app.use(express.static(staticpath));
 //module for form handling
 var bodyParser = require("body-parser");
+//the database
+var fs = require("fs");
+var file =__dirname + "/" + "database.db";
+//check if the file exist in this folder
+var exists = fs.existsSync(file);
 
+//check if the file exists
+if(!exists){
+    fs.openSync(file, "w");
+}
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database(file);
 
 app.set('view engine', 'ejs');
 
@@ -63,19 +74,8 @@ app.get('/register', (req, res) => {
 });
 app.use(bodyParser.urlencoded({extended:false}));
 app.post("/register", (req,res)=> {
-  //the database
-var fs = require("fs");
-var file =__dirname + "/" + "database.db";
-//check if the file exist in this folder
-var exists = fs.existsSync(file);
-
-//check if the file exists
-if(!exists){
-    fs.openSync(file, "w");
-}
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database(file);
-
+  
+  fs.openSync(file, "r");
   let firstname = req.body.firstname;
   let lastname = req.body.lastname;
   let email = req.body.email;
@@ -96,7 +96,11 @@ const db = new sqlite3.Database(file);
     });
 });
 
-  db.close();
+
+  //we cannot close the databse otherwise we cannot add new users
+  //db.close();
+
+  //used to see what is in the body, needs to be removed
   //res.json({requestBody: req.body})
   res.status(200).send( "yuh " + firstname + " " + lastname+ " "+ email + " " + username+ " "+ address + " "+ password + " " + credit_card);
 })
