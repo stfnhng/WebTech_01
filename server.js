@@ -9,7 +9,7 @@ app.use(express.static(staticpath));
 var bodyParser = require("body-parser");
 const { Console } = require('console');
 
-function setupdatabse(){
+function setupdatabase(){
   const fs = require('fs');
   const file = __dirname + '/' + 'database.db';
   //check if the file exists in this folder
@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
   const offset = parseInt(req.query.offset) || 0;
   const limit = 10;
 
-  const db = setupdatabse();
+  const db = setupdatabase();
   db.all('SELECT * FROM movies LIMIT ? OFFSET ?', [limit, offset], (err, rows) => {
     if (err) {
       return console.error(err.message);
@@ -53,7 +53,7 @@ app.get('/data', (req, res) => {
   const offset = parseInt(req.query.offset) || 0;
   const limit = 10;
 
-  const db = setupdatabse();
+  const db = setupdatabase();
   db.all('SELECT * FROM movies LIMIT ? OFFSET ?', [limit, offset], (err, rows) => {
     if (err) {
       return console.error(err.message);
@@ -68,7 +68,7 @@ app.get('/data', (req, res) => {
 
 app.get('/movies/:id', (req, res) => {
   const id = req.params.id;
-  const db = setupdatabse();
+  const db = setupdatabase();
   db.get('SELECT * FROM movies WHERE id = ?', [id], (err, row) => {
     if (err) {
       return console.error(err.message);
@@ -99,7 +99,7 @@ app.post("/register", (req,res)=> {
   let credit_card = req.body.credit_card;
 
   //put the user info into the database
-  const db = setupdatabse();
+  const db = setupdatabase();
 
   db.serialize((err)=>{
     if (err) {
@@ -128,7 +128,7 @@ app.post("/user",(req,res)=>{
   let usn = req.body.usn;
   let pwd = req.body.pwd;
 
-  let db = setupdatabse();
+  let db = setupdatabase();
   
   db.serialize((err)=>{
     if (err){
