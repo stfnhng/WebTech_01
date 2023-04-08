@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+app.set('view engine', 'ejs');
 const port = 8007
 //passing static files
 var path = require("path");
@@ -24,26 +25,45 @@ function setupdatabse(){
   return db;
 };
 
-// //the database
-// var fs = require("fs");
-// var file =__dirname + "/" + "database.db";
-// //check if the file exist in this folder
-// var exists = fs.existsSync(file);
+//order
 
-// //check if the file exists
-// if(!exists){
-//     fs.openSync(file, "w");
-// }
-// const sqlite3 = require('sqlite3').verbose();
-// const db = new sqlite3.Database(file);
+app.get('/order', function(req, res) {
+  // Query the database to get the list of movies
+  const db = setupdatabse();
+  db.all('SELECT * FROM movies', function(err, result) {
+    if (err) throw err;
+    // Render the order.ejs view with the movies array as a local variable
+    res.render('order', { movies: result });
+    db.close();
+  });
+});
 
-app.set('view engine', 'ejs');
+
+app.get('/getTimeslots', (req, res) => {
+  const movieId = req.query.movie_id;
+  const sql = 
+  `SELECT movies.title, schedule.time, schedule.room, schedule.availability
+  FROM movies
+  JOIN schedule ON movies.id = schedule.movie_id
+  WHERE schedule.movie_id = ? AND schedule.availability > 0;`;
+
+  const db = setupdatabse();
+  db.all(sql, [movieId], (err, rows) => {
+    if (err) {
+      return console.error(err.message);
+    }
+      res.json(rows);
+  });
+  db.close();
+});
+
 
 function generatePosterPath(title) {
   const modifiedTitle = title.replace(/[\/\\:*\?"<>\|]/g, '');
   const posterPath = `/poster/${modifiedTitle}.jpg`;
   return posterPath;
 }
+
 
 app.get('/', (req, res) => {
   const offset = parseInt(req.query.offset) || 0;
@@ -90,6 +110,8 @@ app.get('/movies/:id', (req, res) => {
 });
 
 
+
+
 // //here we handle the input of the form
 app.get('/register', (req, res) => {
   res.render('register');
@@ -120,37 +142,9 @@ app.post("/register", (req,res)=> {
     });
     db.close();
 });
-
-
-  //we cannot close the databse otherwise we cannot add new users
-  //db.close();
-
-  //used to see what is in the body, needs to be removed
-  //res.json({requestBody: req.body})
   res.status(200).send( "yuh " + firstname + " " + lastname+ " "+ email + " " + username+ " "+ address + " "+ password + " " + credit_card);
 })
 
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
-
-
-
-// db.serialize(function(){
-//     if(!exists){
-//         db.run("CREATE TABLE movies(id INTEGER PRIMARY KEY AUTOINCREMENT, title, genre, year, director, rating)")
-//         db.run("CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT,firstname, lastname, email, username, adress, credit_card )")
-//     }
-
-//     var stmt = db.prepare( "INSERT INTO movies VALUES (NULL,?,?,?,?,?)");
-
-//     stmt.run("Shrek", "Animation/Comedy",2001, "Andrew Adamson", "7,9");
-//     stmt.finalize();
-//     db.each("SELECT * FROM movies", function(err,row){
-//     console.log(row);
-//     });
-//     db.each("SELECT * FROM users", function(err,row){
-//       console.log(row);
-//       });
-      
-//   })
