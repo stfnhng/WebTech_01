@@ -1,0 +1,45 @@
+.wrapper {
+  background-color: lightgray;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 60%;
+  padding: 0 10%;
+  overflow: hidden;
+}
+
+.movie {
+  box-sizing: border-box;
+  width: 25%;
+  height: 33.33%;
+  padding: 10px;
+  text-align: center;
+  height: 520px;
+  overflow: hidden;
+  border: 1px sold black;
+}
+
+.movie img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+#load-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#load-more {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+}
