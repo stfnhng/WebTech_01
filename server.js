@@ -68,9 +68,44 @@ app.get('/movies/:id', (req, res) => {
   });
 });
 
+
+// //here we handle the input of the form
+app.get('/register', (req, res) => {
+  res.render('register');
+});
+app.use(bodyParser.urlencoded({extended:false}));
+app.post("/register", (req,res)=> {
+  
+  let firstname = req.body.firstname;
+  let lastname = req.body.lastname;
+  let email = req.body.email;
+  let username = req.body.username;
+  let password = req.body.password;
+  let adress = req.body.adress;
+  let credit_card = req.body.credit_card;
+  //put the user info into the database
+  db.serialize((err)=>{
+    if (err) {
+      return console.error(err.message);
+    }
+    var accountstmt = db.prepare("INSERT INTO users (firstname, lastname, email, username, password, address, credit_card) VALUES (?, ?,?,?,?,?,?)");
+    accountstmt.run(firstname, lastname, email, username, password, credit_card);
+    accountstmt.finalize();
+    db.each("SELECT * FROM users", function(err,row){
+      console.log(row);
+    });
+});
+
+  db.close();
+  //res.json({requestBody: req.body})
+  res.status(200).send( "yuh " + firstname + " " + ln+ " "+ email + " " + username+ " "+password+ " " + credit_card);
+})
+
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
+
+
 
 // db.serialize(function(){
 //     if(!exists){
@@ -91,38 +126,3 @@ app.listen(port, () => {
       
 //   })
 // db.close();
-// //here we handle the input of the form
-// app.use(bodyParser.urlencoded({extended:false}));
-// app.post("/processForm", (req,res)=> {
-  
-//   let firstname = req.body.firstname;
-//   let ln = req.body.lastname;
-//   let email = req.body.email;
-//   let username = req.body.username;
-//   let password = req.body.password;
-//   let credit_card = req.body.credit_card;
-//   //put the user info into the database
-//   db.serialize(()=>{
-//     var accountstmt = db.prepare("INSERT INTO users VALUES (NULL,?,?,?,?,?,?)");
-//     accountstmt.run(firstname,ln,email,username,password,credit_card);
-//     accountstmt.finalize();
-//     db.each("SELECT * FROM users", function(err,row){
-//       console.log(row);
-//       });
-//   });
-
-//   db.close();
-//   //res.json({requestBody: req.body})
-//   res.status(200).send( "yuh " + firstname + " " + ln+ " "+ email + " " + username+ " "+password+ " " + credit_card);
-// })
-
-
-
-// //test page
-// app.get('/', (req, res) => {
-//   res.send('hey')
-// })
-// //here we listen to the port
-// app.listen(port, () => {
-//   console.log(`Example app listening on port ${port}`)
-// })
