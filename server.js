@@ -7,6 +7,7 @@ var staticpath = path.join(__dirname);
 app.use(express.static(staticpath));
 //module for form handling
 var bodyParser = require("body-parser");
+const { Console } = require('console');
 
 function setupdatabse(){
   const fs = require('fs');
@@ -133,17 +134,25 @@ app.post("/user",(req,res)=>{
     if (err){
       return console.error(err.message);
     }
-    db.each("SELECT username,password FROM users", (err,row)=>{
+    // db.each("SELECT username,password FROM users", (err,row)=>{
       
-      if(usn == row.username && pwd == row.password){
-        console.log("ingelogd!!");
-        res.send("ingelogd!!")
-      }
+    //   if(usn == row.username && pwd == row.password){
+    //     console.log("ingelogd!!");
+    //     res.send("ingelogd!!")
+    //   }
       
-    });
+    // });
+    
+    
   });
-  //for testing purposes
-  //res.send(usn + pwd);
+  db.get('SELECT * FROM USERS WHERE username=? AND password=?' ,[usn,pwd],(err, row)=>{
+      if (err) {
+        return console.error(err.message);
+      }
+      res.send("ingelogd");
+      console.log(row);
+    })
+  
 })
 
 //tells on which port the app should listen.
