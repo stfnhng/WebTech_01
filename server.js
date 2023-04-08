@@ -7,18 +7,35 @@ var staticpath = path.join(__dirname);
 app.use(express.static(staticpath));
 //module for form handling
 var bodyParser = require("body-parser");
-//the database
-var fs = require("fs");
-var file =__dirname + "/" + "database.db";
-//check if the file exist in this folder
-var exists = fs.existsSync(file);
 
-//check if the file exists
-if(!exists){
-    fs.openSync(file, "w");
-}
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database(file);
+function setupdatabse(){
+  const fs = require('fs');
+  const file = __dirname + '/' + 'database.db';
+  //check if the file exists in this folder
+  const exists = fs.existsSync(file);
+
+  //check if the file exists
+  if (!exists) {
+    fs.openSync(file, 'w');
+  }
+  const sqlite3 = require('sqlite3').verbose();
+  const db = new sqlite3.Database(file);
+
+  return db;
+};
+
+// //the database
+// var fs = require("fs");
+// var file =__dirname + "/" + "database.db";
+// //check if the file exist in this folder
+// var exists = fs.existsSync(file);
+
+// //check if the file exists
+// if(!exists){
+//     fs.openSync(file, "w");
+// }
+// const sqlite3 = require('sqlite3').verbose();
+// const db = new sqlite3.Database(file);
 
 app.set('view engine', 'ejs');
 
@@ -32,6 +49,7 @@ app.get('/', (req, res) => {
   const offset = parseInt(req.query.offset) || 0;
   const limit = 10;
 
+  const db = setupdatabse();
   db.all('SELECT * FROM movies LIMIT ? OFFSET ?', [limit, offset], (err, rows) => {
     if (err) {
       return console.error(err.message);
@@ -39,12 +57,14 @@ app.get('/', (req, res) => {
     const posterPath = rows.map(row => generatePosterPath(row.title));
     res.render('index', { movies: rows, posterPath });
   });
+  db.close();
 });
 
 app.get('/data', (req, res) => {
   const offset = parseInt(req.query.offset) || 0;
   const limit = 10;
 
+  const db = setupdatabse();
   db.all('SELECT * FROM movies LIMIT ? OFFSET ?', [limit, offset], (err, rows) => {
     if (err) {
       return console.error(err.message);
@@ -52,12 +72,13 @@ app.get('/data', (req, res) => {
     const posterPath = rows.map(row => generatePosterPath(row.title));
     res.json({ movies: rows, posterPath });
   });
+  db.close();
 });
 
 
 app.get('/movies/:id', (req, res) => {
   const id = req.params.id;
-
+  const db = setupdatabse();
   db.get('SELECT * FROM movies WHERE id = ?', [id], (err, row) => {
     if (err) {
       return console.error(err.message);
@@ -65,6 +86,7 @@ app.get('/movies/:id', (req, res) => {
     const posterPath = generatePosterPath(row.title);
     res.render('movie', { movie: row, posterPath });
   });
+  db.close();
 });
 
 
@@ -75,7 +97,6 @@ app.get('/register', (req, res) => {
 app.use(bodyParser.urlencoded({extended:false}));
 app.post("/register", (req,res)=> {
   
-  fs.openSync(file, "r");
   let firstname = req.body.firstname;
   let lastname = req.body.lastname;
   let email = req.body.email;
@@ -84,6 +105,9 @@ app.post("/register", (req,res)=> {
   let address = req.body.address;
   let credit_card = req.body.credit_card;
   //put the user info into the database
+  
+  const db = setupdatabse();
+
   db.serialize((err)=>{
     if (err) {
       return console.error(err.message);
@@ -94,6 +118,7 @@ app.post("/register", (req,res)=> {
     db.each("SELECT * FROM users", function(err,row){
       console.log(row);
     });
+    db.close();
 });
 
 
@@ -129,4 +154,3 @@ app.listen(port, () => {
 //       });
       
 //   })
-// db.close();
