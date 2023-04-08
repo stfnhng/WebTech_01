@@ -140,8 +140,14 @@ app.post("/user",(req,res)=>{
       if (err) {
         return console.error(err.message);
       }
-      res.send("ingelogd");
+      if(row != null){
+        res.send("ingelogd");
       console.log(row);
+      }
+      else{
+        // hier moeten we als dit in .ejs zit , de huidige pagina displayen met een error
+        res.send("login failed");
+      }
     })
   
 })
