@@ -31,7 +31,7 @@ function generatePosterPath(title) {
   const posterPath = `/poster/${modifiedTitle}.jpg`;
   return posterPath;
 }
-
+//the index page
 app.get('/', (req, res) => {
   const offset = parseInt(req.query.offset) || 0;
   const limit = 10;
@@ -79,8 +79,8 @@ app.get('/movies/:id', (req, res) => {
   
 });
 
-
-// //here we handle the input of the form
+//the registerpage
+//here we handle the input of the form
 app.get('/register', (req, res) => {
   res.render('register');
 });
@@ -120,6 +120,7 @@ app.post("/register", (req,res)=> {
   res.status(200).send( "yuh " + firstname + " " + lastname+ " "+ email + " " + username+ " "+ address + " "+ password + " " + credit_card);
 })
 
+//tells on which port the app should listen.
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
