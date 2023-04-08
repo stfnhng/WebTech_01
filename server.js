@@ -24,19 +24,6 @@ function setupdatabse(){
   return db;
 };
 
-// //the database
-// var fs = require("fs");
-// var file =__dirname + "/" + "database.db";
-// //check if the file exist in this folder
-// var exists = fs.existsSync(file);
-
-// //check if the file exists
-// if(!exists){
-//     fs.openSync(file, "w");
-// }
-// const sqlite3 = require('sqlite3').verbose();
-// const db = new sqlite3.Database(file);
-
 app.set('view engine', 'ejs');
 
 function generatePosterPath(title) {
@@ -56,8 +43,9 @@ app.get('/', (req, res) => {
     }
     const posterPath = rows.map(row => generatePosterPath(row.title));
     res.render('index', { movies: rows, posterPath });
+    db.close();
   });
-  db.close();
+  
 });
 
 app.get('/data', (req, res) => {
@@ -71,8 +59,9 @@ app.get('/data', (req, res) => {
     }
     const posterPath = rows.map(row => generatePosterPath(row.title));
     res.json({ movies: rows, posterPath });
+    db.close();
   });
-  db.close();
+  
 });
 
 
@@ -85,8 +74,9 @@ app.get('/movies/:id', (req, res) => {
     }
     const posterPath = generatePosterPath(row.title);
     res.render('movie', { movie: row, posterPath });
+    db.close();
   });
-  db.close();
+  
 });
 
 
@@ -94,7 +84,9 @@ app.get('/movies/:id', (req, res) => {
 app.get('/register', (req, res) => {
   res.render('register');
 });
+
 app.use(bodyParser.urlencoded({extended:false}));
+
 app.post("/register", (req,res)=> {
   
   let firstname = req.body.firstname;
@@ -104,8 +96,8 @@ app.post("/register", (req,res)=> {
   let password = req.body.password;
   let address = req.body.address;
   let credit_card = req.body.credit_card;
+
   //put the user info into the database
-  
   const db = setupdatabse();
 
   db.serialize((err)=>{
@@ -119,14 +111,12 @@ app.post("/register", (req,res)=> {
       console.log(row);
     });
     db.close();
-});
-
-
-  //we cannot close the databse otherwise we cannot add new users
-  //db.close();
+  });
 
   //used to see what is in the body, needs to be removed
   //res.json({requestBody: req.body})
+  
+  //used to see what is in the body and display it on the page
   res.status(200).send( "yuh " + firstname + " " + lastname+ " "+ email + " " + username+ " "+ address + " "+ password + " " + credit_card);
 })
 
