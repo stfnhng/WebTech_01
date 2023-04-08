@@ -8,18 +8,6 @@ app.use(express.static(staticpath));
 //module for form handling
 var bodyParser = require("body-parser");
 
-//the database
-var fs = require("fs");
-var file =__dirname + "/" + "database.db";
-//check if the file exist in this folder
-var exists = fs.existsSync(file);
-
-//check if the file exists
-if(!exists){
-    fs.openSync(file, "w");
-}
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database(file);
 
 app.set('view engine', 'ejs');
 
@@ -75,20 +63,32 @@ app.get('/register', (req, res) => {
 });
 app.use(bodyParser.urlencoded({extended:false}));
 app.post("/register", (req,res)=> {
-  
+  //the database
+var fs = require("fs");
+var file =__dirname + "/" + "database.db";
+//check if the file exist in this folder
+var exists = fs.existsSync(file);
+
+//check if the file exists
+if(!exists){
+    fs.openSync(file, "w");
+}
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database(file);
+
   let firstname = req.body.firstname;
   let lastname = req.body.lastname;
   let email = req.body.email;
   let username = req.body.username;
   let password = req.body.password;
-  let adress = req.body.adress;
+  let address = req.body.address;
   let credit_card = req.body.credit_card;
   //put the user info into the database
   db.serialize((err)=>{
     if (err) {
       return console.error(err.message);
     }
-    var accountstmt = db.prepare("INSERT INTO users (firstname, lastname, email, username, password, address, credit_card) VALUES (?, ?,?,?,?,?,?)");
+    var accountstmt = db.prepare("INSERT INTO users (firstname, lastname, email, username, password, address, credit_card) VALUES (?,?,?,?,?,?,?)");
     accountstmt.run(firstname, lastname, email, username, password, credit_card);
     accountstmt.finalize();
     db.each("SELECT * FROM users", function(err,row){
@@ -98,7 +98,7 @@ app.post("/register", (req,res)=> {
 
   db.close();
   //res.json({requestBody: req.body})
-  res.status(200).send( "yuh " + firstname + " " + ln+ " "+ email + " " + username+ " "+password+ " " + credit_card);
+  res.status(200).send( "yuh " + firstname + " " + lastname+ " "+ email + " " + username+ " "+ address + " "+ password + " " + credit_card);
 })
 
 app.listen(port, () => {
