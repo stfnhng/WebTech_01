@@ -88,8 +88,8 @@ const db = new sqlite3.Database(file);
     if (err) {
       return console.error(err.message);
     }
-    var accountstmt = db.prepare("INSERT INTO users (firstname, lastname, email, username, password, address, credit_card) VALUES (?,?,?,?,?,?,?)");
-    accountstmt.run(firstname, lastname, email, username, password, credit_card);
+    var accountstmt = db.prepare("INSERT INTO users VALUES (NULL,?,?,?,?,?,?,?)");
+    accountstmt.run(firstname, lastname, email, username, password, address, credit_card);
     accountstmt.finalize();
     db.each("SELECT * FROM users", function(err,row){
       console.log(row);
