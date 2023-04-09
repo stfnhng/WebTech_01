@@ -158,24 +158,3 @@ app.post("/user",(req,res)=>{
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
-
-
-
-// db.serialize(function(){
-//     if(!exists){
-//         db.run("CREATE TABLE movies(id INTEGER PRIMARY KEY AUTOINCREMENT, title, genre, year, director, rating)")
-//         db.run("CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT,firstname, lastname, email, username, adress, credit_card )")
-//     }
-
-//     var stmt = db.prepare( "INSERT INTO movies VALUES (NULL,?,?,?,?,?)");
-
-//     stmt.run("Shrek", "Animation/Comedy",2001, "Andrew Adamson", "7,9");
-//     stmt.finalize();
-//     db.each("SELECT * FROM movies", function(err,row){
-//     console.log(row);
-//     });
-//     db.each("SELECT * FROM users", function(err,row){
-//       console.log(row);
-//       });
-      
-//   })
