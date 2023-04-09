@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
 const port = 8007
+var cookieParser = require("cookie-parser");
+var session = require("express-session");
 //passing static files
 var path = require("path");
 var staticpath = path.join(__dirname);
@@ -8,6 +10,40 @@ app.use(express.static(staticpath));
 //module for form handling
 var bodyParser = require("body-parser");
 const { Console } = require('console');
+
+// initialize body-parser to parse incoming parameters requests to req.body
+app.use(bodyParser.urlencoded({ extended: true }));
+// initialize cookie-parser to allow us access the cookies stored in the browser.
+app.use(cookieParser());
+
+// initialize express-session to allow us track the logged-in user across sessions.
+app.use(
+  session({
+    key: "user_sid",
+    secret: "secret-key",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 600000,
+      expires: false,
+    },
+  })
+);
+app.use((req, res, next) => {
+  if (req.cookies.user_sid && !req.session.user) {
+    res.clearCookie("user_sid");
+  }
+  next();
+});
+
+// middleware function to check for logged-in users
+var sessionChecker = (req, res, next) => {
+  if (req.session.user && req.cookies.user_sid) {
+    next();
+  } else {
+    res.redirect("/login");
+  }
+};
 
 function setupdatabase(){
   const fs = require('fs');
@@ -66,7 +102,7 @@ app.get('/data', (req, res) => {
 });
 
 
-app.get('/movies/:id', (req, res) => {
+app.get('/movies/:id', sessionChecker, (req, res) => {
   const id = req.params.id;
   const db = setupdatabase();
   db.get('SELECT * FROM movies WHERE id = ?', [id], (err, row) => {
@@ -143,8 +179,9 @@ app.post("/user",(req,res)=>{
         return console.error(err.message);
       }
       if(row != null){
-        res.send("ingelogd");
-      console.log(row);
+      req.session.user = row.id;
+      console.log(req.session.user);
+      res.redirect('/');
       }
       else{
         // hier moeten we als dit in .ejs zit , de huidige pagina displayen met een error
