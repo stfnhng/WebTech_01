@@ -103,7 +103,7 @@ app.get('/data', (req, res) => {
 });
 
 
-app.get('/movies/:id', sessionChecker, (req, res) => {
+app.get('/movies/:id', (req, res) => {
   const id = req.params.id;
   const db = setupdatabase();
   db.get('SELECT * FROM movies WHERE id = ?', [id], (err, row) => {
@@ -193,7 +193,7 @@ app.post("/user",(req,res)=>{
 })
 //order
 
-app.get('/order', function(req, res) {
+app.get('/order',sessionChecker, function(req, res) {
   // Query the database to get the list of movies
   const db = setupdatabase();
   db.all('SELECT * FROM movies', function(err, result) {
