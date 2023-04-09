@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+app.set('view engine', 'ejs');
 const port = 8007
 var cookieParser = require("cookie-parser");
 var session = require("express-session");
@@ -158,7 +159,7 @@ app.post("/register", (req,res)=> {
 })
 
 
-//here we see if the login should lead to the users page of raise an error
+
 app.get('/login', (req, res) => {
   res.render('login');
 });
@@ -202,38 +203,6 @@ app.get('/order', function(req, res) {
     db.close();
   });
 });
-app.get('/getTimeslots', (req, res) => {
-  const movieId = req.query.movie_id;
-  const sql = 
-  `SELECT movies.title, schedule.time, schedule.room, schedule.availability
-  FROM movies
-  JOIN schedule ON movies.id = schedule.movie_id
-  WHERE schedule.movie_id = ? AND schedule.availability > 0;`;
-
-  const db = setupdatabse();
-  db.all(sql, [movieId], (err, rows) => {
-    if (err) {
-      return console.error(err.message);
-    }
-      res.json(rows);
-  });
-  db.close();
-});
-
-//order
-
-app.get('/order', function(req, res) {
-  // Query the database to get the list of movies
-  const db = setupdatabse();
-  db.all('SELECT * FROM movies', function(err, result) {
-    if (err) throw err;
-    // Render the order.ejs view with the movies array as a local variable
-    res.render('order', { movies: result });
-    db.close();
-  });
-});
-
-
 app.get('/getTimeslots', (req, res) => {
   const movieId = req.query.movie_id;
   const sql = 
