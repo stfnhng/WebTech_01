@@ -123,7 +123,6 @@ app.post("/register", (req,res)=> {
 
 
 //here we see if the login should lead to the users page of raise an error
-
 app.post("/user",(req,res)=>{
   let usn = req.body.usn;
   let pwd = req.body.pwd;
