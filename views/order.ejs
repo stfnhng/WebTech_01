@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="scripts/order.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Order</h1>
+    <form>
+      <label for="movie-select">Select a movie:</label>
+      <select id="movie-select">
+        <% movies.forEach(function(movie) { %>
+        <option value="<%= movie.id %>"><%= movie.title %></option>
+        <% }); %>
+      </select>
+    </form>
+    <h2>Available timeslots:</h2>
+    <ul id="timeslot-list"></ul>
+  </body>
+</html>

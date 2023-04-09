@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express()
+app.set('view engine', 'ejs');
 const port = 8007
+var cookieParser = require("cookie-parser");
+var session = require("express-session");
 //passing static files
 var path = require("path");
 var staticpath = path.join(__dirname);
@@ -8,6 +11,40 @@ app.use(express.static(staticpath));
 //module for form handling
 var bodyParser = require("body-parser");
 const { Console } = require('console');
+
+// initialize body-parser to parse incoming parameters requests to req.body
+app.use(bodyParser.urlencoded({ extended: true }));
+// initialize cookie-parser to allow us access the cookies stored in the browser.
+app.use(cookieParser());
+
+// initialize express-session to allow us track the logged-in user across sessions.
+app.use(
+  session({
+    key: "user_sid",
+    secret: "secret-key",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 600000,
+      expires: false,
+    },
+  })
+);
+app.use((req, res, next) => {
+  if (req.cookies.user_sid && !req.session.user) {
+    res.clearCookie("user_sid");
+  }
+  next();
+});
+
+// middleware function to check for logged-in users
+var sessionChecker = (req, res, next) => {
+  if (req.session.user && req.cookies.user_sid) {
+    next();
+  } else {
+    res.redirect("/login");
+  }
+};
 
 function setupdatabase(){
   const fs = require('fs');
@@ -122,7 +159,9 @@ app.post("/register", (req,res)=> {
 })
 
 
-//here we see if the login should lead to the users page of raise an error
+app.get('/login', (req, res) => {
+  res.render('login');
+});
 app.post("/user",(req,res)=>{
   let usn = req.body.usn;
   let pwd = req.body.pwd;
@@ -140,8 +179,9 @@ app.post("/user",(req,res)=>{
         return console.error(err.message);
       }
       if(row != null){
-        res.send("ingelogd");
-      console.log(row);
+      req.session.user = row.id;
+      console.log(req.session.user);
+      res.redirect('/');
       }
       else{
         // hier moeten we als dit in .ejs zit , de huidige pagina displayen met een error
@@ -150,29 +190,37 @@ app.post("/user",(req,res)=>{
     })
   
 })
+//order
+
+app.get('/order',sessionChecker, function(req, res) {
+  // Query the database to get the list of movies
+  const db = setupdatabase();
+  db.all('SELECT * FROM movies', function(err, result) {
+    if (err) throw err;
+    // Render the order.ejs view with the movies array as a local variable
+    res.render('order', { movies: result });
+    db.close();
+  });
+});
+app.get('/getTimeslots', (req, res) => {
+  const movieId = req.query.movie_id;
+  const sql = 
+  `SELECT movies.title, schedule.time, schedule.room, schedule.availability
+  FROM movies
+  JOIN schedule ON movies.id = schedule.movie_id
+  WHERE schedule.movie_id = ? AND schedule.availability > 0;`;
+
+  const db = setupdatabase();
+  db.all(sql, [movieId], (err, rows) => {
+    if (err) {
+      return console.error(err.message);
+    }
+      res.json(rows);
+  });
+  db.close();
+});
 
 //tells on which port the app should listen.
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
-
-
-
-// db.serialize(function(){
-//     if(!exists){
-//         db.run("CREATE TABLE movies(id INTEGER PRIMARY KEY AUTOINCREMENT, title, genre, year, director, rating)")
-//         db.run("CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT,firstname, lastname, email, username, adress, credit_card )")
-//     }
-
-//     var stmt = db.prepare( "INSERT INTO movies VALUES (NULL,?,?,?,?,?)");
-
-//     stmt.run("Shrek", "Animation/Comedy",2001, "Andrew Adamson", "7,9");
-//     stmt.finalize();
-//     db.each("SELECT * FROM movies", function(err,row){
-//     console.log(row);
-//     });
-//     db.each("SELECT * FROM users", function(err,row){
-//       console.log(row);
-//       });
-      
-//   })
