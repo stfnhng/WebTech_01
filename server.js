@@ -195,7 +195,7 @@ app.post("/user",(req,res)=>{
 
 app.get('/order', function(req, res) {
   // Query the database to get the list of movies
-  const db = setupdatabse();
+  const db = setupdatabase();
   db.all('SELECT * FROM movies', function(err, result) {
     if (err) throw err;
     // Render the order.ejs view with the movies array as a local variable
@@ -211,7 +211,7 @@ app.get('/getTimeslots', (req, res) => {
   JOIN schedule ON movies.id = schedule.movie_id
   WHERE schedule.movie_id = ? AND schedule.availability > 0;`;
 
-  const db = setupdatabse();
+  const db = setupdatabase();
   db.all(sql, [movieId], (err, rows) => {
     if (err) {
       return console.error(err.message);
