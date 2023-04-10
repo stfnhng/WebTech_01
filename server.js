@@ -73,14 +73,20 @@ function generatePosterPath(title) {
 app.get('/', (req, res) => {
   const offset = parseInt(req.query.offset) || 0;
   const limit = 10;
-
+  var login;
+  if (req.session.user && req.cookies.user_sid) {
+    login = "userpage"
+  } else {
+    login = "login";
+  }
+  
   const db = setupdatabase();
   db.all('SELECT * FROM movies LIMIT ? OFFSET ?', [limit, offset], (err, rows) => {
     if (err) {
       return console.error(err.message);
     }
     const posterPath = rows.map(row => generatePosterPath(row.title));
-    res.render('index', { movies: rows, posterPath });
+    res.render('index', { movies: rows, posterPath, login });
     db.close();
   });
   
