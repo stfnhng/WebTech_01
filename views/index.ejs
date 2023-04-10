@@ -9,6 +9,10 @@
   </head>
   <body>
     <h1>Movies</h1>
+    <form action="/<%= login%>">
+      <input type="submit" value="<%=login%>">
+    </form>
+    
     <div class="wrapper">
       <% for (var i=0; i<movies.length; i++) { %>
         <div class="movie">
