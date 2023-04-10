@@ -1,7 +1,7 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 app.set('view engine', 'ejs');
-const port = 8007
+const port = 8007;
 var cookieParser = require("cookie-parser");
 var session = require("express-session");
 //passing static files
@@ -46,6 +46,7 @@ var sessionChecker = (req, res, next) => {
   }
 };
 
+//setsup the databse so that we can open it multiple times
 function setupdatabase(){
   const fs = require('fs');
   const file = __dirname + '/' + 'database.db';
@@ -63,7 +64,7 @@ function setupdatabase(){
 };
 
 app.set('view engine', 'ejs');
-
+//method that generates a path for the image of the poster 
 function generatePosterPath(title) {
   const modifiedTitle = title.replace(/[\/\\:*\?"<>\|]/g, '');
   const posterPath = `/poster/${modifiedTitle}.jpg`;
@@ -74,10 +75,15 @@ app.get('/', (req, res) => {
   const offset = parseInt(req.query.offset) || 0;
   const limit = 10;
   var login;
+  var signup;
+  var visibility;
   if (req.session.user && req.cookies.user_sid) {
-    login = "userpage"
+    login = "user";
+    visibility="collapse";
   } else {
     login = "login";
+    signup="signup";
+    visibility="visible";
   }
   
   const db = setupdatabase();
@@ -86,11 +92,22 @@ app.get('/', (req, res) => {
       return console.error(err.message);
     }
     const posterPath = rows.map(row => generatePosterPath(row.title));
-    res.render('index', { movies: rows, posterPath, login });
+    res.render('index', { movies: rows, posterPath, login, signup, visibility});
     db.close();
   });
   
 });
+
+//display the users info on the userpage
+app.get("/user",(req,res)=>{
+  const db = setupdatabase();
+  console.log(req.session.user);
+  db.get(`SELECT * FROM users WHERE id=${req.session.user}`,(err,row)=>{
+    res.render("user", {info: row})
+  })
+  
+  });
+
 
 app.get('/data', (req, res) => {
   const offset = parseInt(req.query.offset) || 0;
