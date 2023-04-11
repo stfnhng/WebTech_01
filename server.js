@@ -76,14 +76,13 @@ app.get('/', (req, res) => {
   const limit = 10;
   var login;
   var signup;
-  var visibility;
+
   if (req.session.user && req.cookies.user_sid) {
     login = "user";
-    visibility="collapse";
+    signup="logout";
   } else {
     login = "login";
     signup="signup";
-    visibility="visible";
   }
   
   const db = setupdatabase();
@@ -92,11 +91,19 @@ app.get('/', (req, res) => {
       return console.error(err.message);
     }
     const posterPath = rows.map(row => generatePosterPath(row.title));
-    res.render('index', { movies: rows, posterPath, login, signup, visibility});
+    res.render('index', { movies: rows, posterPath, login, signup});
     db.close();
   });
   
 });
+
+//here we logout the user if the logout button is pressed
+app.get("/logout",(req,res)=>{
+  if (req.cookies.user_sid && !req.session.user) {
+    res.clearCookie("user_sid");
+  }
+  res.redirect("/");
+})
 
 //display the users info on the userpage
 app.get("/user",(req,res)=>{
