@@ -108,12 +108,14 @@ app.get("/logout",(req,res)=>{
 //display the users info on the userpage
 app.get("/user",(req,res)=>{
   const db = setupdatabase();
-  console.log(req.session.user);
-  db.get(`SELECT * FROM users WHERE id=${req.session.user}`,(err,row)=>{
-    res.render("user", {info: row})
-  })
-  
-  });
+  if (req.session.user) {
+    db.get(`SELECT * FROM users WHERE id=${req.session.user}`,(err,row)=>{
+      res.render("user", {info: row})
+    })
+  } else {
+    res.redirect("/login");
+  }
+});
 
 
 app.get('/data', (req, res) => {
@@ -255,15 +257,15 @@ app.post('/purchase', sessionChecker, (req, res) => {
   const amount = req.body.amount;
   const userId = req.session.user;
   console.log(scheduleId, amount, userId);
-  // Insert the purchase into the database
-  // const db = setupdatabase();
-  // const stmt = db.prepare('INSERT INTO purchase (schedule_id, user_id, amount) VALUES (?, ?, ?)');
-  // stmt.run(scheduleId , userId, amount);
-  // stmt.finalize();
-  // db.close();
+  //Insert the purchase into the database
+  const db = setupdatabase();
+  const stmt = db.prepare('INSERT INTO purchase (schedule_id, user_id, amount) VALUES (?, ?, ?)');
+  stmt.run(scheduleId , userId, amount);
+  stmt.finalize();
+  db.close();
 
-  // // Redirect the user to a success page
-  // res.redirect('/success');
+  // Redirect the user to a success page
+  res.redirect('/user');
 });
 
 //tells on which port the app should listen.

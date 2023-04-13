@@ -28,8 +28,9 @@ $(document).ready(function() {
         var now = new Date();
         $.each(data, function(index, value) {
           var time = new Date(value.time);
+          var availability = value.availability;
           // compare the current date and time with the timeslot time to ensure only timeslots in the future will be shown
-          if (time > now) {
+          if (time > now && availability > 0) {
             timeslots += "<button class='timeslot-button' data-time='" + value.time + "' data-movie-id='" + value.movie_id + "' data-id='" + value.id + "'>" + value.time + "</button>";
           }
         });
@@ -79,7 +80,7 @@ $(document).ready(function() {
       },
       success: function() {
         // Redirect the user to the success page
-        window.location.href = "/";
+        window.location.href = "/user";
       },
       error: function() {
         alert("Error making purchase.");
