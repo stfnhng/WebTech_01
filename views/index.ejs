@@ -8,36 +8,14 @@
     <link rel="stylesheet" href="styles/index.css" />
   </head>
   <body>
-<<<<<<< HEAD
-    <h1>Movies</h1>
-    <form action="/<%= login%>">
-      <input type="submit" value="<%=login%>">
-    </form>
-    <form action="/<%= signup%>">
-      <input type="submit" value="<%=signup%>">
-    </form>
-    <div class="wrapper">
-      <% for (var i=0; i<movies.length; i++) { %>
-        <div class="movie">
-          <a href="/movies/<%= movies[i].id %>">
-            <img src="<%= posterPath[i] %>" alt="<%= movies[i].title %>" />
-          </a>
-        </div>
-      <% } %>
-    </div>
-    <div id="load-more-container">
-      <button id="load-more">Load More</button>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="scripts/index.js"></script>
-=======
     <main>
-      <header class="header">
-        <nav>
-          <a href="/">Home</a>
-        </nav>
-      </header>
       <h1>Movies</h1>
+      <form action="/<%= login%>">
+        <input type="submit" value="<%=login%>">
+      </form>
+      <form action="/<%= signup%>">
+        <input type="submit" value="<%=signup%>">
+      </form>
       <div class="wrapper">
         <% for (var i=0; i<movies.length; i++) { %>
           <div class="movie">
@@ -52,10 +30,7 @@
       </div>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="scripts/index.js"></script>
-      <footer>
-
-      </footer>
     </main>
->>>>>>> 770b264776c1556b123bbb4dfef5b23b44b1d498
+    
   </body>
 </html>
