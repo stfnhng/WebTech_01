@@ -44,8 +44,6 @@ $(document).ready(function() {
 
   $(document).on("click", ".timeslot-button", function() {
     var timeslot = $(this).data("time");
-    var movieId = $(this).data("movie-id");
-    var amount = 1; // default amount is 1
 
     // Close the current popup if there is one
     if (currentPopup) {
@@ -56,8 +54,7 @@ $(document).ready(function() {
     var movieTitle = $("#movie-select option:selected").text();
 
     // Create a new popup
-    var popup = $("<div id='popup'><p>You selected the timeslot: " + timeslot + " for the movie: " + movieTitle + "</p><label for='amount'>Amount:</label><input type='number' id='amount' value='1' min='1' /><button id='purchase-button'>Purchase</button><button id='cancel-button'>Cancel</button></div>");
-
+    var popup = $("<div id='popup'><p>You selected the timeslot: " + timeslot + " for the movie: " + movieTitle + "</p><label for='amount'>Amount:</label><input type='number' id='amount' value='1' min='1' /><button id='purchase-button' data-id='" + $(this).data('schedule.id') + "'>Purchase</button><button id='cancel-button'>Cancel</button></div>");
     // Add a cancel button to the popup
     popup.find("#cancel-button").click(function() {
       popup.remove();
@@ -66,5 +63,28 @@ $(document).ready(function() {
 
     $("body").append(popup);
     currentPopup = popup;
+  });
+
+  //making a purchase
+  $(document).on("click", "#purchase-button", function() {
+    var scheduleId = $(this).data('id');
+    var amount = $("#amount").val();
+    console.log(scheduleId);
+    // Send the purchase request to the server
+    $.ajax({
+      type: "POST",
+      url: "/purchase",
+      data: {
+        scheduleId: scheduleId,
+        amount: amount
+      },
+      success: function() {
+        // Redirect the user to the success page
+        window.location.href = "/";
+      },
+      error: function() {
+        alert("Error making purchase.");
+      }
+    });
   });
 });
