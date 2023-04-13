@@ -9,11 +9,7 @@
   </head>
   <body>
     <main>
-      <header class="header">
-        <nav>
-          <a href="/">Home</a>
-        </nav>
-      </header>
+      <%- include("partials/header.ejs") %>
       <h1>Movies</h1>
       <form action="/<%= login%>">
         <input type="submit" value="<%=login%>">
@@ -35,9 +31,7 @@
       </div>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="scripts/index.js"></script>
-      <footer>
-
-      </footer>
+      <%- include("partials/footer.ejs") %>
     </main>
   </body>
 </html>
