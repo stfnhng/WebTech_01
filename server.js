@@ -109,7 +109,12 @@ app.get("/logout",(req,res)=>{
 app.get("/user",(req,res)=>{
   const db = setupdatabase();
   if (req.session.user) {
-    db.get(`SELECT * FROM users WHERE id=${req.session.user}`,(err,row)=>{
+    db.get(`SELECT users.*, movies.title, schedule.time, schedule.room, purchase.amount
+    FROM movies
+    INNER JOIN schedule ON movies.id = schedule.movie_id
+    INNER JOIN purchase ON schedule.id = purchase.schedule_id
+    INNER JOIN users ON purchase.user_id = users.id
+    WHERE users.id = ${req.session.user}`,(err,row)=>{
       res.render("user", {info: row})
     })
   } else {
