@@ -1,10 +1,18 @@
 * {
   font-family: 'Kanit', sans-serif;
+  color: white;
 }
 
-body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5)),
-  url(../poster/Shrek.jpg);
+html {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../poster/Shrek.jpg);
+  height: 200%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.background__container {
+
 }
 
 .title {
@@ -15,6 +23,10 @@ body {
   display: block;
   width: 150px;
   margin: 0 auto;
+  background-color: rgb(154, 154, 7);
+  cursor: pointer;
+  border-style: solid;
+  border-color: rgb(154, 154, 7);
 }
 
 .wrapper {
@@ -36,7 +48,7 @@ body {
   text-align: center;
   height: 520px;
   overflow: hidden;
-  border: 1px sold black;
+  border: 1px solid black;
 }
 
 .movie img {
