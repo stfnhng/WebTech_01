@@ -11,8 +11,11 @@
   <body>
     <h1>Order</h1>
     <form>
-      <label for="movie-select">Select a movie:</label>
+      <label for="movie-search">Search for a movie:</label>
+      <input type="text" id="movie-search" />
+
       <select id="movie-select">
+        <option value="0">Select a movie</option>
         <% movies.forEach(function(movie) { %>
         <option value="<%= movie.id %>"><%= movie.title %></option>
         <% }); %>
