@@ -6,20 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script defer src="scripts/order.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./styles/order.css" />
     <title>Document</title>
   </head>
   <body>
     <h1>Order</h1>
     <form>
-      <label for="movie-search">Search for a movie:</label>
-      <input type="text" id="movie-search" />
-
       <select id="movie-select">
         <option value="0">Select a movie</option>
         <% movies.forEach(function(movie) { %>
         <option value="<%= movie.id %>"><%= movie.title %></option>
         <% }); %>
       </select>
+
+      <label for="movie-search">Search for a movie:</label>
+      <input type="text" id="movie-search" />
     </form>
     <h2>Available timeslots:</h2>
     <ul id="timeslot-list"></ul>
