@@ -25,8 +25,13 @@ $(document).ready(function() {
       data: { movie_id: movieId },
       success: function(data) {
         var timeslots = "";
+        var now = new Date();
         $.each(data, function(index, value) {
-          timeslots += "<button class='timeslot-button' data-time='" + value.time + "' data-movie-id='" + value.movie_id + "'>" + value.time + "</button>";
+          var time = new Date(value.time);
+          // compare the current date and time with the timeslot time to ensure only timeslots in the future will be shown
+          if (time > now) {
+            timeslots += "<button class='timeslot-button' data-time='" + value.time + "' data-movie-id='" + value.movie_id + "'>" + value.time + "</button>";
+          }
         });
         $("#timeslot-list").html(timeslots);
       },
@@ -35,7 +40,6 @@ $(document).ready(function() {
       }
     });
   });
-
   var currentPopup = null;
 
   $(document).on("click", ".timeslot-button", function() {
