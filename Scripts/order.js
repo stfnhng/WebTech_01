@@ -28,9 +28,10 @@ $(document).ready(function() {
         var now = new Date();
         $.each(data, function(index, value) {
           var time = new Date(value.time);
+          var availability = value.availability;
           // compare the current date and time with the timeslot time to ensure only timeslots in the future will be shown
-          if (time > now) {
-            timeslots += "<button class='timeslot-button' data-time='" + value.time + "' data-movie-id='" + value.movie_id + "'>" + value.time + "</button>";
+          if (time > now && availability > 0) {
+            timeslots += "<button class='timeslot-button' data-time='" + value.time + "' data-movie-id='" + value.movie_id + "' data-id='" + value.id + "'>" + value.time + "</button>";
           }
         });
         $("#timeslot-list").html(timeslots);
