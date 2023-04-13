@@ -6,19 +6,13 @@
 .header__title {
     text-align: left;
     text-decoration: none;
-    width: 30%;
-}
-
-.header__slogan {
-    text-align: center;
-    text-decoration: none;
-    width: 40%;
+    width: 50%;
 }
 
 .header__nav {
     justify-content: space-between;
     text-align: right;
-    width: 30%;
+    width: 50%;
 }
 
 .header__nav ul {
