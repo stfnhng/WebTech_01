@@ -26,7 +26,7 @@ $(document).ready(function() {
       success: function(data) {
         var timeslots = "";
         $.each(data, function(index, value) {
-          timeslots += "<button class='timeslot-button' data-time='" + value.time + "'>" + value.time + "</button>";
+          timeslots += "<button class='timeslot-button' data-time='" + value.time + "' data-movie-id='" + value.movie_id + "'>" + value.time + "</button>";
         });
         $("#timeslot-list").html(timeslots);
       },
@@ -36,18 +36,31 @@ $(document).ready(function() {
     });
   });
 
+  var currentPopup = null;
+
   $(document).on("click", ".timeslot-button", function() {
     var timeslot = $(this).data("time");
+    var movieId = $(this).data("movie-id");
     var amount = 1; // default amount is 1
-    var popup = "<div><p>You selected the timeslot: " + timeslot + "</p><label for='amount'>Amount:</label><input type='number' id='amount' value='1' min='1' /><button id='purchase-button'>Purchase</button></div>";
-    $("body").append(popup);
-  });
 
-  $(document).on("click", "#purchase-button", function() {
-    var timeslot = $(".timeslot-button.active").data("time");
-    var amount = $("#amount").val();
-    // TODO: send the purchase request to the server and handle the response
-    alert("You purchased " + amount + " ticket(s) for the timeslot " + timeslot);
-    $("#popup").remove();
+    // Close the current popup if there is one
+    if (currentPopup) {
+      currentPopup.remove();
+    }
+
+    // Get the movie title
+    var movieTitle = $("#movie-select option:selected").text();
+
+    // Create a new popup
+    var popup = $("<div id='popup'><p>You selected the timeslot: " + timeslot + " for the movie: " + movieTitle + "</p><label for='amount'>Amount:</label><input type='number' id='amount' value='1' min='1' /><button id='purchase-button'>Purchase</button><button id='cancel-button'>Cancel</button></div>");
+
+    // Add a cancel button to the popup
+    popup.find("#cancel-button").click(function() {
+      popup.remove();
+      currentPopup = null;
+    });
+
+    $("body").append(popup);
+    currentPopup = popup;
   });
 });
