@@ -4,11 +4,12 @@
 }
 
 html {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/homepagebackgroundv2.jpg);
-  height: 230%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../poster/Shrek.jpg);
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .title {
