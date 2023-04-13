@@ -1,6 +1,7 @@
 .header__div {
     display: flex;
     align-items: center;
+    background: linear-gradient(120.0deg, rgba(154, 154, 7, 0.7) 5%, rbga(154, 154, 7, 0.7) 95%);
 }
 
 .header__title {
