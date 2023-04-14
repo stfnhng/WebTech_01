@@ -51,6 +51,17 @@ body {
   margin: 20px 0px;
 }
 
+h2{
+  margin-top: 18vh;
+  text-align: center;
+  font-size: 2.5vw;
+}
+
+h2 span{
+  border-bottom: 0.5vh solid white;
+  padding-bottom: 0.6vh;
+}
+
 .wrapper {
   display: flex;
   flex-wrap: wrap;

@@ -4,48 +4,48 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Page of a site where you can see your user profile"
+    <title>User Profile</title>    
     <link rel="stylesheet" href="./styles/user.css" />
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
   </head>
   <body>
-    <header>
-      <%- include("../views/partials/header") %>
-    </header>
+    <header><%- include("../views/partials/header") %></header>
     <main>
       <h1>Welcome, <%= user.firstname %>!</h1>
 
       <table class="user">
         <tr>
-          <td>ID:</td>
-          <td><%= user.id %></td>
+          <th class="label">ID:</th>
+          <td class="value"><%= user.id %></td>
         </tr>
         <tr>
-          <td>First name:</td>
-          <td><%= user.firstname %></td>
+          <th class="label">First name:</th>
+          <td class="value"><%= user.firstname %></td>
         </tr>
         <tr>
-          <td>Last name:</td>
-          <td><%= user.lastname %></td>
+          <th class="label">Last name:</th>
+          <td class="value"><%= user.lastname %></td>
         </tr>
         <tr>
-          <td>Email:</td>
-          <td><%= user.email %></td>
+          <th class="label">Email:</th>
+          <td class="value"><%= user.email %></td>
         </tr>
         <tr>
-          <td>Username:</td>
-          <td><%= user.username %></td>
+          <th class="label">Username:</th>
+          <td class="value"><%= user.username %></td>
         </tr>
         <tr>
-          <td>Password:</td>
-          <td><%= user.password %></td>
+          <th class="label">Password:</th>
+          <td class="value"><%= user.password %></td>
         </tr>
         <tr>
-          <td>Address:</td>
-          <td><%= user.address %></td>
+          <th class="label">Address:</th>
+          <td class="value"><%= user.address %></td>
         </tr>
         <tr>
-          <td>Credit Card:</td>
-          <td><%= user.credit_card %></td>
+          <th class="label">Credit Card:</th>
+          <td class="value"><%= user.credit_card %></td>
         </tr>
       </table>
 
@@ -71,6 +71,10 @@
           <% }); %>
         </tbody>
       </table>
+      <div class="logout-button__container">
+        <a href="/logout" class="logout-button" target="_self">Log Out</a>
+      </div>
     </main>
+    <footer><%- include("../views/partials/footer") %></footer>
   </body>
 </html>
