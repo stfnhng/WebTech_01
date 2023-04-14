@@ -56,6 +56,8 @@ ul {
 }
 
 button {
+  height: 15vh;
+  width: 15vw;
   margin-top: 20px;
   background-color: #ffc526;
   color: #fff;
@@ -64,6 +66,7 @@ button {
   padding: 10px 20px;
   cursor: pointer;
   margin-right: 3vw;
+  font-size: 2.5rem;
 }
 
 button:hover {
