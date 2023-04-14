@@ -105,20 +105,6 @@ app.get("/logout",(req,res)=>{
   res.redirect("/");
 })
 
-// app.get("/logout", (req, res) => {
-//   if (req.cookies.user_sid && req.session.user) {
-//     res.clearCookie("user_sid");
-//     req.session.destroy((err) => {
-//       if (err) {
-//         console.log(err);
-//       } else {
-//         res.redirect("/");
-//       }
-//     });
-//   } else {
-//     res.redirect("/");
-//   }
-// });
 
 //display the users info on the userpage
 app.get("/user", (req, res) => {
