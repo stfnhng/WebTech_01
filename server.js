@@ -84,22 +84,18 @@ app.get('/', (req, res) => {
   db.all('SELECT * FROM movies LIMIT ? OFFSET ?', [limit, offset], (err, rows) => {
     if (err) {
       return console.error(err.message);
-    }else{
-      db.get("SELECT username FROM users WHERE id=?",[req.session.user],(err,username)=>{
+    }
+    else{
         const posterPath = rows.map(row => generatePosterPath(row.title));
         if (req.session.user && req.cookies.user_sid) {
-          login =username.username;
+          login = req.session.username;
         } else {
           login = "Sign In";
         }
         res.render('index', { movies: rows, posterPath, login});
         db.close();
-      })
-
-    }
-    
+    };
   });
-  
 });
 
 //here we logout the user if the logout button is pressed
@@ -118,7 +114,6 @@ app.get("/user", (req, res) => {
   // Check if the user is logged in
   if (req.session.user) {
     const userId = req.session.user;
-
     // Fetch the user data
     db.get("SELECT * FROM users WHERE id = ?", [userId], (err, user) => {
       if (err) {
@@ -309,6 +304,7 @@ app.post("/user",(req,res)=>{
       }
       if(row != null){
       req.session.user = row.id;
+      req.session.username = row.username;
       res.redirect('/');
       }
       else{

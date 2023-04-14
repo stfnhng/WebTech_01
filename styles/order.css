@@ -99,12 +99,13 @@ button:hover {
 #popup button{
   height: 5vh;
   width: 5vw;
-  margin-right: 2vw;
-  font-size: 1.2rem;
+  margin-right: 1vw;
+  font-size: 1rem;
 }
 
 #popup input[type="number"] {
-  width: 50px;
+  width: 5vw;
+  height: 3vh;
   margin: 0 40px 0 10px;
 }
 
