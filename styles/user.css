@@ -51,7 +51,7 @@ table.order td {
 }
 
 table.order thead th {
-  background-color: yellow;
+  background-color: rgb(255, 197, 38);
   font-weight: bold;
 }
 
@@ -82,10 +82,22 @@ p {
   color:black;
   font-weight: bold;
   padding: 8px;
-  margin: 20px 0px;
+  margin-top: 10vh;
 }
 
 footer {
   margin-top: auto;
 }
 
+@media only screen and (max-width: 600px) {
+  main {
+    font-size: .9rem;
+  }
+
+  .logout-button {
+    width: 20%;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: .9rem;
+  }
+}
