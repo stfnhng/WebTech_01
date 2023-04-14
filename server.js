@@ -267,7 +267,7 @@ app.post("/register", (req, res) => {
     db.close();
 
     // Return a success response to the client
-    res.json({ message: "Registration successful" });
+    res.redirect('/user')
   });
 });
 
