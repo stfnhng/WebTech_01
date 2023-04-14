@@ -4,16 +4,42 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/user.css" />
     <title>Document</title>
   </head>
   <body>
-    <p><%= info.id%></p>
-    <p><%= info.firstname%></p>
-    <p><%= info.lastname%></p>
-    <p><%= info.email%></p>
-    <p><%= info.username%></p>
-    <p><%= info.password%></p>
-    <p><%= info.address%></p>
-    <p><%= info.credit_card%></p>
+    <h1>Welcome, <%= user.firstname %>!</h1>
+
+    <p><%= user.id%></p>
+    <p><%= user.firstname%></p>
+    <p><%= user.lastname%></p>
+    <p><%= user.email%></p>
+    <p><%= user.username%></p>
+    <p><%= user.password%></p>
+    <p><%= user.address%></p>
+    <p><%= user.credit_card%></p>
+
+    <h2>Your orders:</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Time</th>
+          <th>Room</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% orders.forEach(order => { %>
+        <tr>
+          <td><%= order.title %></td>
+          <td><%= order.time %></td>
+          <td><%= order.room %></td>
+          <td><%= order.amount %></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
   </body>
 </html>

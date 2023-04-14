@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS purchase(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "schedule_id" INTERGER NOT NULL,
     "user_id" INTERGER NOT NULL,
-    "amount" INTERGET NOT NULL,
+    "amount" INTERGER NOT NULL,
     FOREIGN KEY (schedule_id) REFERENCES schedule(id),
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
