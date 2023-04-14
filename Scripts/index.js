@@ -10,8 +10,6 @@ $(document).ready(function() {
       url: `/data?offset=${offset}&limit=${limit}`,
       method: 'GET',
       success: function(data) {  
-        console.log(data);
-      
         if (data.movies.length > 0) {
           // create an empty array to store the HTML for the new posters
           const newPosters = [];

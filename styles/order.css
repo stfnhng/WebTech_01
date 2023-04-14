@@ -16,6 +16,9 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f1f1f1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -67,7 +70,9 @@ button {
   padding: 10px 20px;
   cursor: pointer;
   margin-right: 3vw;
-  font-size: 1.5rem;
+  font-size: 1 rem;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 button:hover {
@@ -99,12 +104,16 @@ button:hover {
 #popup button{
   height: 5vh;
   width: 5vw;
-  margin-right: 2vw;
-  font-size: 1.2rem;
+  margin-right: 1vw;
+  font-size: 1rem;
 }
 
 #popup input[type="number"] {
-  width: 50px;
+  width: 5vw;
+  height: 3vh;
   margin: 0 40px 0 10px;
 }
 
+footer {
+  margin-top: auto;
+}

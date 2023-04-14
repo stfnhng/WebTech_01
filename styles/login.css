@@ -1,31 +1,49 @@
+* {
+  font-family: "Kanit", sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: #f1f1f1;
+}
+
 .input-fields {
   display: flex;
   align-items: center;
   flex-direction: column;
   padding-top: 10px;
 }
-
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
+  margin: 2vw 30vw;
+  outline: none;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
+
 div.signup {
-  border: solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10px;
-  background-color: darkgray;
+  margin: 0vw 30vw;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
   margin: 5px;
   padding: 5px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-left: 10px;
+}
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border: solid rgb(255, 197, 38);
 }
 input[type="submit"] {
   margin: 5px;
@@ -35,13 +53,46 @@ input[type="submit"] {
   border-radius: 4px;
   margin-left: 10px;
 }
-.signup__link {
+.signup__link,
+.signup__link:visited {
   margin: 5px;
+  text-decoration: none;
+  color: blue;
+  text-decoration-line: underline;
 }
-p {
+p.error-message {
   color: red;
 }
+.order-button {
+  display: inline-flex;
+  background-color: rgb(255, 197, 38);
+  border-radius: 25px;
+  outline: none;
+  font-size: 2vw;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 8px;
+  margin: 20px 0px;
+}
+
 @media only screen and (max-width: 600px) {
-  .input-fields {
+  form {
+    margin: 5vw 5vw 0vw;
+    padding: 0%;
+  }
+  div.signup {
+    margin: 5vw;
+  }
+  input[type="text"],
+  input[type="password"] {
+    width: 80vw;
+  }
+  input[type="submit"] {
+    width: 60vw;
+    justify-content: center;
+  }
+  p {
+    max-width: 60vw;
   }
 }

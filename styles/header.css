@@ -13,7 +13,8 @@
 .header__login-profile-button {
     display: inline;
     float: right;
-    width: 150px;
+    width: 20%;
+    padding: 25px;
     text-align: center;
     background-color: rgb(255, 197, 38);
     border-radius: 25px;
@@ -22,4 +23,17 @@
     text-decoration: none;
     color:black;
     font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+    .header__image {
+        width: 70px;
+    }
+
+    .header__login-profile-button {
+        width: 15%;
+        padding: 15px;
+        border-radius: 15px;
+        font-size: 1rem;
+    }
 }
