@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="scripts/order.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./styles/order.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Order</h1>
+      <form>
+        <select id="movie-select">
+          <option value="0">Select a movie</option>
+          <% movies.forEach(function(movie) { %>
+          <option value="<%= movie.id %>"><%= movie.title %></option>
+          <% }); %>
+        </select>
+      </form>
+      <h2>Available timeslots:</h2>
+      <ul id="timeslot-list"></ul>
+    </div>
+  </body>
+</html>

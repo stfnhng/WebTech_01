@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Login page of a website where you can buy tickets"
+    />
+    <title>Sign In</title>
+    <link rel="stylesheet" href="../styles/login.css" />
+  </head>
+  <body>
+    <main>
+      <form action="/user" method="POST">
+        <input type="text" name="usn" placeholder="username" />
+        <input type="text" name="pwd" placeholder="password" />
+        <p><%= failed %></p>
+        <input type="submit" />
+      </form>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/user.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Welcome, <%= user.firstname %>!</h1>
+
+    <table class="user">
+      <tr>
+        <td>ID:</td>
+        <td><%= user.id %></td>
+      </tr>
+      <tr>
+        <td>First name:</td>
+        <td><%= user.firstname %></td>
+      </tr>
+      <tr>
+        <td>Last name:</td>
+        <td><%= user.lastname %></td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><%= user.email %></td>
+      </tr>
+      <tr>
+        <td>Username:</td>
+        <td><%= user.username %></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><%= user.password %></td>
+      </tr>
+      <tr>
+        <td>Address:</td>
+        <td><%= user.address %></td>
+      </tr>
+      <tr>
+        <td>Credit Card:</td>
+        <td><%= user.credit_card %></td>
+      </tr>
+    </table>
+
+    <h2>Your orders:</h2>
+
+    <table class="order">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Time</th>
+          <th>Room</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% orders.forEach(order => { %>
+        <tr>
+          <td><%= order.title %></td>
+          <td><%= order.time %></td>
+          <td><%= order.room %></td>
+          <td><%= order.amount %></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </body>
+</html>
