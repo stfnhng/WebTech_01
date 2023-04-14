@@ -221,7 +221,11 @@ app.post("/register", (req,res)=> {
 
 
 app.get('/login', (req, res) => {
-  res.render('login');
+  if (req.session.user && req.cookies.user_sid) {
+    res.redirect("./user");
+  } else {
+    res.render("./login");
+  }
 });
 app.post("/user",(req,res)=>{
   let usn = req.body.usn;
