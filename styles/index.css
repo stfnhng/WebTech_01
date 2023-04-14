@@ -1,10 +1,11 @@
 * {
-  font-family: 'Kanit', sans-serif;
+  font-family: "Kanit", sans-serif;
   color: white;
 }
 
 html {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1)), url(../images/Shrekbackground.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1)),
+    url(../images/Shrekbackground.jpg);
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -45,19 +46,19 @@ body {
   outline: none;
   font-size: 2vw;
   text-decoration: none;
-  color:black;
+  color: black;
   font-weight: bold;
   padding: 8px;
   margin: 20px 0px;
 }
 
-h2{
+h2 {
   margin-top: 18vh;
   text-align: center;
   font-size: 2.5vw;
 }
 
-h2 span{
+h2 span {
   border-bottom: 0.5vh solid white;
   padding-bottom: 0.6vh;
 }
@@ -103,4 +104,29 @@ h2 span{
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
+}
+@media only screen and (max-width: 600px) {
+  h2 {
+    margin: 0%;
+    margin-bottom: 5%;
+    font-size: 1rem;
+  }
+  .wrapper {
+    padding: 0;
+  }
+  .movie {
+    box-sizing: border-box;
+    width: 50%;
+    height: 30%;
+    padding: 10px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .title h1,
+  .title p {
+    font-size: 1rem;
+  }
+  .order-button {
+    font-size: 1rem;
+  }
 }
