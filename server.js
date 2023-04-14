@@ -340,8 +340,6 @@ app.post('/purchase', sessionChecker, (req, res) => {
   const scheduleId = req.body.scheduleId;
   const amount = req.body.amount;
   const userId = req.session.user;
-  console.log(scheduleId, amount, userId);
-
   // Update the schedule availability in the database
   const db = setupdatabase();
   db.run('UPDATE schedule SET availability = availability - ? WHERE id = ? AND availability >= ?', [amount, scheduleId, amount], function(err) {
