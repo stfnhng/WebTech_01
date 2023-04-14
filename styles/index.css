@@ -1,5 +1,33 @@
+* {
+  font-family: 'Kanit', sans-serif;
+  color: white;
+}
+
+html {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/Shrekbackground.jpg);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.title {
+  text-align: center;
+}
+
+.form__button--browse-movies {
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+  background-color: rgb(154, 154, 7);
+  cursor: pointer;
+  border-style: solid;
+  border-color: rgb(154, 154, 7);
+}
+
 .wrapper {
-  background-color: lightgray;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -17,7 +45,7 @@
   text-align: center;
   height: 520px;
   overflow: hidden;
-  border: 1px sold black;
+  border: 1px solid black;
 }
 
 .movie img {

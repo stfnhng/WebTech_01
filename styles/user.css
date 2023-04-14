@@ -1,0 +1,33 @@
+body {
+    background-color: white;
+    color: #333; /* dark gray */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+   
+  table {
+    border-collapse: collapse;
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  th, td {
+    border: 1px solid #ccc; /* light gray */
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: yellow;
+    font-weight: bold;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* light gray */
+  }
+  
+  p {
+    margin: 0;
+    padding: 8px 0;
+  }
