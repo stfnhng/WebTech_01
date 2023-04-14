@@ -134,7 +134,7 @@ app.get("/user", (req, res) => {
               console.error(err.message);
               res.redirect("/");
             } else {
-              res.render("user", { user, orders });
+              res.render("user", { user, orders, login:req.session.username });
             }
             db.close();
           }
@@ -171,7 +171,7 @@ app.get('/movies/:id', (req, res) => {
       return console.error(err.message);
     }
     const posterPath = generatePosterPath(row.title);
-    res.render('movie', { movie: row, posterPath });
+    res.render('movie', { movie: row, posterPath, login:"Sign In" });
     db.close();
   });
   
@@ -323,7 +323,7 @@ app.get('/order',sessionChecker, function(req, res) {
   db.all('SELECT * FROM movies', function(err, result) {
     if (err) throw err;
     // Render the order.ejs view with the movies array as a local variable
-    res.render('order', { movies: result });
+    res.render('order', { movies: result, login:"Sign In" });
     db.close();
   });
 });

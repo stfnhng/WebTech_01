@@ -8,26 +8,31 @@
     <link rel="stylesheet" href="./styles/register.css" />
   </head>
   <body>
-    <div>
-      <form action="/register" method="POST">
-        <input type="text" name="firstname" placeholder="John" />
-        <input type="text" name="lastname" placeholder="Johnson" />
-        <input type="text" name="email" placeholder="john.johnson@gmail.com" />
-        <input type="text" name="username" placeholder="username" />
-        <input type="text" name="password" placeholder="password" />
-        <input
-          type="text"
-          name="address"
-          placeholder="Astraat 2 1234AB Utrecht"
-        />
-        <input
-          type="text"
-          name="credit_card"
-          placeholder="XXXX-XXXX-XXXX-XXXX"
-        />
-        <p><%= failed %></p>
-        <input type="submit" />
-      </form>
-    </div>
+    <header>
+      <%- include("../views/partials/header") %>
+    </header>
+    <main>
+      <div>
+        <form action="/register" method="POST">
+          <input type="text" name="firstname" placeholder="John" />
+          <input type="text" name="lastname" placeholder="Johnson" />
+          <input type="text" name="email" placeholder="john.johnson@gmail.com" />
+          <input type="text" name="username" placeholder="username" />
+          <input type="text" name="password" placeholder="password" />
+          <input
+            type="text"
+            name="address"
+            placeholder="Astraat 2 1234AB Utrecht"
+          />
+          <input
+            type="text"
+            name="credit_card"
+            placeholder="XXXX-XXXX-XXXX-XXXX"
+          />
+          <p><%= failed %></p>
+          <input type="submit" />
+        </form>
+      </div>
+    </main>
   </body>
 </html>
