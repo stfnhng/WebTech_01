@@ -17,7 +17,7 @@ $(document).ready(function() {
           var availability = value.availability;
           // compare the current date and time with the timeslot time to ensure only timeslots in the future will be shown
           if (time > now && availability > 0) {
-            timeslots += "<button class='timeslot-button' data-time='" + value.time + "' data-movie-id='" + value.movie_id + "' data-id='" + value.id + "'>" + value.time + "</button>";
+            timeslots += "<button class='timeslot-button' data-time='" + value.time + "' data-movie-id='" + value.movie_id + "' data-id='" + value.id + "' data-start-time='" + time.getTime() + "'>" + value.time + "</button>";
           }
         });
         $("#timeslot-list").html(timeslots);
@@ -27,10 +27,12 @@ $(document).ready(function() {
       }
     });
   });
+
   var currentPopup = null;
 
   $(document).on("click", ".timeslot-button", function() {
     var timeslot = $(this).data("time");
+    var startTime = $(this).data("start-time");
 
     // Close the current popup if there is one
     if (currentPopup) {
@@ -40,8 +42,16 @@ $(document).ready(function() {
     // Get the movie title
     var movieTitle = $("#movie-select option:selected").text();
 
-    // Create a new popup
-    var popup = $("<div id='popup'><p>You've selected the timeslot: <b>" + timeslot + "</b><br/>for the movie: <b>" + movieTitle + "</b></p><label for='amount'><b>Amount:</b></label><input type='number' id='amount' value='1' min='1' /><button id='purchase-button' data-id='" + $(this).data('id') + "'>Purchase</button><button id='cancel-button'>Cancel</button></div>");
+    // Check if the movie is starting in less than 2 hours, if so, show warning on the popup.
+    var timeDiff = startTime - Date.now();
+    if (timeDiff <= 7200000) {
+      var minutes = Math.floor(timeDiff / 60000);
+      var popup = $("<div id='popup'><p>You've selected the timeslot: <b>" + timeslot + "</b><br/>for the movie: <b>" + movieTitle + "</b></p><p style='color:red;'>The movie is starting in " + minutes + " minutes!</p><label for='amount'><b>Amount:</b></label><input type='number' id='amount' value='1' min='1' /><button id='purchase-button' data-id='" + $(this).data('id') + "'>Purchase</button><button id='cancel-button'>Cancel</button></div>");
+    } else {
+ 
+      var popup = $("<div id='popup'><p>You've selected the timeslot: <b>" + timeslot + "</b><br/>for the movie: <b>" + movieTitle + "</b></p><label for='amount'><b>Amount:</b></label><input type='number' id='amount' value='1' min='1' /><button id='purchase-button' data-id='" + $(this).data('id') + "'>Purchase</button><button id='cancel-button'>Cancel</button></div>");
+    }
+
     popup.find("#cancel-button").click(function() {
         popup.remove();
         currentPopup = null;

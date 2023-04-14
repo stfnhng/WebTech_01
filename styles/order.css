@@ -4,11 +4,12 @@
 
 .container {
   width: 50%;
-  margin: 20vh auto 0;
+  margin: 10vh auto 0;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   position: relative;
+  font-size: 1.2em;
 }
 
 body {
@@ -36,7 +37,7 @@ label {
 input[type="text"],
 select {
   padding: 10px;
-  font-size: 16px;
+  font-size: 1.2rem;
   border: none;
   border-bottom: 2px solid #ccc;
   margin: 10px;
@@ -56,8 +57,8 @@ ul {
 }
 
 button {
-  height: 15vh;
-  width: 15vw;
+  height: 10vh;
+  width: 10vw;
   margin-top: 20px;
   background-color: #ffc526;
   color: #fff;
@@ -66,7 +67,7 @@ button {
   padding: 10px 20px;
   cursor: pointer;
   margin-right: 3vw;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
 }
 
 button:hover {
@@ -83,19 +84,27 @@ button:hover {
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  font-size: 1.2rem;
 }
 
 #popup p {
-  font-size: 18px;
   margin-bottom: 20px;
+  font-size: 1.2rem;
 }
 
 #popup label {
   margin-top: 20px;
-  font-size: 16px;
+  font-size: 1.2rem;
+}
+#popup button{
+  height: 5vh;
+  width: 5vw;
+  margin-right: 2vw;
+  font-size: 1.2rem;
 }
 
 #popup input[type="number"] {
   width: 50px;
   margin: 0 40px 0 10px;
 }
+
