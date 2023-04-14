@@ -70,7 +70,7 @@ app.set('view engine', 'ejs');
 //method that generates a path for the image of the poster 
 function generatePosterPath(title) {
   const modifiedTitle = title.replace(/[\/\\:*\?"<>\|]/g, '');
-  const posterPath = `../poster/${modifiedTitle}.jpg`;
+  const posterPath = `../Images/poster/${modifiedTitle}.jpg`;
   return posterPath;
 }
 //the index page
