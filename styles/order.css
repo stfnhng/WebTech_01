@@ -67,7 +67,9 @@ button {
   padding: 10px 20px;
   cursor: pointer;
   margin-right: 3vw;
-  font-size: 1.5rem;
+  font-size: 1 rem;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 button:hover {

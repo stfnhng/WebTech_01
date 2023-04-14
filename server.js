@@ -171,7 +171,12 @@ app.get('/movies/:id', (req, res) => {
       return console.error(err.message);
     }
     const posterPath = generatePosterPath(row.title);
-    res.render('movie', { movie: row, posterPath, login:"Sign In" });
+    if (req.session.user && req.cookies.user_sid) {
+      login = req.session.username;
+    } else {
+      login = "Sign In";
+    }
+    res.render('movie', { movie: row, posterPath, login});
     db.close();
   });
   
