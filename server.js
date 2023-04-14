@@ -185,7 +185,7 @@ app.get('/movies/:id', (req, res) => {
 
 //here we handle the input of the form
 app.get('/register', (req, res) => {
-  res.render('register');
+  res.render('register', { failed: '' });
 });
 
 app.use(bodyParser.urlencoded({extended:false}));
@@ -258,21 +258,27 @@ app.post("/register", (req, res) => {
         errors.username = "Username is already taken";
       }
 
-      const errorMessages = Object.values(errors).join(', ');
-      return res.status(400).json({ alert: errorMessages });
+      var errorMessages = Object.values(errors).join(', ');
+      res.render("register", {
+        firstname,
+        lastname,
+        email,
+        username,
+        password,
+        address,
+        credit_card,
+        failed: errorMessages,
+      });
+    } else {
+      const accountstmt = db.prepare("INSERT INTO users VALUES (NULL,?,?,?,?,?,?,?)");
+      accountstmt.run(firstname, lastname, email, username, password, address, credit_card);
+      accountstmt.finalize();
+      db.each("SELECT * FROM users", function (err, row) {
+      });
+      db.close();
+      res.redirect('/user');
     }
 
-    // If there are no validation errors and the username and email don't already exist in the database, insert the user's info into the database
-    const accountstmt = db.prepare("INSERT INTO users VALUES (NULL,?,?,?,?,?,?,?)");
-    accountstmt.run(firstname, lastname, email, username, password, address, credit_card);
-    accountstmt.finalize();
-    db.each("SELECT * FROM users", function (err, row) {
-      console.log(row);
-    });
-    db.close();
-
-    // Return a success response to the client
-    res.redirect('/user')
   });
 });
 
