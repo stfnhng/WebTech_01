@@ -26,10 +26,16 @@ html {
   margin: 0;
 }
 
-h2 {
+.order-button {
   text-align: center;
-  font-size: 3vw;
-  margin: 0;
+  display: block;
+  background-color: rgb(255, 197, 38);
+  border-radius: 25px;
+  outline: none;
+  font-size: 2vw;
+  text-decoration: none;
+  color:black;
+  font-weight: bold;
 }
 
 .wrapper {
@@ -48,7 +54,6 @@ h2 {
   height: 25%;
   padding: 10px;
   text-align: center;
- 
   overflow: hidden;
 }
 
