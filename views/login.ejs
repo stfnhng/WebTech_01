@@ -14,17 +14,20 @@
   <body>
     <main>
       <form action="/user" method="POST">
+        <h1>Login</h1>
         <input type="text" name="usn" placeholder="username" />
-        <input type="text" name="pwd" placeholder="password" />
+        <input type="password" name="pwd" placeholder="password" />
 
-        <input type="submit" value="login" />
+        <input type="submit" value="login" class="order-button" />
 
-        <p><%= failed %></p>
-
+        <p class="error-message"><%= failed %></p>
       </form>
+
+      <!-- hier nog wel buy tickets versie-->
       <div class="signup">
-        <p>don't have an account yet?</p>
-        <a href="/register" class="signup__link" target="_self">sign up</a>
+        <p>Don't have an account yet?</p>
+        <a href="/register" class="signup__link" target="_self">Sign up</a>
+        <a href="/" class="signup__link" target="_self">back to homepage</a>
       </div>
     </main>
     <footer>
