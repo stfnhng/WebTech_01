@@ -1,4 +1,4 @@
---All SQL used are documented in this file.
+--All SQL used to setup the database.db are documented in this file.
 
 CREATE TABLE IF NOT EXISTS movies (
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
