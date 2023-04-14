@@ -106,22 +106,45 @@ app.get("/logout",(req,res)=>{
 })
 
 //display the users info on the userpage
-app.get("/user",(req,res)=>{
+app.get("/user", (req, res) => {
   const db = setupdatabase();
+
+  // Check if the user is logged in
   if (req.session.user) {
-    db.get(`SELECT users.*, movies.title, schedule.time, schedule.room, purchase.amount
-    FROM movies
-    INNER JOIN schedule ON movies.id = schedule.movie_id
-    INNER JOIN purchase ON schedule.id = purchase.schedule_id
-    INNER JOIN users ON purchase.user_id = users.id
-    WHERE users.id = ${req.session.user}`,(err,row)=>{
-      res.render("user", {info: row})
-    })
+    const userId = req.session.user;
+
+    // Fetch the user data
+    db.get("SELECT * FROM users WHERE id = ?", [userId], (err, user) => {
+      if (err) {
+        console.error(err.message);
+        res.redirect("/");
+      } else {
+        // Fetch all orders for the user
+        db.all(
+          `SELECT purchase.*, movies.title, schedule.time, schedule.room
+           FROM purchase
+           INNER JOIN schedule ON purchase.schedule_id = schedule.id
+           INNER JOIN movies ON schedule.movie_id = movies.id
+           WHERE purchase.user_id = ?
+           ORDER BY purchase.id DESC`,
+          [userId],
+          (err, orders) => {
+            if (err) {
+              console.error(err.message);
+              res.redirect("/");
+            } else {
+              console.log(user, orders);
+              res.render("user", { user, orders });
+            }
+            db.close();
+          }
+        );
+      }
+    });
   } else {
     res.redirect("/login");
   }
 });
-
 
 app.get('/data', (req, res) => {
   const offset = parseInt(req.query.offset) || 0;
