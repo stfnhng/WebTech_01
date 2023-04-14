@@ -88,6 +88,7 @@ app.get('/', (req, res) => {
     signup="signup";
   }
   
+  //Set
   const db = setupdatabase();
   db.all('SELECT * FROM movies LIMIT ? OFFSET ?', [limit, offset], (err, rows) => {
     if (err) {
