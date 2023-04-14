@@ -23,7 +23,17 @@
     text-decoration: none;
     color:black;
     font-weight: bold;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+}
+
+@media only screen and (max-width: 600px) {
+    .header__image {
+        width: 70px;
+    }
+
+    .header__login-profile-button {
+        width: 15%;
+        padding: 15px;
+        border-radius: 15px;
+        font-size: 1rem;
+    }
 }
