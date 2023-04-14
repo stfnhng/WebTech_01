@@ -3,20 +3,6 @@ $(document).ready(function() {
   var movieList = $("#movie-select option");
 
   // Search for a movie
-  $("#movie-search").on("input", function() {
-    var value = $(this).val().toLowerCase();
-
-    // Filter the movie list by name
-    movieList.filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-
-    // Show the "Select a movie" option if no results are found
-    if ($("#movie-select option:visible").length === 1) {
-      $("#movie-select").val("0");
-    }
-  });
-
   $("#movie-select").change(function() {
     var movieId = $("#movie-select").val();
     $.ajax({
@@ -29,9 +15,9 @@ $(document).ready(function() {
         $.each(data, function(index, value) {
           var time = new Date(value.time);
           var availability = value.availability;
-          // compare the current date and time with the timeslot time to ensure only timeslots in the future will be shown
+          // compare the current date and time with the timeslot time to ensure only timeslots in the future & the available timeslotwill be shown
           if (time > now && availability > 0) {
-            timeslots += "<button class='timeslot-button' data-time='" + value.time + "' data-movie-id='" + value.movie_id + "' data-id='" + value.id + "'>" + value.time + "</button>";
+            timeslots += "<button class='timeslot-button' data-time='" + value.time + "' data-movie-id='" + value.movie_id + "' data-id='" + value.id + "' data-start-time='" + time.getTime() + "'>" + value.time + "</button>";
           }
         });
         $("#timeslot-list").html(timeslots);
@@ -41,27 +27,35 @@ $(document).ready(function() {
       }
     });
   });
-  var currentPopup = null;
 
+  //Popup
+  var currentPopup = null;
   $(document).on("click", ".timeslot-button", function() {
     var timeslot = $(this).data("time");
+    var startTime = $(this).data("start-time");
 
     // Close the current popup if there is one
     if (currentPopup) {
       currentPopup.remove();
     }
 
-    // Get the movie title
     var movieTitle = $("#movie-select option:selected").text();
+    // Check if the movie is starting in less than 2 hours, if so, show warning on the popup.
+    var timeDiff = startTime - Date.now();
+    if (timeDiff <= 7200000) {
+      var minutes = Math.floor(timeDiff / 60000);
+      var popup = $("<div id='popup'><p>You've selected the timeslot: <b>" + timeslot + "</b><br/>for the movie: <b>" + movieTitle + "</b></p><p style='color:red;'>The movie is starting in " + minutes + " minutes!</p><label for='amount'><b>Amount:</b></label><input type='number' id='amount' value='1' min='1' /><button id='purchase-button' data-id='" + $(this).data('id') + "'>Purchase</button><button id='cancel-button'>Cancel</button></div>");
+    } else {
+ 
+      var popup = $("<div id='popup'><p>You've selected the timeslot: <b>" + timeslot + "</b><br/>for the movie: <b>" + movieTitle + "</b></p><label for='amount'><b>Amount:</b></label><input type='number' id='amount' value='1' min='1' /><button id='purchase-button' data-id='" + $(this).data('id') + "'>Purchase</button><button id='cancel-button'>Cancel</button></div>");
+    }
 
-    // Create a new popup
-    var popup = $("<div id='popup'><p>You selected the timeslot: " + timeslot + " for the movie: " + movieTitle + "</p><label for='amount'>Amount:</label><input type='number' id='amount' value='1' min='1' /><button id='purchase-button' data-id='" + $(this).data('id') + "'>Purchase</button><button id='cancel-button'>Cancel</button></div>");
     popup.find("#cancel-button").click(function() {
-      popup.remove();
-      currentPopup = null;
+        popup.remove();
+        currentPopup = null;
     });
 
-    $("body").append(popup);
+    $(".container").append(popup);
     currentPopup = popup;
   });
 
@@ -79,7 +73,7 @@ $(document).ready(function() {
         amount: amount
       },
       success: function() {
-        // Redirect the user to the success page
+        // Redirect the user back to the user page if the purchase is completed
         window.location.href = "/user";
       },
       error: function() {

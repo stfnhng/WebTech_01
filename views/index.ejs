@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movies</title>
+    <script defer src="scripts/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="styles/index.css" />
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
   </head>
@@ -17,9 +19,11 @@
         <h1>Sathé</h1>
         <p>Our incredibly good slogan</p>
       </section>
+
       <div class="order-button__container">
         <a href="/order" class="order-button" target="_self">Buy Tickets</a>
       </div>
+
       <div class="wrapper">
         <% for (var i=0; i<movies.length; i++) { %>
           <div class="movie">
@@ -32,8 +36,6 @@
       <div id="load-more-container">
         <button id="load-more">Load More</button>
       </div>
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script src="scripts/index.js"></script>
     </main>
     <footer>
       <%- include("partials/footer") %>
