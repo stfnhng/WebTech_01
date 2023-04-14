@@ -1,7 +1,12 @@
 *{
   font-family: 'Kanit', sans-serif;
 }
+
 body {
+  margin: 0;
+}
+
+main {
   display: flex;
   justify-content: center;
 }
@@ -9,6 +14,7 @@ body {
 h1, h2 {
   font-size: 1.8rem;
 }
+
 p{
   font-size: 1.2rem;
 }
@@ -27,7 +33,6 @@ img{
   margin-right: 20px;
 }
 
-
 table {
   font-size: 1.2rem;
   border-collapse: collapse;
@@ -36,4 +41,17 @@ table {
 
 td {
   padding: 5px;
+}
+
+.order-button {
+  display: inline-flex;
+  background-color: rgb(255, 197, 38);
+  border-radius: 25px;
+  outline: none;
+  font-size: 2vw;
+  text-decoration: none;
+  color:black;
+  font-weight: bold;
+  padding: 8px;
+  margin: 20px 0 0 10vw;
 }

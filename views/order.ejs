@@ -14,18 +14,23 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="container">
-      <h1>Order</h1>
-      <form>
-        <select id="movie-select">
-          <option value="0">Select a movie</option>
-          <% movies.forEach(function(movie) { %>
-          <option value="<%= movie.id %>"><%= movie.title %></option>
-          <% }); %>
-        </select>
-      </form>
-      <h2>Available timeslots:</h2>
-      <ul id="timeslot-list"></ul>
-    </div>
+    <header>
+      <%- include("../views/partials/header") %>
+    </header>
+    <main>
+      <div class="container">
+        <h1>Order</h1>
+        <form>
+          <select id="movie-select">
+            <option value="0">Select a movie</option>
+            <% movies.forEach(function(movie) { %>
+            <option value="<%= movie.id %>"><%= movie.title %></option>
+            <% }); %>
+          </select>
+        </form>
+        <h2>Available timeslots:</h2>
+        <ul id="timeslot-list"></ul>
+      </div>
+    </main>
   </body>
 </html>
