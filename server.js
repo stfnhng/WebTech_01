@@ -78,25 +78,26 @@ app.get('/', (req, res) => {
   const offset = parseInt(req.query.offset) || 0;
   const limit = 10;
   var login;
-  var signup;
-
-  if (req.session.user && req.cookies.user_sid) {
-    login = "user";
-    signup="logout";
-  } else {
-    login = "login";
-    signup="signup";
-  }
   
   //Set
   const db = setupdatabase();
   db.all('SELECT * FROM movies LIMIT ? OFFSET ?', [limit, offset], (err, rows) => {
     if (err) {
       return console.error(err.message);
+    }else{
+      db.get("SELECT username FROM users WHERE id=?",[req.session.user],(err,username)=>{
+        const posterPath = rows.map(row => generatePosterPath(row.title));
+        if (req.session.user && req.cookies.user_sid) {
+          login =username.username;
+        } else {
+          login = "Sign In";
+        }
+        res.render('index', { movies: rows, posterPath, login});
+        db.close();
+      })
+
     }
-    const posterPath = rows.map(row => generatePosterPath(row.title));
-    res.render('index', { movies: rows, posterPath, login, signup});
-    db.close();
+    
   });
   
 });
@@ -284,7 +285,9 @@ app.post("/register", (req, res) => {
 
 //Login page
 app.get('/login', (req, res) => {
+
   res.render('login',{failed:" "});
+
 });
 app.post("/user",(req,res)=>{
   let usn = req.body.usn;

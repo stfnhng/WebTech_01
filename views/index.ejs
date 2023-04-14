@@ -15,21 +15,15 @@
       <%- include("partials/header") %>
     </header>
     <main>
-
       <section class="title">
         <h1>Sathé</h1>
         <p>Our incredibly good slogan</p>
       </section>
-      <form>
-        <input type="submit" class="form__button--browse-movies" value="Browse movies"/>
-      </form>
-      <h2>Movies</h2>
-      <form action="/<%= login%>">
-        <input type="submit" value="<%=login%>">
-      </form>
-      <form action="/<%= signup%>">
-        <input type="submit" value="<%=signup%>">
-      </form>
+
+      <div class="order-button__container">
+        <a href="/order" class="order-button" target="_self">Buy Tickets</a>
+      </div>
+
       <div class="wrapper">
         <% for (var i=0; i<movies.length; i++) { %>
           <div class="movie">
