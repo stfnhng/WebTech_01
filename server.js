@@ -67,7 +67,7 @@ app.set('view engine', 'ejs');
 //method that generates a path for the image of the poster 
 function generatePosterPath(title) {
   const modifiedTitle = title.replace(/[\/\\:*\?"<>\|]/g, '');
-  const posterPath = `./poster/${modifiedTitle}.jpg`;
+  const posterPath = `../poster/${modifiedTitle}.jpg`;
   return posterPath;
 }
 //the index page
@@ -302,8 +302,8 @@ app.post("/user",(req,res)=>{
     })
   
 })
-//order
 
+//order
 app.get('/order',sessionChecker, function(req, res) {
   // Query the database to get the list of movies
   const db = setupdatabase();
@@ -337,30 +337,49 @@ app.post('/purchase', sessionChecker, (req, res) => {
   const amount = req.body.amount;
   const userId = req.session.user;
   console.log(scheduleId, amount, userId);
-  //Insert the purchase into the database
-  const db = setupdatabase();
-  const stmt = db.prepare('INSERT INTO purchase (schedule_id, user_id, amount) VALUES (?, ?, ?)');
-  stmt.run(scheduleId , userId, amount);
-  stmt.finalize();
-  db.close();
 
-  // Redirect the user to a success page
-  res.redirect('/user');
+  // Update the schedule availability in the database
+  const db = setupdatabase();
+  db.run('UPDATE schedule SET availability = availability - ? WHERE id = ? AND availability >= ?', [amount, scheduleId, amount], function(err) {
+    if (err) {
+      console.error(err.message);
+      res.status(500).send('Error updating availability');
+      db.close();
+      return;
+    }
+
+    // Check if any rows were affected by the update
+    if (this.changes === 0) {
+      res.status(500).send('Insufficient availability');
+      db.close();
+      return;
+    }
+
+    // Insert the purchase into the database
+    const stmt = db.prepare('INSERT INTO purchase (schedule_id, user_id, amount) VALUES (?, ?, ?)');
+    stmt.run(scheduleId, userId, amount);
+    stmt.finalize();
+    db.close();
+
+    // Redirect the user to a success page
+    res.redirect('/user');
+  });
 });
 
-app.get("/logout",(req,res)=>{
+app.get("/logout", (req, res) => {
   if (req.cookies.user_sid && req.session.user) {
     res.clearCookie("user_sid");
     req.session.destroy((err) => {
       if (err) {
         console.log(err);
+      } else {
+        res.redirect("/");
       }
-      res.redirect("/");
     });
   } else {
     res.redirect("/");
   }
-})
+});
 
 //tells on which port the app should listen.
 app.listen(port, () => {
