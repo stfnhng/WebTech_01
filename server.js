@@ -11,6 +11,9 @@ app.use(express.static(staticpath));
 //module for form handling
 var bodyParser = require("body-parser");
 const { Console } = require('console');
+// Log HTTP requests using Morgan
+const morgan = require('morgan');
+app.use(morgan('combined'));
 
 // initialize body-parser to parse incoming parameters requests to req.body
 app.use(bodyParser.urlencoded({ extended: true }));
