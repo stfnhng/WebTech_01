@@ -15,7 +15,7 @@ $(document).ready(function() {
         $.each(data, function(index, value) {
           var time = new Date(value.time);
           var availability = value.availability;
-          // compare the current date and time with the timeslot time to ensure only timeslots in the future will be shown
+          // compare the current date and time with the timeslot time to ensure only timeslots in the future & the available timeslotwill be shown
           if (time > now && availability > 0) {
             timeslots += "<button class='timeslot-button' data-time='" + value.time + "' data-movie-id='" + value.movie_id + "' data-id='" + value.id + "' data-start-time='" + time.getTime() + "'>" + value.time + "</button>";
           }
@@ -28,8 +28,8 @@ $(document).ready(function() {
     });
   });
 
+  //Popup
   var currentPopup = null;
-
   $(document).on("click", ".timeslot-button", function() {
     var timeslot = $(this).data("time");
     var startTime = $(this).data("start-time");
@@ -39,9 +39,7 @@ $(document).ready(function() {
       currentPopup.remove();
     }
 
-    // Get the movie title
     var movieTitle = $("#movie-select option:selected").text();
-
     // Check if the movie is starting in less than 2 hours, if so, show warning on the popup.
     var timeDiff = startTime - Date.now();
     if (timeDiff <= 7200000) {
@@ -75,7 +73,7 @@ $(document).ready(function() {
         amount: amount
       },
       success: function() {
-        // Redirect the user to the success page
+        // Redirect the user back to the user page if the purchase is completed
         window.location.href = "/user";
       },
       error: function() {

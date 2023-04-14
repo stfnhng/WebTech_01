@@ -26,11 +26,9 @@ $(document).ready(function() {
                 </a>
               </div>
             `;
-            // add the new poster HTML to the newPosters array
+            // add the new poster HTML to the newPosters array and append it to .wrapper
             newPosters.push(newPosterHTML);
           }
-      
-          // append the new posters to the wrapper element
           $('.wrapper').append(newPosters.join(''));
           
           // update the offset for the next AJAX request
