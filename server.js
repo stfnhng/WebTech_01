@@ -176,7 +176,7 @@ app.get('/movies/:id', (req, res) => {
     } else {
       login = "Sign In";
     }
-    res.render('movie', { movie: row, posterPath, login});
+    res.render('movie', { movie: row, posterPath, login:"Sign In" });
     db.close();
   });
   
@@ -328,7 +328,12 @@ app.get('/order',sessionChecker, function(req, res) {
   db.all('SELECT * FROM movies', function(err, result) {
     if (err) throw err;
     // Render the order.ejs view with the movies array as a local variable
-    res.render('order', { movies: result, login:"Sign In" });
+    if (req.session.user && req.cookies.user_sid) {
+      login = req.session.username;
+    } else {
+      login = "Sign In";
+    }
+    res.render('order', { movies: result, login });
     db.close();
   });
 });
