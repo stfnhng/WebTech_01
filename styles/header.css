@@ -1,7 +1,9 @@
 .header__div {
     display: block;
     align-items: center;
-    width: 100%;
+    width: 98%;
+    margin: auto;
+    padding-top: 1%;
 }
 
 .header__image {

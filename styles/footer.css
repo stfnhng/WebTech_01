@@ -1,0 +1,17 @@
+.footer__div {
+    background-color: #696969;
+    margin-top: 10px;
+}
+
+.location__section {
+    display: flex;
+    padding: 10px;
+}
+
+.location__section h3 {
+    padding-right: 10px;
+}
+
+p {
+    text-align: center;
+}
