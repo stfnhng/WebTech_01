@@ -1,5 +1,5 @@
 * {
-  font-family: 'Kanit', sans-serif;
+  font-family: "Kanit", sans-serif;
 }
 
 body {
@@ -84,6 +84,22 @@ footer {
 }
 
 @media only screen and (max-width: 600px) {
-  .input-fields {
+  form {
+    margin: 5vw 5vw 0vw;
+    padding: 0%;
+  }
+  div.signup {
+    margin: 5vw;
+  }
+  input[type="text"],
+  input[type="password"] {
+    width: 80vw;
+  }
+  input[type="submit"] {
+    width: 60vw;
+    justify-content: center;
+  }
+  p {
+    max-width: 60vw;
   }
 }
