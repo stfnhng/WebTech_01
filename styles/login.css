@@ -1,8 +1,13 @@
+* {
+  font-family: 'Kanit', sans-serif;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #f1f1f1;
 }
 
 .input-fields {
@@ -10,9 +15,6 @@ body {
   align-items: center;
   flex-direction: column;
   padding-top: 10px;
-}
-body {
-  background-color: #f1f1f1;
 }
 form {
   display: flex;

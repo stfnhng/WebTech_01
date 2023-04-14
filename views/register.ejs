@@ -4,16 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta name="description" content="Register page for movie page">
+    <title>Register</title>
+    <link rel="icon" type="image/png" href="images/Sathe_logo_1_rounded.png"/>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/register.css" />
   </head>
   <body>
     <main>
       <div>
         <form action="/register" method="POST">
+          <h1>Register</h1>
           <input type="text" name="firstname" placeholder="John" />
           <input type="text" name="lastname" placeholder="Johnson" />
-          <input type="text" name="email" placeholder="john.johnson@gmail.com" />
+          <input
+            type="text"
+            name="email"
+            placeholder="john.johnson@gmail.com"
+          />
           <input type="text" name="username" placeholder="username" />
           <input type="text" name="password" placeholder="password" />
           <input
@@ -27,8 +35,13 @@
             placeholder="XXXX-XXXX-XXXX-XXXX"
           />
           <p><%= failed %></p>
-          <input type="submit" />
+          <input type="submit" value="Sign Up" class="order-button" />
         </form>
+      </div>
+      <div class="signup">
+        <p>Already have an account?</p>
+        <a href="/login" class="signup__link" target="_self">Login</a>
+        <a href="/" class="signup__link" target="_self">back to homepage</a>
       </div>
     </main>
   </body>
