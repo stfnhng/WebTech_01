@@ -348,6 +348,20 @@ app.post('/purchase', sessionChecker, (req, res) => {
   res.redirect('/user');
 });
 
+app.get("/logout",(req,res)=>{
+  if (req.cookies.user_sid && req.session.user) {
+    res.clearCookie("user_sid");
+    req.session.destroy((err) => {
+      if (err) {
+        console.log(err);
+      }
+      res.redirect("/");
+    });
+  } else {
+    res.redirect("/");
+  }
+})
+
 //tells on which port the app should listen.
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
