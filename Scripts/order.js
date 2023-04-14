@@ -3,20 +3,6 @@ $(document).ready(function() {
   var movieList = $("#movie-select option");
 
   // Search for a movie
-  $("#movie-search").on("input", function() {
-    var value = $(this).val().toLowerCase();
-
-    // Filter the movie list by name
-    movieList.filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-
-    // Show the "Select a movie" option if no results are found
-    if ($("#movie-select option:visible").length === 1) {
-      $("#movie-select").val("0");
-    }
-  });
-
   $("#movie-select").change(function() {
     var movieId = $("#movie-select").val();
     $.ajax({
@@ -55,13 +41,13 @@ $(document).ready(function() {
     var movieTitle = $("#movie-select option:selected").text();
 
     // Create a new popup
-    var popup = $("<div id='popup'><p>You selected the timeslot: " + timeslot + " for the movie: " + movieTitle + "</p><label for='amount'>Amount:</label><input type='number' id='amount' value='1' min='1' /><button id='purchase-button' data-id='" + $(this).data('id') + "'>Purchase</button><button id='cancel-button'>Cancel</button></div>");
+    var popup = $("<div id='popup'><p>You've selected the timeslot: <b>" + timeslot + "</b><br/>for the movie: <b>" + movieTitle + "</b></p><label for='amount'><b>Amount:</b></label><input type='number' id='amount' value='1' min='1' /><button id='purchase-button' data-id='" + $(this).data('id') + "'>Purchase</button><button id='cancel-button'>Cancel</button></div>");
     popup.find("#cancel-button").click(function() {
-      popup.remove();
-      currentPopup = null;
+        popup.remove();
+        currentPopup = null;
     });
 
-    $("body").append(popup);
+    $(".container").append(popup);
     currentPopup = popup;
   });
 

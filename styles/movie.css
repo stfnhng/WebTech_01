@@ -1,5 +1,7 @@
+*{
+  font-family: 'Kanit', sans-serif;
+}
 body {
-  font-family: "Comic Sans MS", cursive, sans-serif;
   display: flex;
   justify-content: center;
 }
