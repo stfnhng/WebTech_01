@@ -315,7 +315,7 @@ app.post("/user",(req,res)=>{
       else{
         // hier moeten we als dit in .ejs zit , de huidige pagina displayen met een error
         //res.send("login failed");
-        res.render("login",{failed : "the username or password is wrong,try again!"})
+        res.render("login",{failed : "the username or password is wrong, try again!"})
       }
     })
   
