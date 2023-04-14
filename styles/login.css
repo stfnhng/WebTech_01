@@ -37,10 +37,9 @@ input[type="submit"] {
 }
 .signup__link {
   margin: 5px;
-
+}
 p {
   color: red;
-
 }
 @media only screen and (max-width: 600px) {
   .input-fields {
