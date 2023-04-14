@@ -8,9 +8,7 @@
     <title>Document</title>
   </head>
   <body>
-    <header>
-      <%- include("../views/partials/header") %>
-    </header>
+    <header><%- include("../views/partials/header") %></header>
     <main>
       <h1>Welcome, <%= user.firstname %>!</h1>
 
@@ -71,6 +69,9 @@
           <% }); %>
         </tbody>
       </table>
+      <div class="logout-button__container">
+        <a href="/logout" class="logout-button" target="_self">Log Out</a>
+      </div>
     </main>
   </body>
 </html>
