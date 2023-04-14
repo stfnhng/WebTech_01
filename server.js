@@ -67,7 +67,7 @@ app.set('view engine', 'ejs');
 //method that generates a path for the image of the poster 
 function generatePosterPath(title) {
   const modifiedTitle = title.replace(/[\/\\:*\?"<>\|]/g, '');
-  const posterPath = `/poster/${modifiedTitle}.jpg`;
+  const posterPath = `./poster/${modifiedTitle}.jpg`;
   return posterPath;
 }
 //the index page
@@ -106,15 +106,45 @@ app.get("/logout",(req,res)=>{
 })
 
 //display the users info on the userpage
-app.get("/user",(req,res)=>{
+app.get("/user", (req, res) => {
   const db = setupdatabase();
-  console.log(req.session.user);
-  db.get(`SELECT * FROM users WHERE id=${req.session.user}`,(err,row)=>{
-    res.render("user", {info: row})
-  })
-  
-  });
 
+  // Check if the user is logged in
+  if (req.session.user) {
+    const userId = req.session.user;
+
+    // Fetch the user data
+    db.get("SELECT * FROM users WHERE id = ?", [userId], (err, user) => {
+      if (err) {
+        console.error(err.message);
+        res.redirect("/");
+      } else {
+        // Fetch all orders for the user
+        db.all(
+          `SELECT purchase.*, movies.title, schedule.time, schedule.room
+           FROM purchase
+           INNER JOIN schedule ON purchase.schedule_id = schedule.id
+           INNER JOIN movies ON schedule.movie_id = movies.id
+           WHERE purchase.user_id = ?
+           ORDER BY purchase.id DESC`,
+          [userId],
+          (err, orders) => {
+            if (err) {
+              console.error(err.message);
+              res.redirect("/");
+            } else {
+              console.log(user, orders);
+              res.render("user", { user, orders });
+            }
+            db.close();
+          }
+        );
+      }
+    });
+  } else {
+    res.redirect("/login");
+  }
+});
 
 app.get('/data', (req, res) => {
   const offset = parseInt(req.query.offset) || 0;
@@ -235,7 +265,7 @@ app.get('/order',sessionChecker, function(req, res) {
 app.get('/getTimeslots', (req, res) => {
   const movieId = req.query.movie_id;
   const sql = 
-  `SELECT movies.title, schedule.time, schedule.room, schedule.availability
+  `SELECT movies.title, schedule.id, schedule.time, schedule.room, schedule.availability
   FROM movies
   JOIN schedule ON movies.id = schedule.movie_id
   WHERE schedule.movie_id = ? AND schedule.availability > 0;`;
@@ -248,6 +278,22 @@ app.get('/getTimeslots', (req, res) => {
       res.json(rows);
   });
   db.close();
+});
+
+app.post('/purchase', sessionChecker, (req, res) => {
+  const scheduleId = req.body.scheduleId;
+  const amount = req.body.amount;
+  const userId = req.session.user;
+  console.log(scheduleId, amount, userId);
+  //Insert the purchase into the database
+  const db = setupdatabase();
+  const stmt = db.prepare('INSERT INTO purchase (schedule_id, user_id, amount) VALUES (?, ?, ?)');
+  stmt.run(scheduleId , userId, amount);
+  stmt.finalize();
+  db.close();
+
+  // Redirect the user to a success page
+  res.redirect('/user');
 });
 
 //tells on which port the app should listen.
