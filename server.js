@@ -33,6 +33,8 @@ app.use(
     },
   })
 );
+
+//check if the user_sid and session.user are the same
 app.use((req, res, next) => {
   if (req.cookies.user_sid && !req.session.user) {
     res.clearCookie("user_sid");
@@ -49,7 +51,8 @@ var sessionChecker = (req, res, next) => {
   }
 };
 
-//setsup the databse so that we can open it multiple times
+//Setup the databse so that we can open it multiple times
+//The reason for this less efficient way of accessing the database is to endure db.close() is called everytime, which is required according to the lecture slides.
 function setupdatabase(){
   const fs = require('fs');
   const file = __dirname + '/' + 'database.db';
@@ -66,20 +69,19 @@ function setupdatabase(){
   return db;
 };
 
-app.set('view engine', 'ejs');
 //method that generates a path for the image of the poster 
 function generatePosterPath(title) {
   const modifiedTitle = title.replace(/[\/\\:*\?"<>\|]/g, '');
   const posterPath = `../Images/poster/${modifiedTitle}.jpg`;
   return posterPath;
-}
+};
 //the index page
 app.get('/', (req, res) => {
   const offset = parseInt(req.query.offset) || 0;
   const limit = 10;
   var login;
   
-  //Set
+  //display poster images from database.
   const db = setupdatabase();
   db.all('SELECT * FROM movies LIMIT ? OFFSET ?', [limit, offset], (err, rows) => {
     if (err) {
@@ -104,7 +106,7 @@ app.get("/logout",(req,res)=>{
     res.clearCookie("user_sid");
   }
   res.redirect("/");
-})
+});
 
 
 //display the users info on the userpage
@@ -142,10 +144,12 @@ app.get("/user", (req, res) => {
       }
     });
   } else {
-    res.redirect("/login",{ failed:" "});
+    res.redirect("/login",{ failed:""});
   }
 });
 
+
+//send data of movie for index.js to reseive
 app.get('/data', (req, res) => {
   const offset = parseInt(req.query.offset) || 0;
   const limit = 10;
@@ -159,10 +163,10 @@ app.get('/data', (req, res) => {
     res.json({ movies: rows, posterPath });
     db.close();
   });
-  
 });
 
 
+//set up the movie page
 app.get('/movies/:id', (req, res) => {
   const id = req.params.id;
   const db = setupdatabase();
@@ -179,18 +183,15 @@ app.get('/movies/:id', (req, res) => {
     res.render('movie', { movie: row, posterPath, login:"Sign In" });
     db.close();
   });
-  
 });
 
 //the registerpage
-
 //here we handle the input of the form
 app.get('/register', (req, res) => {
   res.render('register', { failed: '' });
 });
 
 app.use(bodyParser.urlencoded({extended:false}));
-
 app.post("/register", (req, res) => {
   const { firstname, lastname, email, username, password, address, credit_card } = req.body;
 
@@ -236,14 +237,13 @@ app.post("/register", (req, res) => {
   } else if (!/^(\d{4}-){3}\d{4}$/.test(credit_card)) {
     errors.credit_card = "Credit card number must be 16 digits long and can contain dashes";
   } else {
-    // Format the credit card number
     const formatted_credit_card = credit_card.replace(/-/g, "");
     if (formatted_credit_card.length !== 16) {
       errors.credit_card = "Credit card number is invalid";
     }
   }
 
-  // Put the user info into the database
+  //Put the user info into the database
   const db = setupdatabase();
 
   db.get('SELECT * FROM users WHERE email = ? OR username = ?', [email, username], (err, row) => {
@@ -277,7 +277,7 @@ app.post("/register", (req, res) => {
       db.each("SELECT * FROM users", function (err, row) {
       });
       db.close();
-      res.redirect('/user');
+      res.redirect('/login');
     }
 
   });
@@ -291,6 +291,8 @@ app.get('/login', (req, res) => {
     res.render('login',{failed:" "});
   }
 });
+
+//Checks if the username and password are correct
 app.post("/user",(req,res)=>{
   let usn = req.body.usn;
   let pwd = req.body.pwd;
@@ -301,7 +303,6 @@ app.post("/user",(req,res)=>{
     if (err){
       return console.error(err.message);
     }
-    
   });
   db.get('SELECT * FROM USERS WHERE username=? AND password=?' ,[usn,pwd],(err, row)=>{
       if (err) {
@@ -313,13 +314,10 @@ app.post("/user",(req,res)=>{
       res.redirect('/');
       }
       else{
-        // hier moeten we als dit in .ejs zit , de huidige pagina displayen met een error
-        //res.send("login failed");
         res.render("login",{failed : "the username or password is wrong,try again!"})
       }
-    })
-  
-})
+    });
+});
 
 //order
 app.get('/order',sessionChecker, function(req, res) {
@@ -337,6 +335,8 @@ app.get('/order',sessionChecker, function(req, res) {
     db.close();
   });
 });
+
+//send timeslot data to /getTimeslots, so order.js can access the data
 app.get('/getTimeslots', (req, res) => {
   const movieId = req.query.movie_id;
   const sql = 
@@ -355,6 +355,7 @@ app.get('/getTimeslots', (req, res) => {
   db.close();
 });
 
+//Handle database changes after a purchase
 app.post('/purchase', sessionChecker, (req, res) => {
   const scheduleId = req.body.scheduleId;
   const amount = req.body.amount;
