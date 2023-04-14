@@ -26,9 +26,12 @@ html {
   margin: 0;
 }
 
-.order-button {
+.order-button__container {
   text-align: center;
-  display: block;
+}
+
+.order-button {
+  display: inline-flex;
   background-color: rgb(255, 197, 38);
   border-radius: 25px;
   outline: none;
@@ -36,6 +39,8 @@ html {
   text-decoration: none;
   color:black;
   font-weight: bold;
+  padding: 8px;
+  margin: 20px 0px;
 }
 
 .wrapper {
