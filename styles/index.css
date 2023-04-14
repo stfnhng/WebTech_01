@@ -45,10 +45,10 @@ h2 {
 .movie {
   box-sizing: border-box;
   width: 25%;
-  height: 33.33%;
+  height: 25%;
   padding: 10px;
   text-align: center;
-  height: 520px;
+ 
   overflow: hidden;
 }
 
