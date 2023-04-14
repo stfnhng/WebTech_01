@@ -10,18 +10,44 @@
   <body>
     <h1>Welcome, <%= user.firstname %>!</h1>
 
-    <p><%= user.id%></p>
-    <p><%= user.firstname%></p>
-    <p><%= user.lastname%></p>
-    <p><%= user.email%></p>
-    <p><%= user.username%></p>
-    <p><%= user.password%></p>
-    <p><%= user.address%></p>
-    <p><%= user.credit_card%></p>
+    <table class="user">
+      <tr>
+        <td>ID:</td>
+        <td><%= user.id %></td>
+      </tr>
+      <tr>
+        <td>First name:</td>
+        <td><%= user.firstname %></td>
+      </tr>
+      <tr>
+        <td>Last name:</td>
+        <td><%= user.lastname %></td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><%= user.email %></td>
+      </tr>
+      <tr>
+        <td>Username:</td>
+        <td><%= user.username %></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><%= user.password %></td>
+      </tr>
+      <tr>
+        <td>Address:</td>
+        <td><%= user.address %></td>
+      </tr>
+      <tr>
+        <td>Credit Card:</td>
+        <td><%= user.credit_card %></td>
+      </tr>
+    </table>
 
     <h2>Your orders:</h2>
 
-    <table>
+    <table class="order">
       <thead>
         <tr>
           <th>Title</th>
