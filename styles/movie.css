@@ -15,7 +15,7 @@ h1, h2 {
   font-size: 1.8rem;
 }
 
-p{
+p {
   font-size: 1.2rem;
 }
 
@@ -28,7 +28,7 @@ p{
   align-items: flex-start;
 }
 
-img{
+img {
   width: 480px;
   margin-right: 20px;
 }
@@ -54,4 +54,30 @@ td {
   font-weight: bold;
   padding: 8px;
   margin: 20px 0 0 10vw;
+}
+
+@media only screen and (max-width: 600px) {
+  h1, h2 {
+    font-size: .9rem;
+  }
+  
+  p {
+    font-size: .9rem;
+  }
+
+  .container {
+    width: 80%;
+    display: block;
+  }
+
+  img {
+    width: 200px;
+  }
+
+  .order-button {
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin: 0;
+  }
 }
