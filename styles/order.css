@@ -16,6 +16,9 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f1f1f1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -111,3 +114,6 @@ button:hover {
   margin: 0 40px 0 10px;
 }
 
+footer {
+  margin-top: auto;
+}
