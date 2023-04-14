@@ -99,7 +99,7 @@ app.get('/', (req, res) => {
 
 //here we logout the user if the logout button is pressed
 app.get("/logout",(req,res)=>{
-  if (req.cookies.user_sid && !req.session.user) {
+  if (req.cookies.user_sid && req.session.user) {
     res.clearCookie("user_sid");
   }
   res.redirect("/");
