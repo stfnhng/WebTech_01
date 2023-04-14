@@ -86,7 +86,7 @@ app.get('/', (req, res) => {
         if (req.session.user && req.cookies.user_sid) {
           login =username.username;
         } else {
-          login = "sign up";
+          login = "Sign In";
         }
         res.render('index', { movies: rows, posterPath, login});
         db.close();
