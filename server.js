@@ -145,7 +145,7 @@ app.get("/user", (req, res) => {
       }
     });
   } else {
-    res.redirect("/login");
+    res.redirect("/login",{ failed:" "});
   }
 });
 
@@ -277,7 +277,7 @@ app.post("/register", (req, res) => {
 
 //Login page
 app.get('/login', (req, res) => {
-  res.render('login');
+  res.render('login',{failed:" "});
 });
 app.post("/user",(req,res)=>{
   let usn = req.body.usn;
@@ -301,7 +301,8 @@ app.post("/user",(req,res)=>{
       }
       else{
         // hier moeten we als dit in .ejs zit , de huidige pagina displayen met een error
-        res.send("login failed");
+        //res.send("login failed");
+        res.render("login",{failed : "the username or password is wrong,try again!"})
       }
     })
   
