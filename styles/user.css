@@ -1,7 +1,10 @@
+* {
+  font-family: 'Kanit', sans-serif;
+}
+
 body {
   background-color: white;
   color: #333; /* dark gray */
-  font-family: Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   margin: 0;
