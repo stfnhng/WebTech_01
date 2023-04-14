@@ -10,24 +10,29 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  scroll-behavior: smooth;
 }
 
 .title {
   text-align: center;
+  font-size: 2.5vw;
 }
 
-.form__button--browse-movies {
-  display: block;
-  width: 150px;
-  margin: 0 auto;
-  background-color: rgb(154, 154, 7);
-  cursor: pointer;
-  border-style: solid;
-  border-color: rgb(154, 154, 7);
+.title h1 {
+  margin-bottom: 0;
+}
+
+.title p {
+  margin: 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 3vw;
+  margin: 0;
 }
 
 .wrapper {
-
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -45,7 +50,6 @@ html {
   text-align: center;
   height: 520px;
   overflow: hidden;
-  border: 1px solid black;
 }
 
 .movie img {

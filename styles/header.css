@@ -1,26 +1,33 @@
 .header__div {
-    display: flex;
+    display: block;
     align-items: center;
-    background: linear-gradient(120.0deg, rgba(154, 154, 7, 0.7) 5%, rbga(154, 154, 7, 0.7) 95%);
+    width: 100%;
 }
 
-.header__title {
-    text-align: left;
+.header__image {
+    width: 150px;
+}
+
+.header__login-button, .header__signup-button {
+    display: inline;
+    float: right;
+    width: 100px;
+    padding-left: 30px;
+    background-color: black;
+    border-radius: 25px;
+    outline: none;
+}
+
+.header__login-profile-button {
+    display: inline;
+    float: right;
+    width: 150px;
+    text-align: center;
+    background-color: rgb(255, 197, 38);
+    border-radius: 25px;
+    outline: none;
+    font-size: 2vw;
     text-decoration: none;
-    width: 50%;
-}
-
-.header__nav {
-    justify-content: space-between;
-    text-align: right;
-    width: 50%;
-}
-
-.header__nav ul {
-    list-style-type: none;
-}
-
-.header__nav ul li {
-    display: inline-block;
-    align-items: center;
+    color:black;
+    font-weight: bold;
 }
