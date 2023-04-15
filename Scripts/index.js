@@ -7,7 +7,7 @@ $(document).ready(function() {
   $('#load-more').click(function() {
     // send an AJAX request to the server to get the next set of movies
     $.ajax({
-      url: `/data?offset=${offset}&limit=${limit}`,
+      url: `./data?offset=${offset}&limit=${limit}`,
       method: 'GET',
       success: function(data) {  
         if (data.movies.length > 0) {
@@ -19,7 +19,7 @@ $(document).ready(function() {
             // create the HTML for the new poster
             const newPosterHTML = `
               <div class="movie">
-                <a href="/movies/${data.movies[i].id}">
+                <a href="./movies/${data.movies[i].id}">
                   <img src="${data.posterPath[i]}" alt="${data.movies[i].title}" />
                 </a>
               </div>

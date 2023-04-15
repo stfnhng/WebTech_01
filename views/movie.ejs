@@ -8,16 +8,25 @@
     <title><%= movie.title %></title>
     <link rel="icon" type="image/png" href="../images/Sathe_logo_1_rounded.png"/>
     <link rel="stylesheet" href="../styles/movie.css" />
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet"/>
   </head>
   <body>
     <header>
-      <%- include("../views/partials/header") %>
+      <div class="header__div">
+        <a href="./../">
+          <img src="./../images/Sathe_logo_1_rounded.png" class="header__image"/>
+        </a>
+        <a href="./../login" class="header__login-profile-button" target="_self">
+          <%= login%>
+        </a>
+      </div>
     </header>
     <main>
       <div class="container">
         <aside>
-          <img src="<%= posterPath %>" alt="<%= movie.title %> poster" />
+          <img src="../<%= posterPath %>" alt="<%= movie.title %> poster" />
         </aside>
         <div class="details">
           <h1><%= movie.title %></h1>
@@ -42,12 +51,19 @@
           <h2>Plot:</h2>
           <p><%= movie.plot %></p>
           <div class="order-button__container">
-          <a href="/order" class="order-button" target="_self">Buy Tickets</a>
+          <a href="./../order" class="order-button" target="_self">Buy Tickets</a>
         </div>
       </div>
     </main>
     <footer>
-      <%- include("../views/partials/footer") %>
+      <div class="footer__div">
+        <section class="location__section">
+            <h3>Location:</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2451.6145432025273!2d5.164457777796302!3d52.08674637195099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c668998390e181%3A0x3ed19711c96ff94d!2sMinnaert%20Building!5e0!3m2!1sen!2snl!4v1681510795792!5m2!1sen!2snl" width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="footer__map"></iframe>
+            <p>Leuvenlaan 4, 3584 CE Utrecht</p>
+        </section>
+        <p class="footer__copyright">&copy; 2023 INFOB2WT G07</p>
+    </div>
     </footer>
   </body>
 </html>

@@ -7,7 +7,7 @@ $(document).ready(function() {
     var movieId = $("#movie-select").val();
     $.ajax({
       type: "GET",
-      url: "/getTimeslots",
+      url: "./getTimeslots",
       data: { movie_id: movieId },
       success: function(data) {
         var timeslots = "";
@@ -67,14 +67,14 @@ $(document).ready(function() {
     // Send the purchase request to the server
     $.ajax({
       type: "POST",
-      url: "/purchase",
+      url: "./purchase",
       data: {
         scheduleId: scheduleId,
         amount: amount
       },
       success: function() {
         // Redirect the user back to the user page if the purchase is completed
-        window.location.href = "/user";
+        window.location.href = "./user";
       },
       error: function() {
         alert("Error making purchase.");

@@ -23,13 +23,13 @@
       </section>
 
       <div class="order-button__container">
-        <a href="/order" class="order-button" target="_self">Buy Tickets</a>
+        <a href="./order" class="order-button" target="_self">Buy Tickets</a>
       </div>
       <h2><span>Available Now</span></h2>
       <div class="wrapper">
         <% for (var i=0; i<movies.length; i++) { %>
           <div class="movie">
-            <a href="/movies/<%= movies[i].id %>">
+            <a href="./movies/<%= movies[i].id %>">
               <img src="<%= posterPath[i] %>" alt="<%= movies[i].title %>" />
             </a>
           </div>

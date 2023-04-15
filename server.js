@@ -47,7 +47,7 @@ var sessionChecker = (req, res, next) => {
   if (req.session.user && req.cookies.user_sid) {
     next();
   } else {
-    res.redirect("/login");
+    res.redirect("./login");
   }
 };
 
@@ -72,7 +72,7 @@ function setupdatabase(){
 //method that generates a path for the image of the poster 
 function generatePosterPath(title) {
   const modifiedTitle = title.replace(/[\/\\:*\?"<>\|]/g, '');
-  const posterPath = `../Images/poster/${modifiedTitle}.jpg`;
+  const posterPath = `./images/poster/${modifiedTitle}.jpg`;
   return posterPath;
 };
 //the index page
@@ -105,7 +105,7 @@ app.get("/logout",(req,res)=>{
   if (req.cookies.user_sid && req.session.user) {
     res.clearCookie("user_sid");
   }
-  res.redirect("/");
+  res.redirect("./");
 });
 
 
@@ -120,7 +120,7 @@ app.get("/user", (req, res) => {
     db.get("SELECT * FROM users WHERE id = ?", [userId], (err, user) => {
       if (err) {
         console.error(err.message);
-        res.redirect("/");
+        res.redirect("./");
       } else {
         // Fetch all orders for the user
         db.all(
@@ -134,7 +134,7 @@ app.get("/user", (req, res) => {
           (err, orders) => {
             if (err) {
               console.error(err.message);
-              res.redirect("/");
+              res.redirect("./");
             } else {
               res.render("user", { user, orders, login:req.session.username });
             }
@@ -144,7 +144,7 @@ app.get("/user", (req, res) => {
       }
     });
   } else {
-    res.redirect("/login",{ failed:""});
+    res.redirect("./login",{ failed:""});
   }
 });
 
@@ -277,7 +277,7 @@ app.post("/register", (req, res) => {
       db.each("SELECT * FROM users", function (err, row) {
       });
       db.close();
-      res.redirect('/login');
+      res.redirect('./login');
     }
 
   });
@@ -311,7 +311,7 @@ app.post("/user",(req,res)=>{
       if(row != null){
       req.session.user = row.id;
       req.session.username = row.username;
-      res.redirect('/');
+      res.redirect('./');
       }
       else{
         res.render("login",{failed : "the username or password is wrong,try again!"})
@@ -384,7 +384,7 @@ app.post('/purchase', sessionChecker, (req, res) => {
     db.close();
 
     // Redirect the user to a success page
-    res.redirect('/user');
+    res.redirect('./user');
   });
 });
 
